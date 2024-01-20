@@ -1,0 +1,33 @@
+// var String filename = "Astro.rules"
+// rule "Sonnenaufgang"
+// when 
+// Channel "astro:sun:local:rise#event" triggered
+// then
+// //sendNotification("smarthome.nico@gmx.de","Die Sonne ist aufgegangen! " + DateTime.now())
+//         logInfo(filename,"Sonnenaufgangsevent gestartet")
+// end
+
+// rule "Sonnenuntergang"
+// when 
+// Channel "astro:sun:local:set#event" triggered
+// then
+// //sendNotification("smarthome.nico@gmx.de","Die Sonne ist untergegangen! " + DateTime.now())
+//         logInfo(filename,"Sonnenuntergangsevent gestartet")
+// end
+
+// rule "Sonnenfinsternis"
+// when 
+// Channel "astro:sun:local:eclipse#event" triggered
+// then
+
+// sendNotification("smarthome.nico@gmx.de","Die Sonnenfinsternis ist eingetroffen! " + DateTime.now())
+//         logInfo(filename,"Sonnenfinsternissevent gestartet")
+// end
+
+// rule "Mondfinsternis"
+// when 
+// Channel "astro:moon:local:eclipse#event" triggered
+// then
+// sendNotification("smarthome.nico@gmx.de","Die Mondfinsternis ist eingetroffen! " + DateTime.now())
+//         logInfo(filename,"Mondfinsternissevent gestartet")
+//end

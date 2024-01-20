@@ -1,0 +1,107 @@
+Group       gTVChannel
+Group       gTVStopTime
+
+Number      EPG_Update                          "EPG Status [%s]"
+
+///////////////////////// Channel 1 /////////////////////////////
+String      TV_Channel_1_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_1_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_1_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_1_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_1_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_1_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_1_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_1_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_1_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 2 /////////////////////////////
+String      TV_Channel_2_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_2_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_2_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_2_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_2_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_2_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_2_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_2_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_2_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_2_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 3 /////////////////////////////
+String      TV_Channel_3_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_3_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_3_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_3_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_3_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_3_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_3_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_3_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_3_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_3_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 4 /////////////////////////////
+String      TV_Channel_4_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_4_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_4_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_4_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_4_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_4_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_4_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_4_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_4_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_4_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 5 /////////////////////////////
+String      TV_Channel_5_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_5_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_5_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_5_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_5_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_5_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_5_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_5_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_5_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_5_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 6 /////////////////////////////
+String      TV_Channel_6_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_6_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_6_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_6_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_6_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_6_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_6_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_6_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_6_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_6_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 7 /////////////////////////////
+String      TV_Channel_7_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_7_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_7_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_7_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_7_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_7_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_7_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_7_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_7_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_7_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////
+
+///////////////////////// Channel 8 /////////////////////////////
+String      TV_Channel_8_Name                   "Sender [%s]"                                                           (gTVChannel)
+String      TV_Channel_8_CurrentShow            "Aktuell läuft [%s]"                                <live>
+String      TV_Channel_8_NextShow               "Danach läuft [%s]"
+DateTime    TV_Channel_8_CurrentShowStartTime   "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+DateTime    TV_Channel_8_NextShowStartTime      "Startzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"   
+DateTime    TV_Channel_8_CurrentShowStopTime    "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"                        (gTVStopTime)
+DateTime    TV_Channel_8_NextShowStopTime       "Stopzeit [%1$td.%1$tm.%1$tY - %1$tH:%1$tM Uhr]"
+String      TV_Channel_8_CurrentShowStartStop   "Start / Ende [%s Uhr]"
+String      TV_Channel_8_NextShowStartStop      "Start / Ende [%s Uhr]"
+String      TV_Channel_8_CurrentShowDuration    "Verbleibende Zeit [JS(epg_duration.js):%s]"
+/////////////////////////////////////////////////////////////////

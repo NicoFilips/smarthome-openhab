@@ -1,0 +1,10 @@
+// val String filename = "cpu_temp.rules"
+// rule "Get CPU Temperature"
+// when
+//         Item Raspi received update
+// then
+//         var String cpupdate = Raspi.state.toString.trim
+//         var Number cpuTemp = new DecimalType(cpupdate)
+//         RaspiCPU.postUpdate(cpuTemp/1000)
+//         logInfo(filename,"Die CPU Temperatur des Webservers hat sich aktualisiert: " + RaspiCPU.state.toString)
+// end

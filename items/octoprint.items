@@ -1,0 +1,39 @@
+// String NetworkPrinter "Alle Drucker im Netzwerk" <print>
+// // Switch AutoHomeAlexa "Ender Auto Home" ['Switchable']
+// // Switch LuefterAlexa "Ender Lüfter" ['Switchable']
+// // Switch StepperAlexa "Ender Motoren" ['Switchable']
+// // Octoprint
+// Group gOctoprint "Mein Ender 3" <nozzle> 
+// String txtItemOctoprint "Mein Ender 3"
+
+// String OctoprintFilesSD "SD Karten GCODE drucken:"
+// Switch OctoprintFilesSDReload "SD Kartenspeicher"
+// String OctoprintFilesLocal "Raspberry GCODE drucken:"
+// Switch OctoprintFilesLocalReload "Raspberryspeicher"
+
+// //[MAP(map/ender.map):%s]
+// String OctoprintPrinterState	        "Status"	<status>  (gOctoprint)	{http="<[http://172.16.8.32/api/connection?apikey=#######################:10000:JSONPATH($.current.state)]"}
+// String OctoprintPrinterProfile		    "Curaprofil [%s]"		<name>    (gOctoprint)	{http="<[http://172.16.8.32/api/connection?apikey=#######################:10000:JSONPATH($.current.printerProfile)]"}
+
+// String OctoprintPrinterCommand         "Drucker steuern"    <nozzle>               (gOctoprint) 
+// String OctoprintcurrPrintCommand       "Aktuellen 3D Druck steuern"          <nozzle>             (gOctoprint)
+// String OctoprintSystemCommand          "Druckserver"          <nozzle>             (gOctoprint) 
+
+// Number OctoprintJobEstimatedPrintTime	"Verbleibende Drucker zeit [%.0f s]"  (gOctoprint)	{http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.job.estimatedPrintTime)]"}
+// String OctoprintJobFileName				"GCODE Datei:  [%s]"			       (gOctoprint)	{http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.job.file.name)]"}
+// String OctoprintJobFileOrigin           "GCODE Herkunft: [%s]"                  (gOctoprint)    {http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.job.file.origin)]"}
+// Number OctoprintJobProgressCompletion	"Momentaner Fortschritt [%.0f %%]"		(Octoprint)	{http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.progress.completion)]"}
+// Number OctoprintJobPrintTime			"Zeit seit Druckbeginn [%.0f s]"		<clock>      (gOctoprint)	{http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.progress.printTime)]"}
+// String OctoprintJobPrintTimeString	    "Zeit seit Druckbeginn [%s]"	 <clock>       (gOctoprint)	
+// Number OctoprintJobPrintTimeLeft		"verbleibende Zeit [%.0f s]" <ETA>        (gOctoprint)	{http="<[http://172.16.8.32/api/job?apikey=#######################:10000:JSONPATH($.progress.printTimeLeft)]"}
+// String OctoprintJobPrintTimeLeftString  "verbleibende Zeit [%s]"	  <ETA>            (gOctoprint)    
+// String OctoprintJobPrintETAString       "geschätzte Zeit [%s]"	   <ETA>	    (gOctoprint)  
+// DateTime OctoprintJobPrintETADateTime   "geschätzter Endzeitpunkt [%1$tA, %1$td.%1$tm.%1$tY %1$tH:%1$tM]"       <calendar>      (gOctoprint)
+
+// //[MAP(map/ender.map):%s]
+// String OctoprintPrinterPrintingState    "Status "	 <status>       (gOctoprint)    {http="<[http://172.16.8.32/api/printer?apikey=#######################:10000:JSONPATH($.state.text)]"}
+// Number OctoprintPrinterHotEndTemp		"Düse/Nozzle Temperatur [%.1f °C]"		     <nozzle>	(gOctoprint)	{http="<[http://172.16.8.32/api/printer?apikey=#######################:10000:JSONPATH($.temperature.tool0.actual)]"}
+// Number OctoprintPrinterHotEndTempTarget	"Düse/Nozzle Zieltemperatur [%.1f °C]"	     <temperature>	(gOctoprint)	{http="<[http://172.16.8.32/api/printer?apikey=#######################:10000:JSONPATH($.temperature.tool0.target)]"}
+// Number OctoprintPrinterBedTemp			"Bett Temperatur [%.1f °C]"		     <heatbed>	(gOctoprint)	{http="<[http://172.16.8.32/api/printer?apikey=#######################:10000:JSONPATH($.temperature.bed.actual)]"}
+// Number OctoprintPrinterBedTempTarget	"Bett Zieltemperatur [%.1f °C]"        <temperature> {http="<[http://172.16.8.32/api/printer?apikey=#######################:10000:JSONPATH($.temperature.bed.target)]"}
+

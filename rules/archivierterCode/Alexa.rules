@@ -1,0 +1,143 @@
+//  val String filename = "Alexa.rules"
+
+//  rule "Lass Alexa sprechen"
+//  when 
+//  Item AlexaTTS received command
+//  then 
+//  var String Output = ""
+//  switch AlexaTTS.state.toString{
+//  case "0":{
+//  Output="Hey whats up"}
+//  case "1":{
+//  Output = "My name is alexa"}
+//  case "2":{
+//  Output = "Yes"}
+//  case "3":{
+//  Output = "NO"}
+//  case "4":{
+//  Output = "maybe"}
+//  case "5":{
+//  Output = "How can I assist you"}
+//  case "6":{
+//  Output = "The cat entered the house"}
+//  case "7":{
+//  Output = "someone used the doorring"}
+//  case "8":{
+//  Output = "do the dishes"}
+//  case "9":{
+//  Output = "lunch is ready"}
+//  case "10":{
+//  Output = "The washing machine is ready"}
+//  case "11":{
+//  Output = "Windows is installing an update"}
+//  case "12":{
+//  Output = "Starting the vacuum"}
+//  case "13":{
+//  Output = "Pausing the vacuum"}
+//  case "14":{
+//  Output = "How are you today"}
+//  case "15":{
+//  Output = ""}
+//  case "16":{
+//  Output = ""}
+//  case "17":{
+//  Output = ""}
+//  case "18":{
+//  Output = ""}
+//  case "19":{
+//  Output = ""}
+//  case "20":{
+//  Output = ""}
+//  case "21":{
+//  Output = ""}
+//  }
+//  if (AlexaEchoChoose.state != null)
+//  {
+//      switch AlexaEchoChoose.state.toString()    
+//      {
+//          case "0":{
+//              AlexaWZ_TTS.sendCommand(Output) }
+//          case "1":{
+//              AlexaSZ_TTS.sendCommand(Output)
+//          }
+//          case "2":{
+//              AlexaWZ_TTS.sendCommand(Output)
+//              AlexaSZ_TTS.sendCommand(Output)
+//          }
+//      }
+//  } else  {
+//      AlexaWZ_TTS.sendCommand("Please choose an echo device")
+//  }
+//  logInfo(filename, Output)
+//  end
+
+// rule "Eigene Regeln"
+// when
+// Item AlexaAZ_LVC changed
+// then
+
+// val triggerItem = AlexaAZ_LVC.members.sortBy[lastUpdate].last as StringItem
+
+// logInfo(filename,"" + triggerItem.state.toString )
+// if(triggerItem.state.toString == "light off")
+// {
+//     logInfo(filename, "Alexa - light off")
+//     gLights.sendCommand(OFF)
+// }
+// if(triggerItem.state.toString == "light off")
+// {
+//     logInfo(filename, "Alexa - light off")
+//     gLights.sendCommand(ON)
+// }
+// if(triggerItem.state.toString == "vacuum on")
+// {
+//     logInfo(filename, "Alexa - vacuum on")
+//     actionControl.sendCommand("vacuum")
+// }
+// if(triggerItem.state.toString == "vacuum off")
+// {
+//     logInfo(filename, "Alexa - vacuum off")
+//    actionControl.sendCommand("dock")
+// }
+// if(triggerItem.state.toString == " red")
+// {
+//     logInfo(filename, "light - red")
+//    farbWahl.sendCommand(1)
+// }
+// if(triggerItem.state.toString == "light blue")
+// {
+//     logInfo(filename, "light - blue")
+//    farbWahl.sendCommand(3)
+// }
+// if(triggerItem.state.toString == "light green")
+// {
+//     logInfo(filename, "light - green")
+//    farbWahl.sendCommand(2)
+// }
+// if(triggerItem.state.toString == "light türkis")
+// {
+//     logInfo(filename, "light - türkis")
+//    farbWahl.sendCommand(5)
+// }
+// if(triggerItem.state.toString == "light violett")
+// {
+//     logInfo(filename, "light - violett")
+//    farbWahl.sendCommand(6)
+// }
+// if(triggerItem.state.toString == "light yellow")
+// {
+//     logInfo(filename, "light - yellow")
+//    farbWahl.sendCommand(4)
+// }
+// if(triggerItem.state.toString == "light yellow")
+// {
+//     logInfo(filename, "light - yellow")
+//    farbWahl.sendCommand(4)
+// }
+// if(triggerItem.state.toString == "light strobo")
+// {
+//     logInfo(filename, "light - strobo")
+//    farbWahl.sendCommand(8)
+// }
+
+// end

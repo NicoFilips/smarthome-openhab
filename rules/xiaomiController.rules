@@ -1,0 +1,445 @@
+ val String filename = "XiaomiController.rules"
+// //-----------------------------------------------------------------------------
+// //Globale Variablen
+// //-----------------------------------------------------------------------------
+// var Timer timerMS = null
+// var Timer timerDS = null
+
+// var HSBType weiss = new HSBType(new DecimalType(0),new PercentType(100),new PercentType(100))
+
+// var int colorint = 1
+// var int roomInt = 1
+
+// var int timerLightMin = 3
+ var int timerWindowMin = 10
+//-----------------------------------------------------------------------------
+// Xiaomi Switches 
+//-----------------------------------------------------------------------------
+
+//Switch1 Flur
+// rule "Xiaomi Switch1"
+// when
+//     Channel "mihome:sensor_switch_aq2:button" triggered
+// then
+
+//     var actionName = receivedEvent.getEvent()
+//     switch(actionName) {
+//         case "SHORT_PRESSED": {
+//             switch gFlurYeelight.state.toString{
+//                 case "ON":{
+//         //Falls Lichter an sind && die Farbe weiß eingestellt ist
+//             if(((Yeelightc_5.state as HSBType).equals(weiss)) && ((Yeelightc_6.state as HSBType).equals(weiss)) && ((XGateway_c.state as HSBType).equals(weiss))) 
+// 			{
+// 				logInfo(filename, "Flurlichter haben Status weiss -> ausschalten.")
+//                     XGateway_b.sendCommand(OFF)
+//                 sendCommand(gYeelightACFL,'set_power["off","sudden",0,1]')
+// 			} else {
+//                 //Falls AN aber nicht weiss -> weiss schalten
+//                 logInfo(filename, "Flurlichter haben Status weiss nicht -> auf weiß schalten.")
+//                 sendCommand(gYeelightACFL,'set_power["on","sudden",0,1]')
+//                 XGateway_c.sendCommand(weiss.toString)
+//             }
+//                 }
+//                 case "OFF":{
+//                 Motion_status.sendCommand(ON)
+                
+//         }
+//         }
+//         }
+//         case "DOUBLE_PRESSED": {
+//                                                 switch gLights.state.toString{
+//                 case "ON":{
+//                 gLights.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gLights.sendCommand(ON)
+//         }
+//                                                 }
+//         }
+//         case "LONG_PRESSED": {
+//                         if(colorint < 8){
+//                 colorint = colorint + 1
+//             } else
+//             {
+//                 colorint = 1
+//             }
+//             farbWahl.sendCommand(colorint)
+
+//         }
+//         case "LONG_RELEASED": {
+            
+//         }
+//         case "SHAKE_AIR": {
+            
+//         }
+//     }
+// end
+
+// //Switch2 Schlafzimmer
+// rule "Xiaomi Switch2"
+// when
+//     Channel "mihome:sensor_switch_aq2:button" triggered
+// then
+//     var actionName2 = receivedEvent.getEvent()
+//     switch(actionName2) {
+//         case "SHORT_PRESSED": {
+//             switch gBedYeelight.state.toString{
+//                 case "ON":{
+//                             if(((Yeelightc_1.state as HSBType).equals(weiss)) && ((Yeelightc_2.state as HSBType).equals(weiss))) 
+// 			{
+// 				logInfo(filename, "Schlafzimmer Lichter haben Status weiss -> ausschalten. " + (Yeelightc_1.state as HSBType).toString )
+//                 sendCommand(gYeelightACSZ,'set_power["off","sudden",0,1]')
+// 			} else {
+//                 //Falls AN aber nicht weiss -> weiss schalten
+//                 logInfo(filename, "Schlafzimmer Lichter haben Status weiss nicht -> auf weiß schalten.")
+//                 sendCommand(gYeelightACSZ,'set_power["on","sudden",0,1]')
+//             }
+//                 }
+//                 case "OFF":{
+// sendCommand(gYeelightACSZ,'set_power["on","sudden",0,1]')
+//         }
+//                                                 }
+//         }
+//         case "DOUBLE_PRESSED": {
+//                                                 switch gLights.state.toString{
+//                 case "ON":{
+//                 gLights.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gLights.sendCommand(ON)
+//         }
+//                                                 }}
+//         case "LONG_PRESSED": {
+//             if(colorint < 8){
+//                 colorint = colorint + 1
+//             } else
+//             {
+//                 colorint = 1
+//             }
+//             farbWahl.sendCommand(colorint)
+//         }
+//         case "LONG_RELEASED": {
+            
+//         }
+//         case "SHAKE_AIR": {
+            
+//         }
+//     }
+// end
+
+// //Switch3 Wohnzimmer
+// rule "Xiaomi Switch3"
+// when
+//     Channel "mihome:sensor_switch_aq2:button" triggered
+// then
+//     var actionName3 = receivedEvent.getEvent()
+//     switch(actionName3) {
+//         case "SHORT_PRESSED": {
+//             switch gArilux.state.toString{
+//                 case "ON":{
+// if(((Yeelightc_4.state as HSBType).equals(weiss)) && ((Yeelightc_7.state as HSBType).equals(weiss)))
+// {                
+//                     logInfo(filename, "Wohnzimmer Lichter haben Status weiss -> ausschalten.")
+//     sendCommand(gYeelightACWZ,'set_power["off","sudden",0,1]')
+//     gArilux.sendCommand(OFF)
+// } else {
+//     logInfo(filename, "Wohnzimmer Lichter haben Status weiss nicht -> auf weiß schalten." + (Yeelightc_4.state as HSBType).toString + (Yeelightc_7.state as HSBType).toString)
+//     sendCommand(gYeelightACWZ,'set_power["on","sudden",0,1]')
+//                gProgram.sendCommand(44)
+//        gprogramSpeed.sendCommand(100)
+// }
+//                 }
+//                 case "OFF":{
+//                     sendCommand(gYeelightACWZ,'set_power["on","sudden",0,1]')
+//                     gArilux.sendCommand(ON)
+//                                gProgram.sendCommand(44)
+//        gprogramSpeed.sendCommand(100)
+
+//         }
+//                                                 }
+//         }
+//         case "DOUBLE_PRESSED": {
+//             switch gLights.state.toString{
+//                 case "ON":{
+//                 gLights.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gLights.sendCommand(ON)
+//         }
+//                                                 }
+//         }
+//         case "LONG_PRESSED": {
+//                         if(colorint < 8){
+//                 colorint = colorint + 1
+//             } else
+//             {
+//                 colorint = 1
+//             }
+//             farbWahl.sendCommand(colorint)
+//         }
+//         case "LONG_RELEASED": {
+            
+//         }
+//         case "SHAKE_AIR": {
+            
+//         }
+//     }
+// end
+
+//-----------------------------------------------------------------------------
+// Xiaomi Cubes
+//-----------------------------------------------------------------------------
+
+//Cube 1 Wohnzimmer
+// rule "Aqara Cube Controller #1 Wohnzimmer"
+// when
+//     Channel 'mihome:sensor_cube:action' triggered
+// then
+//             //Wohnzimmer:
+// //---------------------------------------
+//     //MOVE:             Spotify
+//     //ROTATE_RIGHT:     Lichterfarbe
+//     //ROTATE_LEFT:      Raumlicht
+//     //FLIP90:           Wohnzimmerlicht
+//     //FLIP180:          Alle Lichter
+//     //TAP_TWICE:        Helligkeit
+//     //FREE_FALL:
+//     //SHAKE_AIR:
+//     //ALERT:
+// //---------------------------------------
+//     var actionNameC1 = receivedEvent.getEvent()
+//     switch(actionNameC1) {
+//         case "MOVE": {
+//                 AlexaWZ_MusicProviderId.sendCommand('SPOTIFY')
+//                 AlexaWZ_Player.sendCommand('PLAY')
+// 				AlexaWZ_Volume.sendCommand(100)
+//         }
+//         case "ROTATE_RIGHT": {
+//                                     if(colorint < 8){
+//                 colorint = colorint + 1
+//             } else
+//             {
+//                 colorint = 1
+//             }
+//             farbWahl.sendCommand(colorint)
+//         }
+//         case "ROTATE_LEFT": {
+//                                     if(roomInt < 2){
+//                 roomInt = roomInt + 1
+//             } else
+//             {
+//                 roomInt = 0
+//             }
+//             zimmerWahl.sendCommand(roomInt)
+//         }
+//         case "FLIP90": {
+//                         switch gArilux.state.toString{
+//                 case "ON":{
+//                         gArilux.sendCommand(OFF)
+//         gWZYeelight.sendCommand(OFF)
+// }
+//                 case "OFF":{
+//                             gArilux.sendCommand(ON)
+//         gWZYeelight.sendCommand(ON)
+//         }
+//                         }
+//         }
+//         case "FLIP180": {
+//                          switch gLights.state.toString{
+//                 case "ON":{
+//                 gLights.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gLights.sendCommand(ON)
+//                 }
+//         }
+//         }
+//         case "TAP_TWICE": {
+//         //     if((gBrightness.state as Number).intValue < 100){
+//         //         gBrightness.postUpdate((gBrightness.state as Number).intValue + 10)
+//         //     } else
+//         //     {
+//         //         gBrightness.postUpdate((gBrightness.state as Number).intValue - 10)
+//         //     }
+//         //     logInfo(filename,"Die Lichterhelligkeit wurde auf: {}% gestellt.", gBrightness.toString)
+//          }
+//         //Eine der 8 Farben
+//         case "SHAKE_AIR": {
+
+//         }
+//         case "FREE_FALL": {
+
+//             gProgram.sendCommand(37)
+//             gprogramSpeed.sendCommand(45)
+//             logInfo(filename,"Arilux 7 Farben fade")
+//             gArilux.sendCommand(ON)
+// }
+//         case "ALERT": {
+//         }
+//     }
+// end
+
+//Cube 2
+// rule "Aqara Cube Controller #2"
+// when
+//     Channel 'mihome:sensor_cube:action' triggered
+// then
+//             //Schlafzimmer:
+// //---------------------------------------
+//     //MOVE:             Spotify
+//     //ROTATE_RIGHT:     Lichterfarbe
+//     //ROTATE_LEFT:      Raumlicht
+//     //FLIP90:           Wohnzimmerlicht
+//     //FLIP180:          Alle Lichter
+//     //TAP_TWICE:        Helligkeit
+//     //FREE_FALL:
+//     //SHAKE_AIR:
+//     //ALERT:
+// //---------------------------------------
+//     var actionNameC2 = receivedEvent.getEvent()
+//     switch(actionNameC2) {
+//         case "MOVE": {
+//                 AlexaSZ_MusicProviderId.sendCommand('SPOTIFY')
+//                 AlexaSZ_Player.sendCommand('PLAY')
+// 				AlexaSZ_Volume.sendCommand(100)
+//         }
+//         case "ROTATE_RIGHT": {
+//                                     if(colorint < 8){
+//                 colorint = colorint + 1
+//             } else
+//             {
+//                 colorint = 1
+//             }
+//             farbWahl.sendCommand(colorint)
+
+//         }
+//         case "ROTATE_LEFT": {
+//                                                 if(roomInt < 2){
+//                 roomInt = roomInt + 1
+//             } else
+//             {
+//                 roomInt = 0
+//             }
+//             zimmerWahl.sendCommand(roomInt)
+//         }
+//         case "FLIP180": {
+//                                     switch gBedYeelight.state.toString{
+//                 case "ON":{
+//                 gBedYeelight.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gBedYeelight.sendCommand(ON)
+//                 }
+//                                     }
+//         }
+//         case "FLIP90": {
+//                                     switch gLights.state.toString{
+//                 case "ON":{
+//                 gLights.sendCommand(OFF)}
+//                 case "OFF":{
+//                     gLights.sendCommand(ON)
+//                 }
+//         }
+//         }
+//         case "TAP_TWICE": {
+
+//         }
+//         case "SHAKE_AIR": {            
+
+//         }
+//         case "FREE_FALL": {
+
+//         }
+//         case "ALERT": {
+//             AlexaSZ_TTS.sendCommand("Denise du geile Schlange")
+//         }
+//     }
+// end
+
+//-----------------------------------------------------------------------------
+// Xiaomi Motion Sensor
+//-----------------------------------------------------------------------------
+
+//Motion Sensor 1
+//  rule "Xiaomi Motion Sensor"
+//  when
+//      Item Motion_LastActivity changed or 
+//      Item Motion_status received command ON 
+//  then
+//          logInfo(filename, "Licht im Flur: angeschalten, wird in {} Minuten ausgeschalten.", timerLightMin)
+//          //Flurlichter ein
+//          XGateway_b.sendCommand(100)
+//          //Flurlichter auf weiß
+//  sendCommand(gYeelightACFL,'set_power["on","sudden",0,1]')
+//         XGateway_c.sendCommand(weiss.toString)
+//         //Lichter wieder ausschalten
+//          timerDS = createTimer(now.plusMinutes(timerLightMin)) [|
+      
+//          logInfo(filename,"Bewegungsmeldertimer nach {} Minuten ausgeschalten.", timerLightMin)
+//          gFlurYeelight.sendCommand(OFF)
+//          XGateway_b.sendCommand(OFF)
+//          ]
+//      timerDS=null
+//  end
+
+//-----------------------------------------------------------------------------
+// Xiaomi Door/Window Sensor
+//-----------------------------------------------------------------------------
+
+//Door Sensor #1 Heizungskeller
+// rule "Xiaomi Door/Window Sensor Heizungskeller"
+// when
+//     Item Door_Openstatus1 received command OPEN or
+//     Item Door_lastopened1 changed or
+//     Item Door_Openstatus1 changed from CLOSED to OPEN
+// then
+//     logInfo(filename, "Licht im Heizungskeller: angeschalten, wird in {} Minuten ausgeschalten.", timerLightMin)
+// sendCommand(YeelightAC_3, 'set_power["on","sudden",0,1]')
+//         //Timer erstellen
+//         if(timerDS===null) {
+//     timerDS = createTimer(now.plusMinutes(timerLightMin)) [|
+//         Yeelights_3.sendCommand(OFF)
+//         ]
+//         timerDS=null
+//         //bestehenden Timer neu starten
+//         } else {
+//     Yeelights_3.sendCommand(ON)
+//     logInfo(filename, "Timer wurde nochmal auf {} Minuten erneuert", timerLightMin)
+//     timerDS.reschedule(now.plusMinutes(timerLightMin))
+//     sendCommand(YeelightAC_3, 'set_power["on","sudden",0,1]')
+//     }
+// end
+
+// rule "Xiaomi Door/Window Sensor - Window is open for longer than WindowSwitch_AlarmTimer"
+// when
+//     Channel "mihome:sensor_magnet:isOpenAlarm" triggered ALARM
+// then
+//     logInfo(filename,"Xioami Heizungskeller Türsensor hat einen Alarm hervorgerufen")
+// end
+
+//Schaltet DECT aus/an während Timer läuft
+rule "Schlafzimmer Fenstersensor"
+when
+Item Door_Openstatus2 changed from CLOSED to OPEN
+then
+logInfo(filename,"Schlafzimmer Fenstersensor geöffnet. Alarmtimer auf  " +timerWindowMin.toString+  " Minuten gestellt")
+        AlexaSZ_TTS.sendCommand("Das Fenster wurde geöffnet, ein Timer für " +timerWindowMin.toString+  " Minuten wurde gestellt.")
+        var Timer mytime = null
+        ModusTempDect1.postUpdate("OFF")
+        mytime = createTimer(now.plusMinutes(timerWindowMin)) [|
+            if(Door_Openstatus2.state === OPEN){ 
+            AlexaSZ_TTS.sendCommand("Bitte schließe das Fenster im Schlafzimmer wieder. Der Timer ist abgelaufen.")
+            }
+        ]
+            ModusTempDect1.postUpdate("COMFORT")
+end
+
+//Schaltet DECT aus/an während Timer läuft
+rule "Wohnzimmer Fenstersensor"
+when
+Item Door_Openstatus3 changed to OPEN
+then
+logInfo(filename ,"Wohnzimmer Fenstersensor geöffnet. Alarmtimer auf " +timerWindowMin.toString+  " Minuten gestellt")
+    AlexaWZ_TTS.sendCommand("Das Fenster wurde geöffnet, ein Timer für " +timerWindowMin.toString+  " Minuten wurde gestellt. ")
+    var Timer mytime = null
+    mytime = createTimer(now.plusMinutes(timerWindowMin)) [|
+        if(Door_Openstatus2.state === OPEN){
+            AlexaWZ_TTS.sendCommand("Bitte schließe das Fenster im Wohnzimmer wieder. Der Timer ist abgelaufen.")
+            
+            }]
+end

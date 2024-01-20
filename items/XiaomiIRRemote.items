@@ -1,0 +1,52 @@
+String MiRemote_SSID "SSID" <modem>  {channel="miio:unsupported:sfdsdfsdfs:network#ssid"}
+String MiRemote_BSSID "BSSID" <wifi> {channel="miio:unsupported:sfdsdfsdfs:network#bssid"}
+Number MiRemote_RSSI "RSSI" <wifi> {channel="miio:unsupported:sfdsdfsdfs:network#rssi"}
+Number MiRemote_Life "Lebenszeit" <calendar> {channel="miio:unsupported:sfdsdfsdfs:network#life"}
+ 
+Switch MiRemote_Power "Power An/Aus" {channel="miio:unsupported:sfdsdfsdfs:actions#power"}
+String MiRemote_Cmd "Kommando ausführen" <settings> {channel="miio:unsupported:sfdsdfsdfs:actions#commands", autoUpdate="False"}
+Switch MiRemote_ExeCmd "Test Kommando ausführen" {channel="miio:unsupported:sfdsdfsdfs:actions#testcommands"}
+
+//Trust boxen
+Switch Mi_trust_Power "An/Aus" 
+Switch Mi_trust_LED     "An/Aus"  <sun>
+Switch Mi_trust_Mute    "Mute" <music>
+Switch Mi_trust_Sourc "Musikquelle" <mic>
+Switch Mi_trust_51  "5.1 Surround Sound" <music>
+Switch Mi_trust_vol "Lautstärke" <soundvolume>
+Switch Mi_trust_bass "Bass" <fader>
+Switch Mi_trust_Midvol "Mitteler Subwoofer Lautstärke" <soundvolume>
+Switch Mi_trust_Surrvol "Surround Lautstärke" <soundvolume>
+
+//Fernseher
+Switch Mi_TCL_Power "Power"
+Switch Mi_TCL_mute "Mute" <music>
+String Mi_TCL_channel "Kanal" <apps>
+Switch Mi_TCL_ChannelForward "Kanal"
+Number Mi_TCL_Vol "Lautstärke" <soundvolume>
+Switch Mi_TCL_home "Home" <home>
+Switch Mi_TCL_ok "OK - bestätigen" 
+String Mi_TCL_ArrowD "Pfeil runter" <settings>
+String Mi_TCL_ArrowU "Pfeil hoch" <settings>
+String Mi_TCL_ArrowL "Pfeil links" <settings>
+String Mi_TCL_ArrowR "Pfeil rechts" <settings>
+Switch Mi_TCL_back "Zurück"  <back>
+String Mi_TCL_Zeug "Weitere Funktionen" <apps>
+Switch Mi_TCL_Netflix "Netflix starten" <netflix>
+
+
+//Fire TV Stick
+Switch Mi_Fire_power "Power"
+Switch Mi_Fire_mute "Mute"
+Switch Mi_Fire_mic "Alexa Assistent"
+Switch Mi_Fire_Home "Home"
+Switch Mi_Fire_set "Einstellungen"
+Switch Mi_Fire_navi "Navigieren"
+Switch Mi_Fire_vol "Lautstärke"
+
+
+
+
+
+
+

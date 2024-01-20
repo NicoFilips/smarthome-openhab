@@ -1,0 +1,2 @@
+Group gDebug "Debugbereich" <bug>
+Switch Testitem "Nur zum Testen" <bug> (Debugging)

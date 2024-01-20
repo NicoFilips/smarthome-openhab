@@ -1,0 +1,20 @@
+Group Dect1 "Schlafzimmerthermostat" <thermo> ["Thermostat"]
+Group Dect2 "Wohnzimmerthermostat" <thermo> ["Thermostat"]
+
+String ModusDect1 "Modus des Gerätes" (Dect1) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:mode"}
+Number TempDect1 "Momentane Schlafzimmertemperatur [%.1f °C]" (Dect1) ["CurrentTemperature"] {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:temperature"}
+Number SollTempDect1 "Schlafzimmertemperaturziel [%.1f °C]"  (Dect1) ["TargetTemperature"] {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:set_temp"}
+Number AbsenkTempDect1 "Absenktemperatur [%.1f °C]" (Dect1){channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:eco_temp"}
+Number KomfTempDect1 "Komfforttemperatur [%.1f °C]" (Dect1) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:comfort_temp"}
+String ModusTempDect1 "Modus des Heizkörperreglers [%s]" (Dect1)["homekit:HeatingCoolingMode ** "]{channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:radiator_mode"}
+Number BatteryDect1 "FRITZ!Box Schlafzimmer DECT Batterie [%.0f %%]" <battery>(Dect1, batteryManagement) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:battery_level"}
+Switch LowBatteryDect1 "Schlafzimmer DECT Niedriger Batteriestatus " (Dect1, batteryManagement) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:battery_low"}
+
+String ModusDect2 "Modus des erätes" (Dect2) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:mode"}
+Number TempDect2 "Momentane Wohnzimmertemperatur [%.1f °C]" (Dect2) [ "CurrentTemperature" ] {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:temperature"}
+Number SollTempDect2 "Wohnzimmertemperaturziel [%.1f °C]"  (Dect2) [ "TargetTemperature" ] {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:set_temp"}
+Number AbsenkTempDect2 "Absenktemperatur [%.1f °C]" (Dect2){channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:eco_temp"}
+Number KomfTempDect2 "Komfforttemperatur [%.1f °C]" (Dect2) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:comfort_temp"}
+String ModusTempDect2 "Modus des Heizkörperreglers [%s]" (Dect2)["homekit:HeatingCoolingMode ** "]{channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:radiator_mode"}
+Number BatteryDect2 "FRITZ!Box Wohnzimmer DECT Batterie [%.0f %%]" <battery>(Dect2, batteryManagement) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:battery_level"}
+Switch LowBatteryDect2 "Wohnzimmer DECT Niedriger Batteriestatus " (Dect2, batteryManagement) {channel="avmfritz:Comet_DECT:172_16_168_132_34:##################:battery_low"}

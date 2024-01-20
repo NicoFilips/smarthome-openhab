@@ -1,0 +1,177 @@
+// val String filename = "Octoprint.rules"
+
+// rule " -Gedruckte Zeit- String"
+// when
+// 	Item OctoprintJobPrintTime changed
+// then
+//     val seconds = (OctoprintJobPrintTime.state as DecimalType).intValue
+//     val int totalMinutes = seconds/60
+//     val int remainderSecs = seconds%60
+//     val int totalHours = totalMinutes/60
+//     val int remainderMins = totalMinutes%60
+//     val formattedTime = String::format("%02d", totalHours) + ":" + String::format("%02d", remainderMins) + ":" + String::format("%02d", remainderSecs)
+//     OctoprintJobPrintTimeString.postUpdate(formattedTime)
+//     //OctoprintJobFileName = OctoprintJobFileName + " (" +OctoprintJobFileOrigin.toString + ")"
+// end
+
+// rule " -Zeit verbleibend- String"
+// when
+// 	Item OctoprintJobPrintTimeLeft changed
+// then
+//     val seconds = (OctoprintJobPrintTimeLeft.state as DecimalType).intValue
+//     val int totalMinutes = seconds/60
+//     val int remainderSecs = seconds%60
+//     val int totalHours = totalMinutes/60
+//     val int remainderMins = totalMinutes%60
+//     val formattedTime = String::format("%02d", totalHours) + ":" + String::format("%02d", remainderMins) + ":" + String::format("%02d", remainderSecs)
+//     OctoprintJobPrintTimeLeftString.postUpdate(formattedTime)
+
+//     val DateTime OctoprintETA = now.plusSeconds(seconds)
+//     //logInfo("Testing" ,"Octoprint ETA: " + OctoprintETA.toString)
+//     OctoprintJobPrintETAString.postUpdate(OctoprintETA.toString)
+//     OctoprintJobPrintETADateTime.postUpdate(new DateTimeType(OctoprintETA.toString))
+
+// end
+
+// rule "POST Drucker Kommando"
+// when
+// 	Item OctoprintPrinterPrintingState changed from "Printer is not operational" to "Operational"
+// then
+//     var url = "http://octopi.yourdomain/api/job?apikey=##################"
+//     var contenttype = "application/json"
+//     var POSTrequest = '{"command":"' +  OctoprintPrinterCommand.state + '"}'
+
+//     var output = sendHttpPostRequest(url, contenttype, POSTrequest)
+    
+//     logInfo(filename, output);
+// end
+
+// rule "POST System Kommando"
+// when
+// 	Item OctoprintSystemCommand received update
+// then
+// var String SysPrinterCmd = ""
+//     switch (OctoprintSystemCommand.state.toString){
+//     case "1":
+//     {SysPrinterCmd = "shutdown"}
+//     case "2":
+//     {SysPrinterCmd = "reboot"}
+//     case "3":
+//     {SysPrinterCmd = "restart"}
+//     case "4":
+//     {SysPrinterCmd = "restart_safe"}
+//     }
+//     logInfo(filename, "Folgende Operation wurde auf den Ender 3 ausführt: " + SysPrinterCmd )
+//     var url = 'http://octopi/api/system/commands/core/' + SysPrinterCmd + '?apikey=##################'
+//     //var contenttype = "application/json"
+
+//     var output = sendHttpPostRequest(url)
+    
+//     logInfo(filename, output);
+// end
+
+// rule "POST System Kommando"
+// when
+// 	Item OctoprintPrinterCommand received update
+// then
+// var String PrinterCmd1 = OctoprintPrinterCommand.state.toString()
+//     var url = "http://octopi/api/printer/command?apikey=##################"
+//     var contenttype = "application/json"
+//     //var POSTrequest = '{"command":"'+PrinterCmd+'"}'
+//     var PrinterPOSTRequest = "{\"command\":\"" + PrinterCmd1 + " \"}"
+//     logInfo(filename, "Ender3 kompiliert GCode: " + PrinterCmd1 )
+//     logInfo(filename, url + " " + PrinterPOSTRequest)
+//     //Antwort der API
+//     var output = sendHttpPostRequest(url, contenttype, PrinterPOSTRequest)
+//     logInfo(filename, output);
+// end
+
+// rule "POST Druck Kommando"
+// when
+// 	Item OctoprintcurrPrintCommand received update
+// then
+//     var url = "http://octopi/api/job?apikey=##################"
+//     var POSTdruckRequest = ""
+
+//         var String DruckCmd = OctoprintcurrPrintCommand.state.toString()
+//     if (OctoprintcurrPrintCommand == 4){POSTdruckRequest= "{\"command\":\"pause\",\"action\":\"toggle\""}  
+//     else{
+//         POSTdruckRequest = "{\"command\":\"" + DruckCmd + "\"}"
+//         }
+//     var contenttype = "application/json"
+//     //var POSTrequest = '{"command":"'+PrinterCmd+'"}'
+//     logInfo(filename, "Druck bekommt Kommando: " + DruckCmd )
+//     logInfo(filename, url + " " + POSTdruckRequest)
+//     //Antwort der API
+//     var output = sendHttpPostRequest(url, contenttype, POSTdruckRequest)
+//     logInfo(filename, output);
+// end
+
+// rule "3D Drucker licht einschalten"
+// when
+// 	Item wol_Octoprint received update
+// then
+//     Yeelights_7.sendCommand(ON)
+//     logInfo(filename,"eingeschalten");
+// end
+
+// rule "TTS wenn 3D Drucker startet"
+// when 
+// Item OctoprintPrinterState changed from Operational to Finishing 
+// then
+// AlexaWZ_TTS.sendCommand("3D Drucker wurde gestartet. Er wird vorraussichtlich am"+ OctoprintJobPrintETADateTime.state.toString + "fertig.")
+// //txtItemOctoprint.postUpdate(String::format("ᐁ  %.1f Mbit/s", OctoprintPrinterState )
+// end
+
+// rule "TTS wenn 3D Drucker fertig ist"
+// when 
+// Item OctoprintPrinterState changed to Operational 
+// then
+// AlexaWZ_TTS.sendCommand("3D Drucker ist bereit.")
+// end
+
+// rule "Wenn sich Octoprint verbindet"
+// when
+// Item OctoprintPrinterState changed from "Detecting baudrate" to "Operational"
+// then 
+// AlexaWZ_TTS.sendCommand("3D Drucker wurde mit dem Netzwerk verbunden und ist einsatzbereit")
+// end
+
+// rule "Auto Home mit Alexa"
+// when 
+// Item AutoHomeAlexa received command ON 
+// then
+// OctoprintPrinterCommand.sendCommand("G28")
+// end
+
+// rule "Lüfter An/Aus schalten"
+// when
+// Item LuefterAlexa received command
+// then
+// switch LuefterAlexa.state.toString{
+//     case "ON":{
+// OctoprintPrinterCommand.sendCommand("M106")
+// logInfo(filename, "Lüfter von Ender3 ausgeschaltet")
+//     }
+//     case "OFF":{
+// OctoprintPrinterCommand.sendCommand("M107")
+// logInfo(filename, "Lüfter von Ender3 eingeschaltet")
+//     }
+// }
+// end
+
+// rule "Lüfter An/Aus schalten"
+// when
+// Item StepperAlexa received command
+// then
+// switch StepperAlexa.state.toString{
+//     case "ON":{
+// OctoprintPrinterCommand.sendCommand("M18")
+// logInfo(filename, "Steppermotoren von Ender3 ausgeschaltet")
+//     }
+//     case "OFF":{
+// OctoprintPrinterCommand.sendCommand("M17")
+// logInfo(filename, "Steppermotoren von Ender3 eingeschaltet")
+//     }
+// }
+// end

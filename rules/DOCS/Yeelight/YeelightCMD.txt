@@ -1,0 +1,5 @@
+set_default - Setzt den momentanen Status als standardwert
+
+standart weiß eigenschaften:
+YeelightAC_5 changed from {"result":["on","1","4000","","","359","100"],"id":417}
+to get_prop["power","color_mode","ct","brightness","name","hue","sat"]

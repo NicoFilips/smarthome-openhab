@@ -1,0 +1,1 @@
+Number Ipp_Epson "Anzahl Druckaufträge Warteschlange" {channel="ipp:printer:kdfh3k3h:waitingJobs"}

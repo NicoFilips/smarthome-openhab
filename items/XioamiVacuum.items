@@ -1,0 +1,47 @@
+//Alexa
+Switch VacAlexa  "Staubsauger"    ["Switchable"] {channel="miio:generic:s5:actions#control" }
+Switch VacAlexaFull "volle Staubsaugerstärke" ["Switchable"] {channel="miio:vacuum:s5:actions#fan" }
+Switch VacAlexaSilent "leise Staubsaugerstärke" ["Switchable"] {channel="miio:vacuum:s5:actions#fan" }
+
+Group  gVac     "Xiaomi Robot Vacuum"       <vacuum>
+Group  gVacStat "Status Details"           <status> (gVac)
+Group  gVacCons "Gerätekomponenten Abnutzung"        <line-increase> (gVac)
+Group  gVacDND  "'Nicht stören'-Einstellungen"  <moon> (gVac)
+Group  gVacHist "Reinigungs Historie"         <calendar> (gVac)
+Group  gVacNetwork "Netzwerk Details"       <network> (gVac)
+
+String actionControl  "Steuern"   <vacuum>  (gVac)    {channel="miio:vacuum:s5:actions#control", autoupdate="false" } 
+Number actionFan      "Saugstärke "   <blow>      (gVac)   {channel="miio:vacuum:s5:actions#fan" }
+String actionCommand  "Vacuum Command"          {channel="miio:vacuum:s5:actions#commands" }
+
+Number statusBat    "Roborock Batterie Level [%1.0f%%]" <battery>   (gVac,gVacStat,batteryManagement) {channel="miio:vacuum:s5:status#battery" }
+Number statusArea    "Gesaugter Bereich [%1.0fm²]" <zoom>   (gVac,gVacStat) {channel="miio:vacuum:s5:status#clean_area" }
+Number statusTime    "Benötigte Zeit [%1.0fMin]" <time>   (gVac,gVacStat) {channel="miio:vacuum:s5:status#clean_time" }
+String  statusError    "Fehler [%s]"  <error>  (gVac,gVacStat) {channel="miio:vacuum:s5:status#error_code" }
+Number statusFanPow    "Saugkraft [%1.0f %%]"  <blow>   (gVacStat) {channel="miio:vacuum:s5:status#fan_power" } 
+Number statusClean    "Momentaner Status [%1.0f]"   <status>  (gVacStat) {channel="miio:vacuum:s5:status#in_cleaning" }
+Switch statusDND    "'Nicht stören'-Status"    (gVacStat) {channel="miio:vacuum:s5:status#dnd_enabled" }
+String statusStatus    "Gerätestatus [%s]"  <status>  (gVacStat) {channel="miio:vacuum:s5:status#state"} 
+
+Number consumableMainT    "Haupt Bürste (Minuten) [%1.0f Min]" <mainbrush>   (gVacCons) {channel="miio:vacuum:s5:consumables#main_brush_time"}
+Number consumableMainP    "Haupt Bürste (%) [%1.0f%%]"  <percentage>  (gVacCons) {channel="miio:vacuum:s5:consumables#main_brush_percent"}
+Number consumableSideT    "Seiten Bürste (Minuten) [%1.0f Min]" <sidebrush>   (gVacCons) {channel="miio:vacuum:s5:consumables#side_brush_time"}
+Number consumableSideP    "Seiten Bürste (%) [%1.0f%%]"  <percentage>  (gVacCons) {channel="miio:vacuum:s5:consumables#side_brush_percent"}
+Number consumableFilterT    "Filter Nutzung (Minuten) [%1.0f Min]" <funnel>   (gVacCons) {channel="miio:vacuum:s5:consumables#filter_time" }
+Number consumableFilterP    "Filter Nutzung (%) [%1.0f%%]"  <percentage>  (gVacCons) {channel="miio:vacuum:s5:consumables#filter_percent" }
+Number consumableSensorT    "Sensor (Minuten) [%1.0f Min]"  <motion>  (gVacCons) {channel="miio:vacuum:s5:consumables#sensor_dirt_time"}
+Number consumableSensorP    "Sensor (%) [%1.0f%%]" <percentage>   (gVacCons) {channel="miio:vacuum:s5:consumables#sensor_dirt_percent"}
+
+
+Switch dndFunction   "'Nicht stören'-Funktion" <moon>   (gVacDND) {channel="miio:vacuum:s5:dnd#dnd_function"}
+String dndStart   "'Nicht stören'-Startzeitpunk [%s]" <time>   (gVacDND) {channel="miio:vacuum:s5:dnd#dnd_start"}
+String dndEnd   "'Nicht stören'-Endzeitpunkt  [%s]"   <time-on>  (gVacDND) {channel="miio:vacuum:s5:dnd#dnd_end"}
+
+Number historyArea    "Geputzter Bereich [%1.0fm²]" <zoom>    (gVacHist) {channel="miio:vacuum:s5:history#total_clean_area"}
+Number historyTime    "dafür benötigte Zeit [%1.0fMin]"   <time>     (gVacHist) {channel="miio:vacuum:s5:history#total_clean_time"}
+Number historyCount    "Alle # Reinigungen [%1.0f]"  <office>  (gVacHist) {channel="miio:vacuum:s5:history#total_clean_count"}
+
+String  miNetSSID    "Netzwerk SSID [%s]"  <network>  (gVac,gVacNetwork) {channel="miio:vacuum:s5:network#ssid" }
+String  miNetBSSID    "Netzwerk BSSID [%s]"  <browser>  (gVac,gVacNetwork) {channel="miio:vacuum:s5:network#bssid" }
+Number  miNetRSSI    "Netzwerk RSSI [%1.0f]"  <network>  (gVac,gVacNetwork) {channel="miio:vacuum:s5:network#rssi" }
+Number  miNetLife    "Uptime [JS(javascript/gethour.js):%.1f]"  <time>  (gVac,gVacNetwork) {channel="miio:vacuum:s5:network#life" }

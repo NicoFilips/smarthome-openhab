@@ -1,0 +1,23 @@
+ val String filename = "System.rules"
+
+ rule "System startup"
+ when
+     System started
+ then
+     logInfo(filename,"System wurde gestartet/geupdatet")
+     createTimer(now.plusMinutes(10), [|
+//         sendBroadcastNotification("Automatische Servernachricht: OpenHAB Webserver (172.16.8.69:8080) wurde gestartet/geupdatet (Uhrzeit: " + DateTime.now()+")")
+     SystemStarted.sendCommand(ON)
+     ])
+//     //Zuweisung für GUI Variablen, um nullreference zu vermeiden
+//     if (presetTemperature.state == null) presetTemperature.postUpdate(18.5)
+//        if (presetTemperature.state == null) presetTemperature.sendCommand(18.5)
+ end
+
+ rule "System shutdown"
+ when
+  System shuts down
+ then
+//         sendBroadcastNotification("Automatische Servernachricht: OpenHAB Webserver (172.16.8.69:8080) wurde herunter gefahren (Uhrzeit: " + DateTime.now()+")")
+         logInfo(filename,"System wurde herunter gefahren")
+ end

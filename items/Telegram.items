@@ -1,0 +1,6 @@
+String bot1_lMT "Letzte bekommene Nachricht"
+String bot1_lMTN "Letzte bekommene Nachricht Name"
+String bot1_lMTD "Letzte bekommene Nachricht Datum"
+String bot1_lMTDUN "Letzte bekommene Nachricht Benutzername"
+String bot1_ChatID "Chat ID"
+String bot1_repID "Antwort ID"

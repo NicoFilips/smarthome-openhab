@@ -1,0 +1,246 @@
+// val String filename = "GroupLights.rules"
+// var LightOffset
+// var Timer timer
+// val java.util.Random rand = new java.util.Random
+
+//  var int timeOffset
+// rule "Timer gLights"
+// when 
+//     Item gLights received command
+// then
+
+// //gTextLights.postUpdate(String::format("%.f", gLights))
+
+
+// switch gLights.state.toString{
+//                 case "OFF":{
+// //Int Variable der GUI
+// if(gLightsOffset === null || gLightsOffset.state == 0)
+// {
+//     gLightsOffset.postUpdate(90)
+//     timeOffset = 90 //zum Debuggen
+// }else{
+// timeOffset = (gLightsOffset.state as Number).intValue
+// }
+
+//     if (timer !== null){
+//         timer.reschedule(now.plusMinutes(timeOffset))
+//         logInfo(filename, "Timer der Lichter wurde erneuert. Lichter werden nach "+timeOffset+
+//         " ausgeschalten.")
+//     }else{
+//     logInfo(filename, "Alle Lichter angeschalten: Lichter werden nach "+timeOffset+" Minuten wieder angeschalten.")
+//     timer = createTimer(now.plusMinutes(timeOffset), [|
+//         gLights.sendCommand(OFF)
+//         sendNotification("nico.filips@gmx.de","Timer abgelaufen: Lichter wurden nach "+ timeOffset.toString + " Minuten automatisch ausgeschalten.")
+//         logInfo(filename, "Das Ende des Skripts wurde erreicht. Lichter wurden ausgeschalten")
+//     ])
+//     }
+//     }case "ON":{
+//                 timer = null 
+//                 logInfo(filename, "Timer der Lichter wurde ausgeschalten.")
+//                 }
+//                 }
+// end
+
+// rule "Zimmer an/ausschalten"
+// when 
+// Item zimmerWahl received command
+// then
+// var String mystring = ""
+// switch (zimmerWahl.state.toString)
+// {
+//     //Wohnzimmer
+//     case "1":
+//     {
+//         mystring = "Wohnzimmer"
+//         gArilux.sendCommand(ON)
+//         gBedYeelight.sendCommand(OFF)
+//         gWZYeelight.sendCommand(ON)
+//         gFlurYeelight.sendCommand(OFF)
+//         Yeelights_3.sendCommand(OFF)
+//     }
+//     //Schlafzimmer
+//     case "2":
+//     {
+//         mystring = "Schlafzimmer"
+//         gArilux.sendCommand(OFF)
+//         gBedYeelight.sendCommand(ON)
+//         gWZYeelight.sendCommand(OFF)
+//         gFlurYeelight.sendCommand(OFF)
+//         Yeelights_3.sendCommand(OFF)
+//     }
+//     //Flur
+//     case "3":
+//     {
+//         mystring = "Flur"
+//         gArilux.sendCommand(OFF)
+//         gBedYeelight.sendCommand(OFF)
+//         gWZYeelight.sendCommand(OFF)
+//         gFlurYeelight.sendCommand(ON)
+//         Yeelights_3.sendCommand(OFF)
+//     }
+//     //Heizungskeller
+//     case "4":
+//     {
+//         mystring = "Heizungskeller"
+//         gArilux.sendCommand(OFF)
+//         gBedYeelight.sendCommand(OFF)
+//         gWZYeelight.sendCommand(OFF)
+//         gFlurYeelight.sendCommand(OFF)
+//         Yeelights_3.sendCommand(OFF)
+//     }
+// }
+//     logInfo(filename,"Zimmerwahl wurde auf "  + zimmerWahl.state.toString + " gestellt. Das ist der: " + mystring);
+// end
+
+
+// rule "Zimmer an/ausschalten"
+// when 
+// Item farbWahl received command
+// then
+// var String mystring = ""
+
+// switch (farbWahl.state.toString)
+// {
+//     //rot
+//     case "1":
+//     {
+//     //    var HSBType rot = new HSBType(new DecimalType(359),new PercentType(100),new PercentType(100))
+//     //    gColor.sendCommand(rot.toString)
+//     //    gWhite.sendCommand(0)
+//     mystring = "rot"
+//     }
+//     //Grün
+//     case "2":
+//     {
+//        var HSBType gruen = new HSBType(new DecimalType(120),new PercentType(100),new PercentType(100))
+//        gColor.sendCommand(gruen.toString())
+//        gWhite.sendCommand(0)
+//     mystring = "grün"
+//     }
+//     //Blau
+//     case "3":
+//     {
+//        var HSBType blau = new HSBType(new DecimalType(240),new PercentType(100),new PercentType(100))
+//        gColor.sendCommand(blau.toString())
+//        gWhite.sendCommand(0)
+//     mystring = "blau"
+//     }
+//     //Gelb
+//     case "4":
+//     {
+//        var HSBType gelb = new HSBType(new DecimalType(60),new PercentType(100),new PercentType(100))
+//     gColor.sendCommand(gelb.toString())
+//     mystring = "gelb"
+//     }
+//     //Türkis
+//     case "5":
+//     {
+//        var HSBType tuerkis = new HSBType(new DecimalType(180),new PercentType(100),new PercentType(100))
+//       gColor.sendCommand(tuerkis.toString())
+//       gWhite.sendCommand(0)
+//     mystring = "türkis"
+//     }
+//     //Violett
+//     case "6":
+//     {
+//        var HSBType violett = new HSBType(new DecimalType(300),new PercentType(100),new PercentType(100))
+//        logInfo(filename,violett.toString())
+//        gColor.sendCommand(violett.toString())
+//        gWhite.sendCommand(0)
+//     mystring = "violett"
+//     }
+//     //Weiß
+//     case "7":
+//     {
+//         gWhite.sendCommand(100)
+        
+//       // var HSBType weiss = new HSBType(new DecimalType(0),new PercentType(0),new PercentType(100))
+//         gAColor.sendCommand(0)
+//         sendCommand(gYeelightACFL,'set_power["on","sudden",0,1]')
+//     mystring = "weiß"
+//     sendCommand(gYeelightACFL,'set_power["on","sudden",0,1]')
+//     }
+//     //Strobo
+//     case "8":
+//     {
+//         gProgram.sendCommand(96)
+//         gWhite.sendCommand(0)
+//         gprogramSpeed.sendCommand(96)
+//         gYeelight.sendCommand(OFF)
+//         XGateway_c.sendCommand(OFF)
+//         mystring = "strobolicht"
+//     }
+// }
+//     logInfo(filename,"Farbwahl wurde auf "  + farbWahl.state.toString + " gestellt, dies entspricht der Farbe: " + mystring + ".");
+// end
+
+// rule "Alexa Rotlicht"
+// when 
+// Item rotlicht received command ON
+// then
+// farbWahl.sendCommand(1)
+// end 
+
+// rule "Alexa gruenlicht"
+// when 
+// Item gruenlicht received command ON
+// then
+// farbWahl.sendCommand(2)
+// end 
+
+// rule "Alexa blaulicht"
+// when 
+// Item blaulicht received command ON
+// then
+// farbWahl.sendCommand(3)
+// end 
+
+// rule "Alexa gelbicht"
+// when 
+// Item gelblicht received command ON
+// then
+// farbWahl.sendCommand(4)
+// end 
+// rule "Alexa Rotlicht"
+// when 
+// Item tuerkislicht received command ON
+// then
+// farbWahl.sendCommand(5)
+// end 
+// rule "Alexa Rotlicht"
+// when 
+// Item violettlicht received command ON
+// then
+// farbWahl.sendCommand(6)
+// end 
+// rule "Alexa weisslicht"
+// when 
+// Item weisslicht received command ON
+// then
+// farbWahl.sendCommand(7)
+// end 
+// rule "Alexa Strobo"
+// when 
+// Item strobolicht received command ON
+// then 
+// farbWahl.sendCommand(8)
+// end
+
+// rule"Heizungskellerlich ausschalten"
+// when 
+// Item Yeelights_3 received command ON
+// then
+// Door_Openstatus1.sendCommand(OPEN)
+// end
+
+
+// rule "Zufällige Farbe"
+// when
+// Item gFarbwahlAlexa received command ON
+// then 
+// 		    //Zufällige Zahl für Lichter
+// 			val int number = rand.nextInt(8)
+// 			farbWahl.sendCommand(number)
+// end
+

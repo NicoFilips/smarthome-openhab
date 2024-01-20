@@ -1,0 +1,31 @@
+// val String filename = "Roborock.rules"
+
+// rule "Roborock alexa"
+// when 
+// Item VacAlexa received command
+// then 
+// switch VacAlexa.state.toString{
+// case "ON":{
+// actionControl.sendCommand("vacuum")
+// logInfo(filename,"Staubsauger wurde eingeschalten")
+// }
+// case "OFF":{
+// actionControl.sendCommand("dock")
+// logInfo(filename,"Staubsauger wurde ausgeschalten")
+// }
+// }
+// end
+
+// rule "Roborock alexa"
+// when 
+// Item VacAlexaFull received command
+// then 
+// actionFan.sendCommand("90");
+// end
+
+// rule "Roborock alexa"
+// when 
+// Item VacAlexaSilent received command
+// then 
+// actionFan.sendCommand("38");
+// end

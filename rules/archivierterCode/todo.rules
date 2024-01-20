@@ -1,0 +1,135 @@
+// val String filename = "todo.rules"
+
+// rule "fill Todo"
+// when 
+// 	Time cron "0 * * * * ?"
+// then	
+// 	Todo1.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo1)
+// 	Todo2.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo2)
+//     Todo3.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo3)
+//     Todo4.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo4)
+//     Todo5.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo5)
+//     Todo6.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo6)
+//     Todo7.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo7)
+//     Todo8.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo8)
+// 	    Todo9.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo9)
+// 	    Todo10.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo10)
+// 	    Todo11.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo11)
+// 	    Todo12.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo12)
+// 	    Todo13.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo13)
+// 	    Todo14.postUpdate(OFF)
+// 	gTodo_List.addMember(Todo14)
+// end
+
+// rule "remove Todo1"
+// when 
+// 	Item Todo1 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo1)
+// end
+// rule "remove Todo2"
+// when 
+// 	Item Todo2 changed to ON
+// then
+// 	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo2)
+// end
+// rule "remove Todo3"
+// when 
+// 	Item Todo3 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo3)
+// end
+// rule "remove Todo4"
+// when 
+// 	Item Todo4 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo4)
+// end
+// rule "remove Todo5"
+// when 
+// 	Item Todo5 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo5)
+// end
+// rule "remove Todo6"
+// when 
+// 	Item Todo6 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo6)
+// end
+// rule "remove Todo7"
+// when 
+// 	Item Todo7 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo7)
+// end
+// rule "remove Todo8"
+// when 
+// 	Item Todo8 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo8)
+// end
+// rule "remove Todo9"
+// when 
+// 	Item Todo9 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo9)
+// end
+// rule "remove Todo10"
+// when 
+// 	Item Todo10 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo10)
+// end
+// rule "remove Todo11"
+// when 
+// 	Item Todo11 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo11)
+// end
+// rule "remove Todo12"
+// when 
+// 	Item Todo12 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo12)
+// end
+// rule "remove Todo13"
+// when 
+// 	Item Todo13 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo13)
+// end
+// rule "remove Todo14"
+// when 
+// 	Item Todo14 changed to ON
+// then
+//       	Thread::sleep(300)
+// 	gTodo_List.removeMember(Todo14)
+// end
+

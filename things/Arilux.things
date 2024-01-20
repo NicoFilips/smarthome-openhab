@@ -1,0 +1,9 @@
+
+Thing wifiled:wifiled "vsArilux#4" @"SchlafzimmerMama" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+Thing wifiled:wifiled "vsArilux#1" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+Thing wifiled:wifiled "vsArilux#2" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+Thing wifiled:wifiled "vsArilux#3" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+Thing wifiled:wifiled "vsArilux#5" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+
+Thing wifiled:wifiled "vsAriluxRGBW#1" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]
+Thing wifiled:wifiled "vsAriluxRGBW#2" @"Wohnzimmer" [ ip="##############", port=5577, pollingPeriod=3000, protocol="##############", driver="CLASSIC", fadeDurationInMs=1000, fadeSteps=100 ]

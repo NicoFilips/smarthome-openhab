@@ -1,0 +1,64 @@
+//Licht Gruppen
+Group:Switch:OR(ON,OFF)   gLights     "Alle Lichter [ EIN: %d ]" ["Switchable"]
+Group:Dimmer gYBrightness  "Lampenhelligkeit  [%d]" (gBrightness)
+Group:Dimmer gABrightness  "LEDs helligkeit  [%d]" (gBrightness)
+Group:Dimmer gBrightness "helligkeit  [%d]" ["Switchable"] {autoupdate="false"}
+//Zimmerlichtergruppen
+Group:Switch:OR(ON, OFF) gFlurlicht 
+Group:Switch:OR(ON, OFF) gWohnzimmer "Wohnzimmerlicht [ EIN: %d ]" ["Lighting"]
+Group:Switch:OR(ON,OFF) gBedYeelight "Schlafzimmerlicht [ EIN: %d ]" 
+Group:Switch:OR(ON,OFF) gHeizungskeller "Heizungskellerlicht [ EIN: %d ]"  ["Lighting"]
+
+String gTextLights "Lichter steuern [ Ein: %d] "
+//Gruppen 
+Group:Switch:OR(ON,OFF)   gArilux  "ALLE LEDs [ EIN: %d ]"(gWohnzimmer) 
+Group:Switch:OR(ON,OFF)   gYeelight    "ALLE Lampen [ EIN: %d ]" 
+
+//Wecker
+Group gPERSON1Wecker
+
+//Yeelight Gruppen (Flur/Schlafzimmer sind nur Yeelights und in der Lichtgruppe)
+Group:Switch:OR(ON,OFF) gFlurYeelight "Flurlicht [ EIN: %d ]"  (gFlurlicht)
+Group:Switch:OR(ON,OFF) gWZYeelight  "Wohnzimmer Yeelights [ EIN: %d ]" (gWohnzimmer) 
+
+//für die UI
+String zimmerWahl "Zimmerbeleuchtung"  <door>
+String farbWahl "Farbe auswählen" <colorpicker>
+
+//Gruppenweißdimmer
+Group:Dimmer gWhite "Weißes licht[%d]"
+
+//Gruppenfarben
+Group:Color:AVG gColor "Gruppenfarbe" 
+Group:Color:AVG gAColor "Gruppenfarbe Arilux" (gColor)
+Group:Color:AVG gYColor "Gruppenfarbe Yeelights" (gColor)
+Group yColorMode "Yeelight Farbmodus"
+
+Group gProgram "Gruppenskript ändern" <programled>
+Group:Dimmer:AVG gprogramSpeed "Skriptschnelligkeit [%d]"
+//Group:Dimmer:AVG gBrightness "Helligkeit" ["Dimmable"]
+
+Group:Switch:AND(ON,OFF) gTodo_List "Meine ToDo-Liste"
+
+//Temperaturen
+Group gTemp "Temperaturen"
+
+//Globale Variablen
+Group globVars "Globale Variablen" <planet>
+
+
+
+//------------------------------
+// Archiv
+//------------------------------
+
+//Lichtfarben Gruppen [Archiv]
+//Switch gFarbwahlAlexa "Zufällige Farbe" ["Lighting"]
+// Switch rotlicht "rotes Licht" ["Lighting"]
+// Switch gruenlicht "grünes Licht" ["Lighting"]
+// Switch blaulicht "blaues Licht" ["Lighting"] 
+// Switch gelblicht "gelbes Licht" ["Lighting"]
+// Switch tuerkislicht "türkises Licht" ["Lighting"]
+// Switch violettlicht "violettes Licht" ["Lighting"]
+// Switch weisslicht "weißes Licht" ["Lighting"]
+// Switch strobolicht "Epilepsie"

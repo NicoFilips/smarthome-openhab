@@ -1,0 +1,44 @@
+//Alexa
+// Switch OHWeckerfruh "früh Aufstehen" ["Switchable" ]
+//Switch OHWeckernormal "normal Aufstehen" 
+// Switch OHWeckerspat "spät Aufstehen" ["Switchable" ]
+// Switch OHWeckerBS "Berufsschulwecker" ["Switchable" ]
+// Switch OHWeckerSchlummern "Webserverschlummern" ["Switchable" ]
+String PERSON1_WECKER_Schlummern  "Schlummermodus (Minuten)" <doze>
+String textTitleAlarmClock "Mein Webserver Wecker [%s]"
+//Wecker Montag
+Switch PERSON1_WECKER_MO      "Wecker Montag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MO_H    "Weckzeit Montag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MO_M    "Weckzeit Montag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MO_RUN    "Wecker Montag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Dienstag
+Switch PERSON1_WECKER_DI      "Wecker Dienstag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DI_H    "Weckzeit Dienstag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DI_M    "Weckzeit Dienstag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DI_RUN    "Wecker Dienstag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Mittwoch
+Switch PERSON1_WECKER_MI      "Wecker Mittwoch"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MI_H    "Weckzeit Mittwoch Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MI_M    "Weckzeit Mittwoch Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_MI_RUN    "Wecker Mittwoch Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Donnerstag
+Switch PERSON1_WECKER_DO      "Wecker Donnerstag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DO_H    "Weckzeit Donnerstag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DO_M    "Weckzeit Donnerstag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_DO_RUN    "Wecker Donnerstag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Freitag
+Switch PERSON1_WECKER_FR      "Wecker Freitag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_FR_H    "Weckzeit Freitag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_FR_M    "Weckzeit Freitag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_FR_RUN    "Wecker Freitag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Samstag
+Switch PERSON1_WECKER_SA      "Wecker Samstag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SA_H    "Weckzeit Samstag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SA_M    "Weckzeit Samstag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SA_RUN    "Wecker Samstag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+//Wecker Sonntag
+Switch PERSON1_WECKER_SO      "Wecker Sonntag"                  <clock>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SO_H    "Weckzeit Sonntag Stunde [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SO_M    "Weckzeit Sonntag Minute [%s]"    <calendar>	(gPERSON1Wecker)
+Number PERSON1_WECKER_SO_RUN    "Wecker Sonntag Laufzeit [%s]"    <clock>	(gPERSON1Wecker)
+Switch PERSON1_WECKER_AKTIV "Wecker PERSON1 Aktiv"  (gPERSON1Wecker)

@@ -1,0 +1,12 @@
+// val String filename = "fritzboxCall.rules"
+// rule"Anruf"
+// when
+// Item fboxRinging changed from OFF to ON
+// then
+// var String callNumber = new java.lang.String()
+// var String callNumberResolved = new java.lang.String()
+// callNumber = fboxIncomingCall.state.toString.replace("72843728,","")
+// callNumberResolved = fboxIncomingCallResolved.state.toString.replace("72843728,","")
+// logInfo("filename","Die Nummer "+callNumber+" ruft auf dem Festnetz an.")
+// sendBroadcastNotification("Die Nummer "+callNumber+" hat auf dem Festnetz angerufen. Telefonbucheintrag: " + callNumberResolved)
+// end

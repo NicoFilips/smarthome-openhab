@@ -1,0 +1,35 @@
+String SpotifyTextItem "Spotify - aktuelle Prozesse"
+Group echo1 "Echo Gerät im Wohnzimmer" <echo>
+Group echo2 "Echo Gerät im Schlafzimmer" <echo>
+Group AlleRaeume "Alle Spotify Geräte" <echo>
+
+String spotifydeviceName    "Gerätename"<name> {channel="spotify:player:55ae2cde:deviceName"}
+Dimmer spotifydeviceVolume "Lautstärke" <music> (echo1) {channel="spotify:device:55ae2cde:deviceVolume"}
+Player spotifyTrackPlayer   "Spotify Player"  <play>             {channel="spotify:player:55ae2cde:trackPlayer"}
+String spotifyDevices       "Aktive Geräte [%s]"   {channel="spotify:player:55ae2cde:devices"}
+Switch spotifyDeviceShuffle "Zufallige Wiedergabe"         {channel="spotify:player:55ae2cde:deviceShuffle"}
+String spotifyTrackRepeat   "Wiederholen? [%s]"    {channel="spotify:player:55ae2cde:trackRepeat"}
+String spotifyTrackProgress "Liedfortschritt: [%s]" <time> {channel="spotify:player:55ae2cde:trackProgress"}
+String spotifyTrackDuration "Lied Dauer: [%s]" <time> {channel="spotify:player:55ae2cde:tackDuration"}
+String spotifyTrackName     "Lied Name: [%s]"   <name>  {channel="spotify:player:55ae2cde:trackName"}
+String spotifyAlbumName     "Album Name: [%s]"  <name>   {channel="spotify:player:55ae2cde:albumName"}
+String spotifyArtistName    "Künstler Name: [%s]" <name>   {channel="spotify:player:55ae2cde:artistName"}
+Image  spotifyAlbumImage    "Album Art"            {channel="spotify:player:55ae2cde:albumImage"}
+String spotifyPlaylists     "Playlists [%s]"   <name>    {channel="spotify:player:55ae2cde:playlists"}
+String spotifyPlayName      "Playlist [%s]"    <name>   {channel="spotify:player:55ae2cde:playlistName"}
+String spotifyTrackPlay     "Welches Lied soll gespielt werden" <play>  {channel="spotify:player:55ae2cde:trackPlay"}
+
+String AlexaWZ_DeviceName  "Gerätename" (echo1) {channel="spotify:device:55ae2cde:5219:deviceName"}
+Player AlexaWZ_Player    "Spotify Player" <play> (echo1)  {channel="spotify:device:55ae2cde:5219:devicePlayer"}
+Dimmer AlexaWZ_DeviceVolume "Lautstärke" <music> (echo1) {channel="spotify:device:55ae2cde:5219:deviceVolume"}
+Switch AlexaWZ_DeviceShuffle "Zufällige Wiedergabe" (echo1){channel="spotify:device:55ae2cde:5219:deviceShuffle"}
+
+String AlexaSZ_DeviceName  "Gerätename"  (echo2){channel="spotify:device:55ae2cde:8e7e:deviceName"}
+Player AlexaSZ_Player   "Spotify Player"<play> (echo2)   {channel="spotify:device:55ae2cde:8e7e:devicePlayer"}
+Dimmer AlexaSZ_DeviceVolume  "Lautstärke" <music> (echo2) {channel="spotify:device:55ae2cde:8e7e:deviceVolume"}
+Switch AlexaSZ_DeviceShuffle "Zufällige Wiedergabe" (echo2) {channel="spotify:device:55ae2cde:8e7e:deviceShuffle"}
+
+String AlleRaume_Player_DeviceName  "Gerätename"(AlleRaeume)  {channel="spotify:device:55ae2cde:facd:deviceName"}
+Player AlleRaume_Player   "Spotify Player"  <play> (AlleRaeume)  {channel="spotify:device:55ae2cde:facd:devicePlayer"}
+Dimmer AlleRaume_DeviceVolume  "Lautstärke" <music> (AlleRaeume){channel="spotify:device:55ae2cde:facd:deviceVolume"}
+Switch AlleRaume_DeviceShuffle "Zufällige Wiedergabe" (AlleRaeume){channel="spotify:device:55ae2cde:facd:deviceShuffle"}

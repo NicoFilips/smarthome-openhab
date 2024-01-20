@@ -1,0 +1,17 @@
+String Astro "Astro und Temperaturen" <weather> 
+
+//Sonne
+DateTime Astro_sun_Starttime "Sonnenaufgang [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <ses-sun> {channel="astro:sun:local:rise#start"}
+DateTime Astro_sun_Stoptime "Sonnenuntergang [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <ses-sun> {channel="astro:sun:local:rise#end"}
+DateTime Astro_sun_eclipse "Die nächste Sonnenfinsternis [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <eclipse> {channel="astro:sun:local:eclipse#total"}
+//Mond
+DateTime Astro_moon_Starttime "Mondaufgang [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <halfmoon> {channel="astro:moon:local:rise#start"}
+DateTime Astro_moon_Stoptime "Monduntergang [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <halfmoon> {channel="astro:moon:local:rise#end"}
+DateTime Astro_moon_eclipse "Die nächste Mondfinsternis [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <eclipse> {channel="astro:moon:local:eclipse#total"}
+
+//Jahreszeiten
+String Astro_currSeason "Momentane Jahreszeit [MAP(map/astro.map):%s]" <ses>{channel="astro:sun:local:season#name"}
+DateTime Astro_spring "Zeistempel Frühling [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <ses-spring>    {channel="astro:sun:local:season#spring"}
+DateTime Astro_summer "Zeitstempel Sommer [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]" <ses-sun>    {channel="astro:sun:local:season#summer"}
+DateTime Astro_Autumn "Zeitstempel Herbst [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]"  <ses-leaf>    {channel="astro:sun:local:season#autumn"}
+DateTime Astro_Winter "Zeitstempel Winter [%1$td.%1$tm.%1$tY (%1$tH:%1$tM Uhr)]"   <winter>   {channel="astro:sun:local:season#winter"}

@@ -1,0 +1,44 @@
+//Fritzbox
+Switch  nw_fb_online "status" {channel="network:pingdevice:172_16_8_1:online"}
+Number nw_fb_ping "Pingzeit" {channel="network:pingdevice:172_16_8_1:latency"}
+DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel="network:pingdevice:172_16_8_1:lastseen"}
+
+Switch  nw_eD_online "status" {channel="network:pingdevice:172_16_8_1:online"}
+Number nw_eD_ping "Pingzeit" {channel="network:pingdevice:172_16_8_1:latency"}
+DateTime nw_eD_ls "Letzter erfolgreicher Ping [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" {channel="network:pingdevice:172_16_8_1:lastseen"}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}
+
+// Switch  nw_fb_online "status" {channel=""}
+// Number nw_fb_ping "Pingzeit" {channel=""}
+// DateTime nw_fb_ls "Letzter erfolgreicher Ping" {channel=""}

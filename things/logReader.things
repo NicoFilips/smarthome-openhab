@@ -1,0 +1,1 @@
+logreader:reader:############## "LogReader"@"Webserver"[ refreshRate=1000, errorPatterns="ERROR+", errorBlacklistingPatterns="annoying error which should ignored|Another annoying error which should ignored" ]

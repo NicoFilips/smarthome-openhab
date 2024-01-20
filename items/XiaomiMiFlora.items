@@ -1,0 +1,14 @@
+String gTxtXiaomiMiFlora "Xiaomi Miflora" <spring>
+// Mi Flora "FlowerCare" (A4:D7:E4:34:34:43)
+Group gMiflora "Mi Flora Sensor FlowerCare"   (gMiFlora, gUnknownRoom)
+Number MifloraSun "Sonnenlichteinstrahlung [%d lux]" <sun> (gUnknownRoomFlowerCare, gLightIntensity) {mqtt="<[openhabian:miflora/Flowercare:state:JSONPATH($.light)]"}
+Number  MifloraAirTemp "Luftfeuchtigkeit [%d %%]" <water> (gUnknownRoomFlowerCare, gAirTemperature) {mqtt="<[broker:miflora/Flowercare:state:JSONPATH($.temperature)]"}
+Number MifloraMois "Bodenfeuchtigkeit [%d %%]" <groundwater> (gUnknownRoomFlowerCare, gSoilMoisture) {mqtt="<[broker:miflora/Flowercare:state:JSONPATH($.moisture)]"}
+Number Miflorafertility "Bodenfruchtbarkeit [%d µS/cm]" <fertility> (gUnknownRoomFlowerCare, gSoilConductivity) {mqtt="<[broker:miflora/Flowercare:state:JSONPATH($.conductivity)]"}
+Number MifloraBL "Miflora Batterie Level [%1.0f%%]"<battery> (gUnknownRoomFlowerCare, gBattery, batteryManagement) {mqtt="<[broker:miflora/Flowercare:state:JSONPATH($.battery)]"}
+
+Number:Illuminance      Miflora_Light         "Lichtstärke Ficus [%d lx]"             <light>         { channel="mqtt:topic:MqttBroker:Flowercare:light" }
+Number:Dimensionless    Miflora_Battery       "Batterieladung Ficus [%d %%]"          <battery>       { channel="mqtt:topic:MqttBroker:Flowercare:battery" }
+Number:Temperature      Miflora_Temperature   "Lufttemperatur Ficus [%.1f °C]"        <temperature>   { channel="mqtt:topic:MqttBroker:Flowercare:temperature" }
+Number                  Miflora_Conductivity  "Bodenfruchtbarkeit Ficus [%d µS/cm]"   <lawnmower>     { channel="mqtt:topic:MqttBroker:Flowercare:conductivity" }
+Number:Dimensionless    Miflora_Moisture      "Bodenfeuchtigkeit Ficus [%d %%]"       <humidity>      { channel="mqtt:topic:MqttBroker:Flowercare:moisture" }

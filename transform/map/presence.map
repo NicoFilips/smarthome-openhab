@@ -1,0 +1,4 @@
+OPEN=aktiv
+CLOSED=nicht aktiv
+NULL=lese Daten ...
+-=warte auf Verbindung

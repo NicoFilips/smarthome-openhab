@@ -1,0 +1,12 @@
+Group batteryManagement "Energiestatus aller Sensoren und Geräte" <battery>
+
+Number gLightsOffset "Maximale Licht 'AN'-Dauer" (globVars)
+Number gPresetTemperature "Temperatur Voreinstellung" (globVars) 
+Number gMotionOffset "Bewegungs Licht 'AN'-Dauer" (globVars)
+Number gWindowOffset "Fenstertimer Dauer" (globVars)
+Switch sendWAMes "Whatsapp Nachrichten erlauben:" (globVars)
+Switch sendPushMes "Push Nachrichten erlauben:" (globVars)
+Number PERSON1_WECKER_PRESETS "Weckervoreinstellungen Laden"			<calendar>	(globVars, gPERSON1Wecker)
+Switch EnderApi "Drucker API abfrage" (globVars)
+
+Switch SystemStarted "Systemstart"

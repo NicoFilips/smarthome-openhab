@@ -1,0 +1,130 @@
+String AlexaTTS "Lass Alexa sprechen:"
+String AlexaEchoChoose "Welcher Echo soll sprechen?" <speakBubble>
+
+String AlexaAZ_TTS "Text To Speech beide"
+Group  AlexaSZ  "Alexa im Schlafzimmer" <echo>
+Group  AlexaWZ  "Alexa im Wohnzimmer" <echo>
+
+Group:String AlexaAZ_LVC
+Group AlexaAZ_Volume "Lautstärke der Geräte" <soundvolume>
+
+// Playersteuerung
+Player AlexaWZ_Player               "Musikwiedergabe"   <play>                         (AlexaWZ)              {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:player"}
+Dimmer AlexaWZ_MedProg              "Wiedergabe [%.0f %%]" <fastfor> (AlexaWZ)                                         {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:mediaProgress"}
+Number:Time AlexaWZ_MedProgTime    "Wiedergabefortschritt in Sekunden [%.0f Sekunden]"         <fastfor>                                       {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:mediaProgressTime"}
+Number:Time AlexaWZ_MedProgLength  "von einer Gesamtlänge von [%.0f Sekunden]"    <fastfor>                                           {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:mediaLength"}
+Dimmer AlexaWZ_Volume               "Lautstärke [%.0f %%]" <soundvolume>    (AlexaWZ, AlexaAZ_Volume)   {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:volume"}
+Switch AlexaWZ_Shuffle              "Zufällige Wiedergabe"    <shuffle>                       (AlexaWZ)               {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:shuffle"}
+
+//DJ
+Number AlexaWZ_HPF                "High Pass Fader [%.0f %%]"           <fader>                     (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:equalizerTreble"}
+Number AlexaWZ_MPF              "Mid Pass Fader [%.0f %%]"          <fader>                    (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:equalizerMidrange"}
+Number AlexaWZ_LPF                  "Low Pass Fader [%.0f %%]"        <fader>                          (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:equalizerBass"}
+
+// Playerinformationen
+String AlexaWZ_ImageUrl             "Bild URL"                        (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:imageUrl"}
+String AlexaWZ_Title                "Musiktitel"     <todo>                        (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:title"}
+String AlexaWZ_Subtitle1            "Interpret"          <todo>              (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:subtitle1"}
+String AlexaWZ_Subtitle2            "Musikgenre/Playlist:"      <todo>                  (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:subtitle2"}
+String AlexaWZ_ProviderDisplayName  "Musikquelle"    <music>                      (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:providerDisplayName"}
+
+// Music provider and start command
+String AlexaWZ_MusicProviderId      "Musikanbieter auswählen" <music>                (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:musicProviderId"}
+String AlexaWZ_PlayMusicCommand     "Play music voice command (Write Only)" (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:playMusicVoiceCommand"}
+String AlexaWZ_StartCommand         "Start Information" (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:startCommand"}
+
+// TuneIn Radio
+String AlexaWZ_RadioStationId       "Radiosender auswählen"     <tv>      (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:radioStationId"}
+Switch AlexaWZ_Radio                "An/Aus"                      (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:radio"}
+
+// Amazon Music
+String AlexaWZ_AmazonMusicTrackId    "Track name:"     <amazon>       (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:amazonMusicTrackId"}
+String AlexaWZ_AmazonMusicPlayListId "Momentane gespielte Playlist:" <amazon> (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:amazonMusicPlayListId"}
+Switch AlexaWZ_AmazonMusic           "Amazon Musik"                     (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:amazonMusic"}
+
+// Bluetooth
+String AlexaWZ_BluetoothMAC          "Bluetooth MAC Address" <bluetooth> (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:bluetoothMAC"}
+Switch AlexaWZ_Bluetooth            "Bluetooth"        <bluetooth>      (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:bluetooth"}
+String AlexaWZ_BluetoothDeviceName  "Bluetooth Device" <bluetooth>      (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:bluetoothDeviceName"}
+
+// Commands
+String AlexaWZ_TTS                "Text to Speech"  <tts>(AlexaAZ_TTS)                         {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:textToSpeech"}
+String AlexaWZ_TTSVol             "Text to Speech - Lautstärke"   (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:textToSpeechVolume"}
+String AlexaWZ_Remind                "Erinnerungen"    <todo>                       (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:remind"}
+String AlexaWZ_PlayAlarmSound         "Alarmton"        <alarm>                   (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:playAlarmSound"}
+String AlexaWZ_StartRoutine         "Routine starten"    <routine>                       (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:startRoutine"}
+String AlexaWZ_lastVoiceCMD         "Letztes Kommando" (AlexaWZ,AlexaAZ_LVC) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:lastVoiceCommand"}
+Dimmer AlexaWZ_NotificationVol      "Benachrichtigungslautstärke" <music> (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:notificationVolume"}
+
+String AlexaWZ_artist "Musikartist" <mic> {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:musicProviderId"}
+String AlexaWZ_speakCmd "Musik Sprachbefehl"<bluetooth> {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:playMusicVoiceCommand"}
+String AlexaWZ_start "Modus starten"  <play> {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:startCommand"}
+String AlexaWZ_BLE "Bluetooth Verbindung" <bluetooth> {channel="amazonechocontrol:echo:AmazonDevAccount:echo1:bluetoothMAC"}
+
+// Flashbriefings --------------------------------------------------------------------------------------------------------------------------------------------
+
+Switch FlashBriefing_Technical_Save  "Speichern (Nur schreiben)" { channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing1:save"} 
+Switch FlashBriefing_Technical_Active "Aktiv" { channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing1:active"}
+String FlashBriefing_Technical_Play "Momentaner Flashbrief" <lifestyle> { channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing1:playOnDevice"}
+
+Switch FlashBriefing_LifeStyle_Save2  "Speichern (Nur schreiben)" { channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing2:save"} 
+Switch FlashBriefing_LifeStyle_Active2 "Aktiv" { channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing2:active"}
+String FlashBriefing_LifeStyle_Play2 "Momentaner Flashbrief" <settings>{ channel="amazonechocontrol:flashbriefingprofile:AmazonDevAccount:flashbriefing2:playOnDevice"}
+
+
+
+//2. Echo Dot -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Playersteuerung
+Player AlexaSZ_Player               "Musikwiedergabe"          <play>                  (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:player"}
+Dimmer AlexaSZ_MedProg              "Wiedergabe [%.0f %%]" <fastfor> (AlexaSZ)                                         {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:mediaProgress"}
+Dimmer AlexaSZ_Volume               "Lautstärke [%.0f %%]" <soundvolume>    (AlexaSZ, AlexaAZ_Volume) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:volume"}
+Switch AlexaSZ_Shuffle              "Nächstes Lied"          <shuffle>                 (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:shuffle"}
+Number:Time AlexaSZ_MedProgTime    "Wiedergabefortschritt in Sekunden [%.0f Sekunden]"         <fastfor>                                       {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:mediaProgressTime"}
+Number:Time AlexaSZ_MedProgLength  "von einer Gesamtlänge von [%.0f Sekunden]"    <fastfor>                                           {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:mediaLength"}
+
+//DJ
+Number AlexaSZ_HPF                "High Pass Fader [%.0f %]"           <fader>                     (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:equalizerTreble", autoUpdate="false"}
+Number AlexaSZ_MPF              "Mid Pass Fader [%.0f %]"          <fader>                    (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:equalizerMidrange"}
+Number AlexaSZ_LPF                  "Low Pass Fader [%.0f %]"        <fader>                          (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:equalizerBass"}
+
+
+// Playerinformationen
+String AlexaSZ_ImageUrl             "Bild URL"                         (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:imageUrl"}
+String AlexaSZ_Title                "Titel"          <todo>                   (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:title"}
+String AlexaSZ_Subtitle1            "Untertitel 1"            <todo>            (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:subtitle1"}
+String AlexaSZ_Subtitle2            "Untertitel 2"       <todo>                 (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:subtitle2"}
+String AlexaSZ_ProviderDisplayName  "Musikquelle"  <music>                          (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:providerDisplayName"}
+
+// Music provider and start command
+String AlexaSZ_MusicProviderId      "Music Artist Id"                 (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:musicProviderId"}
+String AlexaSZ_PlayMusicCommand     "Play music voice command (Write Only)" (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:playMusicVoiceCommand"}
+String AlexaSZ_StartCommand         "Start Information" (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:startCommand"}
+
+// TuneIn Radio
+String AlexaSZ_RadioStationId       "Radio"      <tv>     (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:radioStationId"}
+Switch AlexaSZ_Radio                "An/Aus"                      (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:radio"}
+
+// Amazon Music
+String AlexaSZ_AmazonMusicTrackId    "Track name:"      <amazon>      (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:amazonMusicTrackId"}
+String AlexaSZ_AmazonMusicPlayListId "Momentane gespielte Playlist:" <amazon> (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:amazonMusicPlayListId"}
+Switch AlexaSZ_AmazonMusic           "Amazon Music"                     (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:amazonMusic"}
+
+// Bluetooth
+String AlexaSZ_BluetoothMAC          "Bluetooth MAC Address" <bluetooth> (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:bluetoothMAC"}
+Switch AlexaSZ_Bluetooth            "Bluetooth"        <bluetooth>      (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:bluetooth"}
+String AlexaSZ_BluetoothDeviceName  "Bluetooth Device" <bluetooth>      (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:bluetoothDeviceName"}
+
+// Commands
+String AlexaSZ_TTS                "Text to Speech"  <mic>     (AlexaAZ_TTS)                    {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:textToSpeech"}
+String AlexaSZ_TTSVol             "Text to Speech - Lautstärke"   (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:textToSpeechVolume"}
+String AlexaSZ_Remind                "Erinnerungen"         <todo>                  (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:remind"}
+String AlexaSZ_PlayAlarmSound         "Alarmton"        <alarm>                   (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:playAlarmSound"}
+String AlexaSZ_StartRoutine         "Routine starten"                           (AlexaSZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:startRoutine"}
+String AlexaSZ_lastVoiceCMD         "Letztes Kommando" (AlexaWZ, AlexaAZ_LVC) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:lastVoiceCommand"}
+Dimmer AlexaSZ_NotificationVol      "Benachrichtigungslautstärke" <music> (AlexaWZ) {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:notificationVolume"}
+
+String AlexaSZ_artist "Musikartist" <bluetooth> {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:musicProviderId"}
+String AlexaSZ_speakCmd "Musik Sprachbefehl"<bluetooth> {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:playMusicVoiceCommand"}
+String AlexaSZ_start "Modus Start"  <play> {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:startCommand"}
+String AlexaSZ_BLE "Bluetooth Verbindung" <bluetooth> {channel="amazonechocontrol:echo:AmazonDevAccount:echo2:bluetoothMAC"}

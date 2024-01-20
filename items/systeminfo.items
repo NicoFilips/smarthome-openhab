@@ -1,0 +1,101 @@
+//Physical Memory
+Number SI_RAM_total    "Gesamter Arbeitsspeicher"  <ram>    {channel="systeminfo:computer:smarthome:memory#total"}
+Number SI_RAM_available  "Verfügbarer Arbeitsspeicher" <ram>   {channel="systeminfo:computer:smarthome:memory#available"}
+Number SI_RAM_use      "Benutzter Arbeitsspeicher"  <ram>    {channel="systeminfo:computer:smarthome:memory#used"}
+Number SI_RAM_availableP "Verfügbarer Arbeitsspeicher in Prozent" <percentage>    {channel="systeminfo:computer:smarthome:memory#availablePercent"}
+Number SI_RAM_useP "Benutzter Arbeitsspeicher in Prozent"  <percentage>        {channel="systeminfo:computer:smarthome:memory#usedPercent"}
+//CPU
+String SI_CPU_Temp "CPU Temperatur" <cpu> {channel="systeminfo:computer:smarthome:sensors#cpuTemp"} 
+String SI_CPU_name "CPU Name" <cpu> {channel="systeminfo:computer:smarthome:cpu#name"}
+Number SI_CPU_load "CPU Auslastung in %"  <cpu> {channel="systeminfo:computer:smarthome:cpu#load"}
+Number SI_CPU_Volt "CPU Stromlast" <cpu> {channel="systeminfo:computer:smarthome:sensors#cpuVoltage"}
+Number SI_CPU_thr "Momentan ausgeführte Threads" {channel="systeminfo:computer:smarthome:process#threads"}
+//network
+String SI_nt_IP "IPv4 Adresse"  <browser>    {channel="systeminfo:computer:smarthome:network#ip"}
+String SI_nt_nn "Netzwerkschnittstelle"    <name>      {channel="systeminfo:computer:smarthome:network#networkName"}
+String SI_nt_dn "Angezeigter Name"  <name>    {channel="systeminfo:computer:smarthome:network#networkDisplayName"}
+String SI_nt_mac "MAC Adresse"    <browser>      {channel="systeminfo:computer:smarthome:network#mac"}
+//Speicher
+Number SI_st_t  "Gesamtspeicher"  <sd>  {channel="systeminfo:computer:smarthome:storage#total"}
+Number SI_st_av "Verfügbarer Speicher" <sd>{channel="systeminfo:computer:smarthome:storage#available"}
+Number SI_st_u "Benutzter Speicher"  <sd>   {channel="systeminfo:computer:smarthome:storage#used"}
+Number SI_st_avP "Verfügbarer Speicher in Prozent" <percentage> {channel="systeminfo:computer:smarthome:storage#availablePercent"}
+Number SI_st_uP "Benutzter Speicher in Prozent"<percentage> {channel="systeminfo:computer:smarthome:storage#usedPercent"}
+Number SI_st_n "Name"      <name>                 {channel="systeminfo:computer:smarthome:storage#name"}
+//traffic
+Number SI_tr_pS "Anzahl versendeter Pakete: [%d Packete]" <packet> {channel="systeminfo:computer:smarthome:network#packetsSent"}
+Number SI_tr_pR "Anzahl bekommener Pakete: [%d Packete]" <packet> {channel="systeminfo:computer:smarthome:network#packetsReceived"}
+Number SI_tr_dS "versendete Daten: " <usb> {channel="systeminfo:computer:smarthome:network#dataSent"}
+Number SI_tr_dR "bekommene Daten: " <usb>{channel="systeminfo:computer:smarthome:network#dataReceived"}
+
+
+//TODO: 
+/*
+String Network_AdapterName          { channel="systeminfo:computer:work:network#networkDisplayName" }
+String Network_Name                 { channel="systeminfo:computer:work:network#networkName" }
+String Network_IP                   { channel="systeminfo:computer:work:network#ip" }
+String Network_Mac                  { channel="systeminfo:computer:work:network#mac" }
+Number Network_DataSent             { channel="systeminfo:computer:work:network#dataSent" }
+Number Network_DataRecevied         { channel="systeminfo:computer:work:network#dataReceived" }
+Number Network_PacketsSent         { channel="systeminfo:computer:work:network#packetsSent" }
+Number Network_PacketsRecevied     { channel="systeminfo:computer:work:network#packetsReceived" }
+
+ CPU information
+String CPU_Name                     { channel="systeminfo:computer:work:cpu#name" }
+String CPU_Description              { channel="systeminfo:computer:work:cpu#description" }
+Number CPU_Load                     { channel="systeminfo:computer:work:cpu#load"}
+Number CPU_Load1                    { channel="systeminfo:computer:work:cpu#load1" }
+Number CPU_Load5                    { channel="systeminfo:computer:work:cpu#load5" }
+Number CPU_Load15                   { channel="systeminfo:computer:work:cpu#load15" }
+Number CPU_Threads                  { channel="systeminfo:computer:work:cpu#threads" }
+Number CPU_Uptime                   { channel="systeminfo:computer:work:cpu#uptime" }
+
+ Drive information
+String Drive_Name                    { channel="systeminfo:computer:work:drive#name" }
+String Drive_Model                   { channel="systeminfo:computer:work:drive#model" }
+String Drive_Serial                  { channel="systeminfo:computer:work:drive#serial" }
+
+Storage information
+String Storage_Name                  { channel="systeminfo:computer:work:storage#name" }
+String Storage_Type                  { channel="systeminfo:computer:work:storage#type" }
+String Storage_Description           { channel="systeminfo:computer:work:storage#description" }
+Number Storage_Available             { channel="systeminfo:computer:work:storage#available" }
+Number Storage_Used                  { channel="systeminfo:computer:work:storage#used" }
+Number Storage_Total                 { channel="systeminfo:computer:work:storage#total" }
+Number Storage_Available_Percent     { channel="systeminfo:computer:work:storage#availablePercent" }
+Number Storage_Used_Percent          { channel="systeminfo:computer:work:storage#usedPercent" }
+
+//Memory information
+Number Memory_Available              { channel="systeminfo:computer:work:memory#available" }
+Number Memory_Used                   { channel="systeminfo:computer:work:memory#used" }
+Number Memory_Total                  { channel="systeminfo:computer:work:memory#total" }
+Number Memory_Available_Percent      { channel="systeminfo:computer:work:memory#availablePercent" }
+Number Memory_Used_Percent           { channel="systeminfo:computer:work:memory#usedPercent" }
+
+ Swap memory information
+Number Swap_Available                { channel="systeminfo:computer:work:swap#available" }
+Number Swap_Used                     { channel="systeminfo:computer:work:swap#used" }
+Number Swap_Total                    { channel="systeminfo:computer:work:swap#total" }
+Number Swap_Available_Percent        { channel="systeminfo:computer:work:swap#availablePercent" }
+Number Swap_Used_Percent             { channel="systeminfo:computer:work:swap#usedPercent" }
+
+ Battery information
+String Battery_Name                  { channel="systeminfo:computer:work:battery#name" }
+Number Battery_RemainingCapacity     { channel="systeminfo:computer:work:battery#remainingCapacity" }
+Number Battery_RemainingTime         { channel="systeminfo:computer:work:battery#remainingTime" }
+
+ Display information
+String Display_Description           { channel="systeminfo:computer:work:display#information" }
+
+Sensors information
+Number Sensor_CPUTemp                { channel="systeminfo:computer:work:sensors#cpuTemp" }
+Number Sensor_CPUVoltage             { channel="systeminfo:computer:work:sensors#cpuVoltage" }
+Number Sensor_FanSpeed               { channel="systeminfo:computer:work:sensors#fanSpeed" }
+
+Process information
+Number Process_load                  { channel="systeminfo:computer:work:process#load" }
+Number Process_used                  { channel="systeminfo:computer:work:process#used" }
+String Process_name                  { channel="systeminfo:computer:work:process#name" }
+Number Process_threads               { channel="systeminfo:computer:work:process#threads" }
+String Process_path                  { channel="systeminfo:computer:work:process#path" }
+*/

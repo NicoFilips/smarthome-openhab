@@ -1,0 +1,3 @@
+Bridge openweathermap:weather-api:api "OpenWeatherMap API-Account" [apikey="##############", refreshInterval=30, language="de"] {
+    Thing weather-and-forecast current "Augsburger Wetter" [location="48.37,10.88", forecastHours=24, forecastDays=7]
+}

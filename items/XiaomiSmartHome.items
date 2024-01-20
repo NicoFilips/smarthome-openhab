@@ -1,0 +1,130 @@
+ String gTxtXiaomiSmartHome "Xiaomi Smart-Home" <smarthome>
+ //Gruppen
+ Group gGateway "Xiaomi Aqara Gateway v2" <xiaomi>
+  Group gSwitch "Alle Lichtschalter" <switch1>
+  Group gSwitch1 "Lichtschalter im Flur" <switch1>
+  Group gSwitch2 "Lichtschalter im Wohnzimmer" <switch1>
+  Group gSwitch3 "Lichtschalter im Schlafzimmer" <switch1>
+
+  Group gTemp1 "Temperatursensor im Wohnzimmer" <thermo>
+  Group gTemp2 "Temperatursensor im Schlafzimmer" <thermo>
+  Group gTemp3 "Temperatursensor im Heizungskeller" <thermo>
+ 
+  Group gCube1 "Wohnzimmer Aqara Würfel"
+ Group gCube2 "Schlafzimmer Aqara Würfel"
+
+ Group gDoor1 "Türsensor im Heizungskeller" <door>
+Group gDoor2 "Fenstersensor im Schlafzimmer" <door>
+Group gDoor3 "Fenstersensor im Wohnzimmer" <door>
+
+ Group gMotion "1. Bewegungsmelder im Flur" <motion>
+  Group gMotion2 "2. Bewegungsmelder im Flur" <motion>
+    Group gMotion3 "Bewegungsmelder im Waschraum" <motion>
+
+Group gVibration "Vibrationssensor für Nero" <cat>
+ //Gateway
+ Switch XGateway_joinDev "Gerät hinzufügen" (gGateway) {channel="mihome:gateway:joinPermission"}
+ Dimmer XGateway_b "Helligkeit [%d %%]"  (gBrightness, gLights, gGateway, gFlurlicht)            {channel="mihome:gateway:brightness", autoupdate="false"}
+ Number XGateway_i "Illumination"   <arilux>   (gGateway)      {channel="mihome:gateway:illumination", autoupdate="false"}
+ Color XGateway_c "Farbe" (gColor, gGateway)           {channel="mihome:gateway:color", autoupdate="false"}
+ Dimmer XGateway_ct "Farbtemperatur"   (gGateway)      {channel="mihome:gateway:colorTemperature", autoupdate="false"}
+ Switch XGateway_Soundoff "Musik aus"   (gGateway)     {channel="mihome:gateway:enableSound", autoupdate="false"}
+ Number XGateway_SoundSelect "Musik auswahl" <music>(gGateway) {channel="mihome:gateway:sound", autoupdate="false"}
+ Dimmer XGateway_SoundVol "Lautstärke" <soundvolume> (gGateway)     {channel="mihome:gateway:volume", autoupdate="false"}
+		
+ //Switches 
+ Switch Virt_XSwitch1 "Flurlichtschalter virtuell drücken"
+ Number XSwitch1_bl "Flur Lichtschalter Batterie level [%1.0f%%]" <battery> (gSwitch1, batteryManagement) {channel="mihome:sensor_switch_aq2:batteryLevel"}
+ Switch XSwitch1_lb "Niedrige Batterie" <energy> (gSwitch1, batteryManagement) {channel="mihome:sensor_switch_aq2:lowBattery"}
+
+ Switch Virt_XSwitch2 "Schlafzimmerlichtschalter virtuell drücken"
+ Number XSwitch2_bl "Schlafzimmer Lichtschalter Batterie level [%1.0f%%]" <battery> (gSwitch2,batteryManagement) {channel="mihome:sensor_switch_aq2:batteryLevel"}
+ Switch XSwitch2_lb "Niedrige Batterie" <energy> (gSwitch2,batteryManagement) {channel="mihome:sensor_switch_aq2:lowBattery"}
+
+ Switch Virt_XSwitch3 "Wohnzimmerlichtschalter virtuell drücken"
+ Number XSwitch3_bl "Wohnzimmer Lichtschalter Batterie level [%1.0f%%]" <battery> (gSwitch3,batteryManagement) {channel="mihome:sensor_switch_aq2:batteryLevel"}
+ Switch XSwitch3_lb "Niedrige Batterie" <energy> (gSwitch3,batteryManagement) {channel="mihome:sensor_switch_aq2:lowBattery"}
+
+ //Temperatur
+ Number XTemperatur_temp1  "Wohnzimmer Temperatur [%.1f °C]"  <temperature> (gTemp, gTemp1) ["CurrentTemperature"]   {channel="mihome:sensor_weather_v1:temperature"} 
+ Number XTemperatur_humidity1 "Luftfeuchtigkeit Wohnzimmer [%d %%]" <water> (gTemp1) {channel="mihome:sensor_weather_v1:humidity"}
+ Number XTemperatur_pressure1  "Luftdruck Wohnzimmer [%.1f hPa]"<pressure> (gTemp1){channel="mihome:sensor_weather_v1:pressure"}
+ Number XTemperatur_bl1 "Wohnzimmer Temperatursensor Batterie level [%1.0f%%]" <battery> (gTemp1,batteryManagement){channel="mihome:sensor_weather_v1:batteryLevel"}
+ Switch XTemperatur_lb1 "Niedrige Batterie" <energy> (gTemp1,batteryManagement){channel="mihome:sensor_weather_v1:lowBattery"}
+
+ Number XTemperatur_temp2  "Schlafzimmer Temperatur [%.1f °C]"   <temperature>  (gTemp,gTemp2) ["CurrentTemperature"] {channel="mihome:sensor_weather_v1:temperature"} 
+ Number XTemperatur_humidity2  "Luftfeuchtigkeit Schlafzimmer [%d %%]"<water> (gTemp2) {channel="mihome:sensor_weather_v1:humidity"}
+ Number XTemperatur_pressure2  "Luftdruck Schlafzimmer [%.1f hPa]"<pressure>(gTemp2) {channel="mihome:sensor_weather_v1:pressure"}
+ Number XTemperatur_bl2 "Schlafzimmer Temperatursensor Batterie level [%1.0f%%]" <battery> (gTemp2,batteryManagement){channel="mihome:sensor_weather_v1:batteryLevel"}
+ Switch XTemperatur_lb2 "Niedrige Batterie" <energy> (gTemp2,batteryManagement){channel="mihome:sensor_weather_v1:lowBattery"}
+
+ Number XTemperatur_temp3  "Heizungskeller Temperatur [%.1f °C]"  <temperature>  (gTemp, gTemp3) ["CurrentTemperature"] {channel="mihome:sensor_weather_v1:temperature"} 
+ Number XTemperatur_humidity3  "Luftfeuchtigkeit Heizungskeller [%d %%] "<water>(gTemp3) {channel="mihome:sensor_weather_v1:humidity"}
+ Number XTemperatur_pressure3  "Luftdruck Heizungskeller [%.1f hPa]"<pressure>(gTemp3) {channel="mihome:sensor_weather_v1:pressure"}
+ Number XTemperatur_bl3 "Heizungskeller Temperatursensor Batterie level [%1.0f%%]" <battery>(gTemp3,batteryManagement) {channel="mihome:sensor_weather_v:batteryLevel"}
+ Switch XTemperatur_lb3 "Niedrige Batterie" <energy> (gTemp3,batteryManagement){channel="mihome:sensor_weather_v1::lowBattery"}
+
+ //Aqara Cubes
+ Number Cube_RotationAngle1 "Wohnzimmer Würfeldrehung [%d %%]" <cube> (gCube1) { channel="mihome:sensor_cube:rotationAngle" }
+ Number Cube_RotationTime1 "Wohnzimmer Würfeldrehungszeit" <twisttime> (gCube1) { channel="mihome:sensor_cube:rotationTime" }
+ Number Cube_Battery1 "Wohnzimmer Würfel Batterie Level [%1.0f%%]" <battery> (gCube1,batteryManagement) { channel="mihome:sensor_cube:batteryLevel" }
+ Switch Cube_BatteryLow1 "Niedrige Batterie" <energy> (gCube1,batteryManagement)  { channel="mihome:sensor_cube:lowBattery" }
+
+ Number Cube_RotationAngle2 "Schlafzimmer Würfeldrehung [%d %%]" <cube>  (gCube2){ channel="mihome:sensor_cube:rotationAngle" }
+ Number Cube_RotationTime2 "Schlafzimmer Würfeldrehungszeit" <twisttime> (gCube2){ channel="mihome:sensor_cube:rotationTime" }
+ Number Cube_Battery2 "Schlafzimmer Würfel Batterie Level [%1.0f%%]" <battery> (gCube2,batteryManagement) { channel="mihome:sensor_cube:batteryLevel" }
+ Switch Cube_BatteryLow2 "Niedrige Batterie" <energy> (gCube2,batteryManagement) { channel="mihome:sensor_cube:lowBattery" }
+
+ //Door/window Sensor heizungskeller
+ Contact Door_Openstatus1 "geöffneter Zustand" (gDoor1) { channel="mihome:sensor_magnet:isOpen"}
+ DateTime Door_lastopened1 "Letztes mal geöffnet [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <time> (gDoor) { channel="mihome:sensor_magnet:lastOpened"}
+ Number Door_Alarm1 "Alarm Timer" (gDoor1) { channel="mihome:sensor_magnet:isOpenAlarmTimer"}
+ Number Door_Bl1 "Heizungskeller Türsensor Batterie Level [%1.0f%%]" <battery> (gDoor1,batteryManagement) { channel="mihome:sensor_magnet:batteryLevel"}
+ Switch Door_lb1 "Niedrige Batterie" <energy> (gDoor1,batteryManagement) { channel="mihome:sensor_magnet:lowBattery"}
+
+//Door/Window Sensor Schlafzimmer
+ Contact Door_Openstatus2 "geöffneter Zustand" (gDoor2) { channel="mihome:sensor_magnet_aq2:isOpen"}
+ DateTime Door_lastopened2 "Letztes mal geöffnet [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <time> (gDoor2) { channel="mihome:sensor_magnet:lastOpened"}
+ Number Door_Alarm2 "Alarm Timer" (gDoor2) { channel="mihome:sensor_magnet:isOpenAlarmTimer"}
+ Number Door_Bl2 "Schlafzimmer Fenstersensor Batterie Level [%1.0f%%]" <battery> (gDoor2,batteryManagement) { channel="mihome:sensor_magnet:batteryLevel"}
+ Switch Door_lb2 "Niedrige Batterie" <energy> (gDoor2,batteryManagement) { channel="mihome:sensor_magnet:lowBattery"}
+ 
+ //Door/Window Sensor Wohnzimmer
+ Contact Door_Openstatus3 "geöffneter Zustand" (gDoor3) { channel="mihome:sensor_magnet_aq2:isOpen"}
+ DateTime Door_lastopened3 "Letztes mal geöffnet [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <time> (gDoor3) { channel="mihome:sensor_magnet:lastOpened"}
+ Number Door_Alarm3 "Alarm Timer" (gDoor3) { channel="mihome:sensor_magnet:isOpenAlarmTimer"}
+ Number Door_Bl3 "Wohnzimmer Fenstersensor Fenstersensor Batterie Level [%1.0f%%]" <battery> (gDoor3,batteryManagement) { channel="mihome:sensor_magnet:batteryLevel"}
+ Switch Door_lb3 "Niedrige Batterie" <energy> (gDoor3,batteryManagement) { channel="mihome:sensor_magnet:lowBattery"}
+
+  //Motion Sensor
+  //Flur1
+  Switch Motion_status "Momentaner Status" (gMotion) {channel="mihome:sensor_motion:motion"}
+  Number Motion_OffTimer "Bewegungstimer" (gMotion){channel="mihome:sensor_motion::motionOffTimer"}
+  DateTime Motion_LastActivity "Letzte Aktivität [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" (gMotion){channel="mihome:sensor_motion:lastMotion"}
+  Number Motion_Bl "Flur Bewegungsmelder Batterie Level [%1.0f%%]" <battery> (gMotion,batteryManagement){channel="mihome:sensor_motion:batteryLevel"}
+  Switch Motion_lb "Niedrige Batterie" <energy> (gMotion,batteryManagement) {channel="mihome:sensor_motion:lowBattery"}
+
+//Flur2
+  Switch Motion_status2 "Momentaner Status" (gMotion2) {channel="mihome:sensor_motion:motion"}
+  Number Motion_OffTimer2 "Bewegungstimer" (gMotion2){channel="mihome:sensor_motion:motionOffTimer"}
+  DateTime Motion_LastActivity2 "Letzte Aktivität [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" (gMotion2){channel="mihome:sensor_motion:lastMotion"}
+  Number Motion_Bl2 "Flur Bewegungsmelder Batterie Level [%1.0f%%]" <battery> (gMotion,batteryManagement){channel="mihome:sensor_motion:batteryLevel"}
+  Switch Motion_lb2 "Niedrige Batterie" <energy> (gMotion,batteryManagement) {channel="mihome:sensor_motion:lowBattery"}
+
+//Waschraum
+  Switch Motion_status3 "Momentaner Status" (gMotion3) {channel="mihome:sensor_motion:motion"}
+  Number Motion_illumination "Illumination" (gMotion3) {channel="mihome:sensor_motion_aq2:illumination"}
+  Number Motion_OffTimer3 "Bewegungstimer" (gMotion3){channel="mihome:sensor_motion:motionOffTimer"}
+  DateTime Motion_LastActivity3 "Letzte Aktivität [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" (gMotion){channel="mihome:sensor_motion:lastMotion"}
+  Number Motion_Bl3 "Flur Bewegungsmelder Batterie Level [%1.0f%%]" <battery> (gMotion,batteryManagement){channel="mihome:sensor_motion:batteryLevel"}
+  Switch Motion_lb3 "Niedrige Batterie" <energy> (gMotion,batteryManagement) {channel="mihome:sensor_motion:lowBattery"}
+
+//Vibrationssensor
+DateTime Vib_lastAct "Letzte Bewegung [%1$td.%1$tm.%1$tY, %1$tH:%1$tM Uhr]" <cat> {channel="mihome:sensor_vibration:lastAction"}
+Number Vib_TiltAngle "Neigungsgrad" <angle> {channel="mihome:sensor_vibration:tiltAngle"}
+Number Vib_X "X-Achsen Bewegung" <x> {channel="mihome:sensor_vibration:orientationX"}
+Number Vib_Y "Y-Achsen Bewegung" <y>{channel="mihome:sensor_vibration:orientationY"}
+Number Vib_Z "Z-Achsen Bewegung" <z>{channel="mihome:sensor_vibration:orientationZ"}
+Number Vib_BedAct "Bett aktivität" <bedlevel>{channel="mihome:sensor_vibration:bedActivity"}
+Number Vib_Bl "Waschraum Vibrationssensor Batterie level [%1.0f%%]" <battery>(batteryManagement){channel="mihome:sensor_vibration:batteryLevel"}
+Switch Vib_lb "Niedrige Batterie"  <energy>(batteryManagement){channel="mihome:sensor_vibration:lowBattery"}

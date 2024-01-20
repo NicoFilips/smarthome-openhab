@@ -1,0 +1,6 @@
+Switch wol_rechner "Mein PC"  <pc>  {wol="172.16.8.255#05:54:34:54:gr:45"}
+Switch wol_fernseher "Mein Fernseher" <screen>   {wol="172.16.8.32#05:54:34:54:gr:45"}
+Switch wol_Octoprint "Mein 3D Drucker" <nozzle>   {wol="172.16.8.32##05:54:34:54:gr:45"}
+Switch wol_drucker "Epson Netzwerkdrucker" <printer>  {wol="172.16.8.32#05:54:34:54:gr:45"}
+Switch wol_MamaPC "Eltern Arbeits PC" <pc> {wol="172.16.8.32#05:54:34:54:gr:45"}
+Switch wol_ps4 "Sony Playstation 4" <ps4> {wol="172.16.8.32#05:54:34:54:gr:45"}

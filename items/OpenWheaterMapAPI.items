@@ -1,0 +1,57 @@
+
+Group OWM "Wettervorhersage: (OWM)" <sun_clouds>
+
+Group owmStation "Wetterstation der Wettervorhersagen" <sun>
+Group owmCurrent "Wetterbedingungen in Augsburg" <sun>
+//------------ Vohersagen ------------
+Group owm3hpredictions "Wettervorhersage (in 3 Stunden)"
+Group owm6hpredictions "Wettervorhersage (in 6 Stunden)"
+Group owm9hpredictions "Wettervorhersage (in 9 Stunden)"
+Group owm12hpredictions "Wettervorhersage (in 12 Stunden)"
+Group owm15hpredictions "Wettervorhersage (in 15 Stunden)"
+Group owm18hpredictions "Wettervorhersage (in 18 Stunden)"
+Group owm21hpredictions "Wettervorhersage (in 21 Stunden)" 
+Group owm24hpredictions "Wettervorhersage (in 24 Stunden)"
+
+String owmStationID "Wetterstations ID" (owmStation) {channel="openweathermap:weather-and-forecast:api:current:station#id"}
+String owmStationName "Wetterstationsname" (owmStation) {channel="openweathermap:weather-and-forecast:api:current:station#name"}
+Location owmStationLocation "Geographische Koordinaten der Wetterstation" (owmStation) {channel="openweathermap:weather-and-forecast:api:current:station#location"}
+
+  DateTime owmLastMeasurement "Zeitstempel der letzten Messungen [%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS]" <time> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#time-stamp" }
+ String owmCurrentCondition "momentane Wetterbedingung [%s]"<sun_clouds> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#condition" }
+ Number:Temperature owmCurrentTemperature "momentane Temperatur " <temperature> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#temperature" }
+ Image owmCurrentImage "Momentanes Wetterfoto" (owmCurrent) {channel="openweathermap:openweathermap:weather-and-forecast:api:current:current#icon"}
+ Number:Pressure owmCurrentPressure "Momentaner Luftdruck [%.1f %unit%]"  <pressure> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#pressure" }
+ Number:Dimensionless owmCurrentHumidity "Momentane Luftfeuchte [%d %unit%]"  <humidity> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#humidity" }
+ Number:Speed owmCurrentWindSpeed "Momentane Windgeschwindigkeit [%.1f km/h]"  <wind> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#wind-speed" }
+ Number:Angle owmCurrentWindDirection "Momentane Windrichtung [%d %unit%]" <wind>(owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#wind-direction" }
+ Number:Dimensionless owmCurrentCloudiness "Momentane Wolkendichte [%d %unit%]" <clouds>(owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#cloudiness" }
+ Number:Length owmCurrentRainVolume "Momentanes Regenvoluemen [%.1f %unit%]"  <rain> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#rain" }
+ Number:Length owmCurrentSnowVolume "Momentanes Schneevolumen [%.1f %unit%]" <snow> (owmCurrent) { channel="openweathermap:weather-and-forecast:api:current:current#snow" }
+
+
+
+
+
+
+
+
+
+
+
+// Number:Temperature owmCurrentMinTemperature "Tiefsttemperatur von Heute [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:api:current:current#min-temperature" }
+// Number:Temperature owmCurrentMaxTemperature "Höchsttemperatur von Heute [%.1f %unit%]" <temperature> { channel="openweathermap:weather-and-forecast:api:current:current#max-temperature" }
+
+// DateTime owmForecastTodayTimestamp "Zeitstempel der Wettervorhersage für Heute: [%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS]" <time> { channel="openweathermap:daily-forecast:api:local:forecastToday#time-stamp" }
+// String owmForecastTodayCondition "Heutige Wetterbedingung [%s]" <sun_clouds> { channel="openweathermap:daily-forecast:api:local:forecastToday#condition" }
+// Number:Temperature owmForecastTodayMinTemperature "Heutige Tiefsttemperatur [%.1f %unit%]" <temperature> { channel="openweathermap:daily-forecast:api:local:forecastToday#min-temperature" }
+// Number:Temperature owmForecastTodayMaxTemperature "Heutige Höchsttermperatur [%.1f %unit%]" <temperature> { channel="openweathermap:daily-forecast:api:local:forecastToday#max-temperature" }
+// Number:Pressure owmForecastTodayPressure "Heugtiger Luftdruck [%.1f %unit%]" <pressure> { channel="openweathermap:daily-forecast:api:local:forecastToday#pressure" }
+// Number:Dimensionless owmForecastTodayHumidity "Heugtige Luftfeuchtigkeit [%d %unit%]" <humidity> { channel="openweathermap:weather-and-forecast:api:current:current#humidity" }
+// Number:Speed owmForecastTodayWindSpeed "Heugtige Windgeschwindigkeit [%.1f km/h]" <wind> { channel="openweathermap:daily-forecast:api:local:forecastToday#wind-speed" }
+// Number:Angle owmForecastTodayWindDirection "Heutige Windrichtung [%d %unit%]" <wind> { channel="openweathermap:daily-forecast:api:local:forecastToday#wind-direction" }
+// Number:Dimensionless owmForecastTodaytCloudiness "Wolkendichte [%d %unit%]" <clouds> { channel="openweathermap:daily-forecast:api:local:forecastToday#cloudiness" }
+// Number:Length owmForecastTodayRainVolume "Heutiges Regenvolumen[%.1f %unit%]" <rain> { channel="openweathermap:daily-forecast:api:local:forecastToday#rain" }
+// Number:Length owmForecastTodaySnowVolume "Heutiges Schneevolumen [%.1f %unit%]" <snow> { channel="openweathermap:daily-forecast:api:local:forecastToday#snow" }
+
+

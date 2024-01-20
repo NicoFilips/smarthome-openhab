@@ -1,0 +1,5 @@
+Group gLog
+String lR_lwE "letzter WARN log" (gLog){channel="logreader:reader:32036b56:lastWarningEvent"}
+String lR_leE "letzter ERROR log" (gLog){channel="logreader:reader:32036b56:lastErrorEvent"}
+Number lr_WeM "Anzahl aller WARN logs"(gLog) {channel="logreader:reader:32036b56:lastErrorEvent"}
+Number lR_EeM "Anzahl aller Error logs"(gLog) {channel="logreader:reader:32036b56:errorEvents"}

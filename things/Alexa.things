@@ -1,0 +1,8 @@
+Bridge amazonechocontrol:account:AmazonDevAccount "AmazonDevAccount" @ "Service" [amazonSite="amazon.de", email="smarthome.nico@gmx.de", password="##############", pollingIntervalInSeconds=60]
+{
+    Thing echo                 echo1          "AlexaEcho" @ "Wohnzimmer" [serialNumber="##############"]
+    Thing echo                 echo2          "AlexaEcho2" @ "Schlafzimmer" [serialNumber="##############"]
+    Thing fire_tv               fire_tv         "Alexa FireTV" @ "Wohnzimmer" [serialNumber="##############"]
+    Thing flashbriefingprofile flashbriefing1 "Alexa Tägliche Technik News" @ "Service"
+    Thing flashbriefingprofile flashbriefing2 "Alexa Tägliche Lifestyle News" @ "Service"
+}

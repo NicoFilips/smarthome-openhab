@@ -1,0 +1,36 @@
+ val filename = "temp"
+ rule "Flurlicht aus"
+ when
+     Item Yeelights_3 received command ON
+ then
+     createTimer(now.plusMinutes(5), [|
+     Yeelights_3.sendCommand(OFF)
+     ])
+ end
+
+ rule "Flurlicht aus"
+ when
+     Item gFlurlicht received command ON or
+     Item gFlurYeelight changed to ON
+ then
+     createTimer(now.plusMinutes(10), [|
+     logInfo("temp","Flurlicht wieder aus")
+     Yeelights_6.sendCommand(OFF)
+     Yeelights_5.sendCommand(OFF)
+     XGateway_b.sendCommand(OFF)
+     gWRYeelight.sendCommand(OFF)
+     ])
+ end
+
+  rule "System startup"
+ when
+     Item gLights received command ON
+ then
+     createTimer(now.plusMinutes(180), [|
+//         sendBroadcastNotification("Automatische Servernachricht: OpenHAB Webserver (172.16.8.69:8080) wurde gestartet/geupdatet (Uhrzeit: " + DateTime.now()+")")
+     gLights.sendCommand(OFF)
+     ])
+//     //Zuweisung für GUI Variablen, um nullreference zu vermeiden
+//     if (presetTemperature.state == null) presetTemperature.postUpdate(18.5)
+//        if (presetTemperature.state == null) presetTemperature.sendCommand(18.5)
+ end

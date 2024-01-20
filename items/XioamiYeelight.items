@@ -1,0 +1,118 @@
+String TxtYeelight "Yeelight Lampen" <yeelight>
+
+Group gYeelightAC
+Group gYeelightACWZ (gYeelightAC)
+Group gYeelightACFL (gYeelightAC)
+Group gYeelightACSZ (gYeelightAC)
+Group gYeelightACWR (gYeelightAC)
+Group gWRYeelight
+
+
+Group y1 "Yeelights #1"   //Schlafzimmer V2
+Group y2 "Yeelights #2"   //Schlafzimmer V2
+Group y3 "Yeelights #3"   //Heizungskeller
+Group y4 "Yeelights #4"   //Wohnzimmer
+Group y7 "Yeelights #7"   //Wohnzimmer
+// --------- Plan abgebrochen ---------
+Group y5 "Yeelights #5"   //Flur (Jetzt Wohnzimmer)
+Group y6 "Yeelights #6"   //Flur
+Group y8 "Yeelights #8"   //Waschraum
+//Group y9 "Yeelights #9"   //Waschraum - OFFLINE
+// -------------------------------------
+
+Switch Yeelights_1 "An/Aus" (gYeelight, gLights, gBedYeelight, y2)         {channel="miio:basic:light0:power",autoupdate="false"}
+Color Yeelightc_1 "Farbe" (gYColor, gYBrightness, y2)              {channel="miio:basic:light0:rgbColor"}
+Number Yeelighth_1 "Helligkeit" <sun>  (y2)  {channel="miio:basic:light0:brightness"}
+String Yeelightd_1 "Verzögerung"       <programspeed>   (y2)      {channel="miio:basic:light0:delayoff"}
+Number YeelightcT_1 "Farbtemperatur"      <thermometer> (y2)      {channel="miio:basic:light0:colorTemperature"}
+Number YeelightcM_1 "Farbmodul"    <module>    (y2, yColorMode)         {channel="miio:basic:light0:colorMode"}
+Switch Yeelightt_1 "Umschalten"          (y2)       {channel="miio:basic:light0:toggle"}
+String Yeelightn_1 "Name"            <name>    (y2)        {channel="miio:basic:light0:name"}
+String YeelightAC_1       (gYeelightACSZ)                                  {channel="miio:basic:light0:actions#commands",autoupdate="false"} 
+
+Switch Yeelights_2 "An/Aus" (gYeelight, gLights, gBedYeelight, y1)         {channel="miio:basic:light1:power",autoupdate="false"}
+Color Yeelightc_2 "Farbe" (gYColor, gYBrightness, y1)              {channel="miio:basic:light1:rgbColor"}
+Number Yeelighth_2 "Helligkeit" <sun>  (y1)  {channel="miio:basic:light1:brightness"}
+String Yeelightd_2 "Verzögerung"       <programspeed>   (y1)      {channel="miio:basic:light1:delayoff"}
+Number YeelightcT_2 "Farbtemperatur"  <thermometer>   (y1)       {channel="miio:basic:light1:colorTemperature"}
+Number YeelightcM_2 "Farbmodul"    <module>       (y1, yColorMode)      {channel="miio:basic:light1:colorMode"}
+Switch Yeelightt_2 "Umschalten"         (y1)        {channel="miio:basic:light1:toggle"}
+String Yeelightn_2 "Name"          <name>    (y1)          {channel="miio:basic:light1:name"}
+String YeelightAC_2         (gYeelightACSZ)                                {channel="miio:basic:light1:actions#commands",autoupdate="false"}
+
+Switch Yeelights_5 "An/Aus" (gYeelight, gLights, gHeizungskeller, y5)         {channel="miio:basic:light2:power",autoupdate="false"}
+Color Yeelightc_5 "Farbe" (gYColor, gYBrightness, y5) ["ColorLighting"]              {channel="miio:basic:light2:rgbColor"}
+Number Yeelighth_5 "Helligkeit" <sun>  (y5)  {channel="miio:basic:light2:brightness"}
+String Yeelightd_5 "Verzögerung"       <programspeed>    (y5)     {channel="miio:basic:light2:delayoff"}
+Number YeelightcT_5 "Farbtemperatur"     <thermometer>   (y5)    {channel="miio:basic:light2:colorTemperature"}
+Number YeelightcM_5 "Farbmodul"       <module>  (y5, yColorMode)        {channel="miio:basic:light2:colorMode"}
+Switch Yeelightt_5 "Umschalten"          (y5)       {channel="miio:basic:light2:toggle"}
+String Yeelightn_5 "Name"         <name>     (y5)          {channel="miio:basic:light2:name"}
+String YeelightAC_5      (gYeelightACFL)                                   {channel="miio:basic:light2:actions#commands",autoupdate="false"}
+
+Switch Yeelights_6 "An/Aus" (gYeelight, gLights, gFlurYeelight, y5)     {channel="miio:basic:light3:power",autoupdate="false"}
+Color Yeelightc_6 "Farbe" (gYColor, gYBrightness, y5)          {channel="miio:basic:light3:rgbColor"}
+Number Yeelighth_6 "Helligkeit" <sun>  (y5)  {channel="miio:basic:light3:brightness"}
+String Yeelightd_6 "Verzögerung"       <programspeed>     (y5)    {channel="miio:basic:light3:delayoff"}
+Number YeelightcT_6 "Farbtemperatur"     <thermometer>    (y5)   {channel="miio:basic:light3:colorTemperature"}
+Number YeelightcM_6 "Farbmodul"       <module>   (y5, yColorMode)       {channel="miio:basic:light3:colorMode"}
+Switch Yeelightt_6 "Umschalten"           (y5)      {channel="miio:basic:light3:toggle"}
+String Yeelightn_6 "Name"         <name>      (y5)         {channel="miio:basic:light3:name"}
+String YeelightAC_6       (gYeelightACFL)                                  {channel="miio:basic:light3:actions#commands",autoupdate="false"}
+
+Switch Yeelights_4 "An/Aus" (gYeelight, gLights, gBedYeelight, y4)         {channel="miio:basic:light4:power",autoupdate="false"}
+Color Yeelightc_4 "Farbe" (gYColor, gYBrightness, y4)   {channel="miio:basic:light4:rgbColor"}
+Number Yeelighth_4 "Helligkeit" <sun> (y4)  {channel="miio:basic:light4:brightness"}
+String Yeelightd_4 "Verzögerung"     <programspeed>    (y4)       {channel="miio:basic:light4:delayoff"}
+Number YeelightcT_4 "Farbtemperatur"  <thermometer>   (y4)       {channel="miio:basic:light4:colorTemperature"}
+Number YeelightcM_4 "Farbmodul"       <module>    (y4, yColorMode)      {channel="miio:basic:light4:colorMode"}
+Switch Yeelightt_4 "Umschalten"               (y4)  {channel="miio:basic:light4:toggle"}
+String Yeelightn_4 "Name"            <name>    (y4)        {channel="miio:basic:light4:name"}
+String YeelightAC_4        (gYeelightACWZ)                                 {channel="miio:basic:light4:actions#commands",autoupdate="false"}
+ 
+Switch Yeelights_3 "An/Aus" (gYeelight, gLights, gHeizungskeller, y3)         {channel="miio:basic:light5:power",autoupdate="false"}
+Color Yeelightc_3 "Farbe" (gYColor, gYBrightness, y3)              {channel="miio:basic:light5:rgbColor"}
+Number Yeelighth_3 "Helligkeit"<sun>  (y3)   {channel="miio:basic:light5:brightness"}
+String Yeelightd_3 "Verzögerung"     <programspeed>    (y3)       {channel="miio:basic:light5:delayoff"}
+Number YeelightcT_3 "Farbtemperatur"   <thermometer>    (y3)     {channel="miio:basic:light5:colorTemperature"}
+Number YeelightcM_3 "Farbmodul"        <module>     (y3, yColorMode)    {channel="miio:basic:light5:colorMode"}
+Switch Yeelightt_3 "Umschalten"              (y3)   {channel="miio:basic:light5:toggle"}
+String Yeelightn_3 "Name"             <name>     (y3)     {channel="miio:basic:light5:name"}
+String YeelightAC_3      (gYeelightAC)                                   {channel="miio:basic:light5:actions#commands",autoupdate="false"}
+
+Switch Yeelights_7 "An/Aus" (gYeelight, gLights, gWZYeelight, y7)         {channel="miio:basic:light6:power",autoupdate="false"}
+Color Yeelightc_7 "Farbe" (gYColor, gYBrightness, y7)  {channel="miio:basic:light6:rgbColor"}
+Number Yeelighth_7 "Helligkeit" <sun> (y7)  {channel="miio:basic:light6:brightness"}
+String Yeelightd_7 "Verzögerung [%.0f]"       <programspeed>    (y7)     {channel="miio:basic:light6:delayoff"}
+Number YeelightcT_7 "Farbtemperatur"     <thermometer>    (y7)   {channel="miio:basic:light6:colorTemperature"}
+Number YeelightcM_7 "Farbmodul"       <module>     (y7, yColorMode)     {channel="miio:basic:light6:colorMode"}
+Switch Yeelightt_7 "Umschalten"          (y7)       {channel="miio:basic:light6:toggle"}
+String Yeelightn_7 "Name"         <name>     (y7)          {channel="miio:basic:light6:name"}
+String YeelightAC_7       (gYeelightACWZ)                                  {channel="miio:basic:light6:actions#commands",autoupdate="false"}
+
+Switch Yeelights_8 "An/Aus" (gYeelight, gLights, gWZYeelight, y8)         {channel="miio:basic:light7:power",autoupdate="false"}
+Color Yeelightc_8 "Farbe" (gYColor, gYBrightness, y8)              {channel="miio:basic:light7:rgbColor"}
+Number Yeelighth_8 "Helligkeit" <sun>  (y8)  {channel="miio:basic:light7:brightness"}
+String Yeelightd_8 "Verzögerung"       <programspeed>   (y8)      {channel="miio:basic:light7:delayoff"}
+Number YeelightcT_8 "Farbtemperatur"  <thermometer>   (y8)       {channel="miio:basic:light7:colorTemperature"}
+Number YeelightcM_8 "Farbmodul"    <module>       (y8, yColorMode)      {channel="miio:basic:light7:colorMode"}
+Switch Yeelightt_8 "Umschalten"         (y8)        {channel="miio:basic:light7:toggle"}
+String Yeelightn_8 "Name"          <name>    (y8)          {channel="miio:basic:light7:name"}
+String YeelightAC_8         (gYeelightACWR)                                {channel="miio:basic:light7:actions#commands",autoupdate="false"}
+
+Switch Yeelights_c1 "An/Aus" (gYeelight, gLights, gWZYeelight, y8)         {channel="miio:basic:lightc1:power",autoupdate="false"}
+Color Yeelightc_c1 "Farbe" (gYColor, gYBrightness, y8)              {channel="miio:basic:lightc1:rgbColor"}
+Number Yeelighthc_c1 "Helligkeit" <sun>  (y8)  {channel="miio:basic:lightc1:brightness"}
+Number YeelightcM_c1 "Farbmodul"    <module>       (y8, yColorMode)      {channel="miio:basic:lightc1:colorMode"}
+Number Yeellight_c1 "Nachtlicht Helligkeit" {channel="miio:basic:lightc1:nightlightBrightness"}
+
+Switch Yeelights_9 "An/Aus" (gYeelight, gLights, gWRYeelight, y9)         {channel="miio:basic:power",autoupdate="false"}
+Color Yeelightc_9 "Farbe" (gYColor, gYBrightness, y9)              {channel="miio:basic:rgbColor"}
+Number Yeelighth_9 "Helligkeit" <sun>  (y9)  {channel="miio:basic:brightness"}
+String Yeelightd_9 "Verzögerung"       <programspeed>   (y9)      {channel="miio:basic:delayoff"}
+Number YeelightcT_9 "Farbtemperatur"      <thermometer> (y9)      {channel="miio:basic:colorTemperature"}
+Number YeelightcM_9 "Farbmodul"    <module>    (y9, yColorMode)         {channel="miio:basic:colorMode"}
+Switch Yeelightt_9 "Umschalten"          (y9)       {channel="miio:basic:toggle"}
+String Yeelightn_9 "Name"            <name>    (y9)        {channel="miio:basic:name"}
+String YeelightAC_9       (gYeelightACWR)                                  {channel="miio:basic:actions#commands",autoupdate="false"}
+

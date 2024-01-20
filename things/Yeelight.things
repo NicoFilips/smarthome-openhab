@@ -1,0 +1,12 @@
+Thing miio:vacuum:s5 "_VS_Miio: Mi Roborock V2" @ "Wohnzimmer" [ host="##############", token="##############", deviceId="##############", model="roborock.vacuum.s5" ]
+
+Thing miio:basic:light0 "_VS_Miio: Yeelight .210 V2" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color2" ]
+Thing miio:basic:light1 "_VS_Miio: Yeelight .211 V2" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color2" ]
+//testCommit
+Thing miio:basic:light2 "_VS_Miio: Yeelight .212" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:light3 "_VS_Miio: Yeelight .213" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:light4 "_VS_Miio: Yeelight .214" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:light5 "_VS_Miio: Yeelight .215" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:light6 "_VS_Miio: Yeelight .216" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:light7 "_VS_Miio: Yeelight .217" @ "Schlafzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.color1" ]
+Thing miio:basic:lightc1 "_VS_Miio: Yeelight .218" @ "Wohnzimmer" [ host="##############", token="##############", deviceId="##############", model="yeelink.light.ceiling20" ] 

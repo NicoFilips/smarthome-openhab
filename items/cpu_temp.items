@@ -1,0 +1,3 @@
+String Raspi {channel="exec:command:apc:output"}
+
+Number RaspiCPU "Temperature CPU [%.1f °C]" <cpu>

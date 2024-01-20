@@ -1,0 +1,8 @@
+Group Whatsapp "Mein WhatsappHub" <whatsapp>
+
+
+String inMessage "Eingegangene Nachricht" (Whatsapp) {channel="whatsapp:hub:23432423:textMessages#messageIn"}
+String outMessage "Ausgegangene Nachricht"  (Whatsapp) {channel="whatsapp:hub:23432423:textMessages#messageOut"}
+
+String inMedia "Eingegangenes Bild" (Whatsapp) {channel="whatsapp:hub:23432423:mediaMessages#mediaIn"}
+String outMedia "Ausgegangenes Bild" (Whatsapp) {channel="whatsapp:hub:23432423:mediaMessages#mediaOut"}

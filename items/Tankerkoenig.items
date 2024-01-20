@@ -1,0 +1,43 @@
+String Tankerkoenig  "Alle Spritpreise der Umgebung" <car>
+
+Switch AralBobingen_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:234234234:holiday"}
+Number AralBobingen_E10 "Super E10 [%.2f €]" <e10> { channel="tankerkoenig:station:234234234:e10" }
+Number AralBobingen_E5 "95 E5 [%.2f €]"  <e5> { channel="tankerkoenig:station:234234234:e5" }
+Number AralBobingen_Diesel "Diesel [%.2f €]"  <diesel> { channel="tankerkoenig:station:234234234:diesel"}
+Contact AralBobingen_Open "Station is [%s]" { channel="tankerkoenig:station:234234234:station_open"}
+
+Switch Globus_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:3453453:holiday"}
+Number Globus_E10 "Super E10 [%.2f €]" <e10> { channel="tankerkoenig:station:3453453:e10" }
+Number Globus_E5 "95 E5 [%.2f €]" <e5> { channel="tankerkoenig:station:3453453:e5" }
+Number Globus_Diesel "Diesel [%.2f €]" <diesel>  { channel="tankerkoenig:station:3453453:diesel"}
+Contact Globus_Open "Station is [%s]"  { channel="tankerkoenig:station:3453453:station_open"}
+
+Switch OMVBobingen_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:2342342:holiday"}
+Number OMVBobingen_E10 "Super E10 [%.2f €]" <e10> { channel="tankerkoenig:station:2342342:e10" }
+Number OMVBobingen_E5 "95 E5 [%.2f €]"  <e5> { channel="tankerkoenig:station:2342342:e5" }
+Number OMVBobingen_Diesel "Diesel [%.2f €]" <diesel> { channel="tankerkoenig:station:2342342:diesel"}
+Contact OMVBobingen_Open "Station is [%s]" { channel="tankerkoenig:station:2342342:station_open"}
+
+Switch OMVKoenigsbrunn_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:234234234:holiday"}
+Number OMVKoenigsbrunn_E10 "Super E10 [%.2f €]" <e10> { channel="tankerkoenig:station:234234234:e10" }
+Number OMVKoenigsbrunn_E5 "95 E5 [%.2f €]" <e5> { channel="tankerkoenig:station:234234234:e5" }
+Number OMVKoenigsbrunn_Diesel "Diesel [%.2f €]" <diesel>  { channel="tankerkoenig:station:234234234:diesel"}
+Contact OMVKoenigsbrunn_Open "Station is [%s]" { channel="tankerkoenig:station:234234234:station_open"}
+
+Switch SMKaufland_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:2342123:holiday"}
+Number SMKaufland_E10 "Super E10 [%.2f €]" <e10>  { channel="tankerkoenig:station:2342123:e10" }
+Number SMKaufland_E5 "95 E5 [%.2f €]" <e5>  { channel="tankerkoenig:station:2342123:e5" }
+Number SMKaufland_Diesel "Diesel [%.2f €]" <diesel> { channel="tankerkoenig:station:2342123:diesel"}
+Contact SMKaufland_Open "Station is [%s]" { channel="tankerkoenig:station:2342123:station_open"}
+
+Switch AralHaunstetten_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:2342354:holiday"}
+Number AralHaunstetten_E10 "Super E10 [%.2f €]" <e10>  { channel="tankerkoenig:station:2342354:e10" }
+Number AralHaunstetten_E5 "95 E5 [%.2f €]" <e5> { channel="tankerkoenig:station:2342354:e5" }
+Number AralHaunstetten_Diesel "Diesel [%.2f €]" <diesel> { channel="tankerkoenig:station:2342354:diesel"}
+Contact AralHaunstetten_Open "Station is [%s]" { channel="tankerkoenig:station:2342354:station_open"}
+
+Switch OMVHaunstetten_holiday "Today is holiday: [%s]" { channel="tankerkoenig:webservice:33245432:holiday"}
+Number OMVHaunstetten_E10 "Super E10 [%.2f €]"  <e10> { channel="tankerkoenig:station:33245432:e10" }
+Number OMVHaunstetten_E5 "95 E5 [%.2f €]" <e5> { channel="tankerkoenig:station:33245432:e5" }
+Number OMVHaunstetten_Diesel "Diesel [%.2f €]" <diesel> { channel="tankerkoenig:station:33245432:diesel"}
+Contact OMVHaunstetten_Open "Station is [%s]" { channel="tankerkoenig:station:33245432:station_open"}

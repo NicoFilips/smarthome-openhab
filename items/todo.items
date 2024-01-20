@@ -1,0 +1,16 @@
+String txtBevSR "Meine Eishockey Einteilungen" <puck>
+
+Switch Todo1 "Malesszia"
+Switch Todo2 "Lohnsteuer"
+Switch Todo3 "Tasmota"
+Switch Todo4 "DSGVO"
+Switch Todo5 "Sonoff Basic"
+Switch Todo6 ""
+Switch Todo7 ""
+Switch Todo8 ""
+Switch Todo9 ""
+Switch Todo10 ""
+Switch Todo11 ""
+Switch Todo12 ""
+Switch Todo13 ""
+Switch Todo14 ""

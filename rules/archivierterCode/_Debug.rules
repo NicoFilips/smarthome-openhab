@@ -1,0 +1,52 @@
+var String filename = "_Debug.rules"
+val java.util.Random rand = new java.util.Random
+var HSBType weiss = new HSBType(new DecimalType(0),new PercentType(0),new PercentType(100))
+rule "Testitem"
+when 
+Item Testitem received command ON
+then
+logInfo(filename,"Codeplayground wird ausgeführt: ... ")
+
+
+
+			 //Default setting Yeelight (HSB 0,100,100)
+			//var String currentState = (Yeelightc_1.state as HSBType).toString
+			//var HSBType weiss = new HSBType(new DecimalType(0),new PercentType(50),new PercentType(100))
+			//Yeelightc_7.sendCommand(weiss.toString)
+			//logInfo(filename,currentState.toString())
+			//val int randomNumber = rand.nextInt(7)
+			//farbWahl.sendCommand(randomNumber)
+			// logInfo(filename, "state as HSBType <debug>" + currentState)
+			// if((Yeelightc_1.state as HSBType).toString == "120,100,100")
+			// {
+			// 	logInfo(filename, "Passt, ab dafür")
+			// }
+// 			if(((Yeelightc_5.state as HSBType).equals(weiss)) && ((Yeelightc_6.state as HSBType).equals(weiss)) && ((XGateway_c.state as HSBType).equals(weiss))) 
+// 			{
+// logInfo(filename,"passt")
+// }else{
+// 	logInfo(filename,(Yeelightc_6.state as HSBType).toString +" "+(Yeelightc_6.state as HSBType).toString)
+// }
+// var int sollMinute
+// var myList = gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_MO_M" && s.state != NULL]
+// if(myList.size > 0){ sollMinute = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_MO_H"].head.state as Number).intValue}
+// logInfo(filename,sollMinute.toString())
+// sendCommand(YeelightAC_1, 'set_name["Yeelight#1"]')
+// sendCommand(YeelightAC_2, 'set_name["Yeelight#2"]')
+// sendCommand(YeelightAC_3, 'set_name["Yeelight#3"]')
+//sendCommand(YeelightAC_7, 'set_default[]')
+//sendCommand(gYeelightAC, 'set_power["on","smooth",3500,1]')
+//sendCommand(gYeelightAC, 'start_cf[0,2, "500,1,536,100, 500,1,255,100, 500,1,0,100, 500,1,16700000,100"]')
+
+// sendCommand(YeelightAC_1,'set_name["Yeelight1"]')
+// sendCommand(YeelightAC_5, 'get_prop["power","color_mode","ct","bright","name","hue","sat"]')
+// sendCommand(gYeelightACFL,'set_power["on","sudden",0,1]')
+//sendCommand(YeelightAC_6, 'get_prop["on","sudden",100,0]')
+
+
+//smooth
+
+// sendCommand(YeelightAC_5, 'set_name["Yeelight#5"]')
+// sendCommand(YeelightAC_6, 'set_name["Yeelight#6"]')
+// sendCommand(YeelightAC_7, 'set_name["Yeelight#7"]')
+end

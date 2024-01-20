@@ -1,0 +1,70 @@
+Group FBox "Fritzbox Konfiguration" <settings>
+String  fboxName            "FritzBox Model [%s]"    <name>   (FBox)    {fritzboxtr064="modelName"}
+String  fboxManufacturer    "FritzBox Hersteller [%s]" <name> (FBox)  {fritzboxtr064="manufacturerName"}
+String  fboxSerial          "FritzBox MAC [%s]"    (FBox)      {fritzboxtr064="serialNumber"}
+String  fboxVersion         "FritzBox Version [%s]"    (FBox)     {fritzboxtr064="softwareVersion"}
+// get wan ip if FritzBox establishes the internet connection (e. g. via DSL)
+String  fboxWanIP           "FritzBox WAN-IP [%s]"  <browser>   (FBox)     {fritzboxtr064="wanip"}
+// get wan ip if FritzBox uses internet connection of external router
+String  fboxWanIPExternal   "FritzBox externe WAN-IP [%s]" <browser> (FBox, WAN) {fritzboxtr064="externalWanip"}
+Switch  fboxWifi24          "2,4 GHz Wifi"     <wifi>   (FBox)       {fritzboxtr064="wifi24Switch"}
+Switch  fboxWifi50          "5,0 GHz Wifi"     <wifi>   (FBox)       {fritzboxtr064="wifi50Switch"}
+Switch  fboxGuestWifi       "Gast Wifi"     <wifi>     (FBox)      {fritzboxtr064="wifiGuestSwitch"}
+Contact cFboxMacOnline      "Aktiv (WiFi): [MAP(map/presence.map):%s]"  <wifi>  (FBox)  {fritzboxtr064="maconline:11-11-11-11-11-11" }
+
+// WAN statistics
+Group WAN "Wide-Area Netzwerk (Außerhalb des Gateways)" <browser>
+
+String  fboxWanAccessType "WAN Verbindungstyp [%s]" (WAN) {fritzboxtr064="wanWANAccessType"}
+Number  fboxWanLayer1UpstreamMaxBitRate "FBox WAN us max bit rate [JS(javascript/getmega.js):%.1f]" (WAN)  {fritzboxtr064="wanLayer1UpstreamMaxBitRate"}
+Number  fboxWanLayer1DownstreamMaxBitRate "FBox WAN ds max bit rate [JS(javascript/getmega.js):%.1f]" (WAN) {fritzboxtr064="wanLayer1DownstreamMaxBitRate"}
+String  fboxWanPhysicalLinkStatus "Physikalischer Verbindungsstatus zum WAN [%s]" <rj45> (WAN) {fritzboxtr064="wanPhysicalLinkStatus"}
+Number  fboxWanTotalBytesSent "Alle gesendeten Bytes in's WAN [JS(javascript/getmega.js):%.1f]" (WAN) {fritzboxtr064="wanTotalBytesSent"}
+Number  fboxWanTotalBytesReceived "Alle empfangenen Bytes aus dem WAN[JS(javascript/getmega.js):%.1f]" (WAN) {fritzboxtr064="wanTotalBytesReceived"}
+
+// DSL statistics
+Group DSL "DSL - alle Zahlen" <modem>
+
+Contact fboxDslEnable       "FBox DSL Enable [MAP(map/presence.map):%s]"   (DSL)   {fritzboxtr064="dslEnable"}
+String  fboxDslStatus       "FBox DSL Status [%s]"  <status> (DSL)   {fritzboxtr064="dslStatus"}
+Number  fboxDslUpstreamCurrRate "DSL Upstream momentan [%s mbit/s]" <"speedtest_upload">(DSL){fritzboxtr064="dslUpstreamCurrRate"}
+Number  fboxDslDownstreamCurrRate "DSL Downstream momentan [%s mbit/s]" <"speedtest_download"> (DSL) {fritzboxtr064="dslDownstreamCurrRate"}
+Number  fboxDslUpstreamMaxRate "DSL Upstream Maximal [%s mbit/s]" <"speedtest_upload"> (DSL){fritzboxtr064="dslUpstreamMaxRate"}
+Number  fboxDslDownstreamMaxRate "DSL Downstream Maximal [%s mbit/s]" <"speedtest_download"> (DSL) {fritzboxtr064="dslDownstreamMaxRate"}
+Number  fboxDslUpstreamNoiseMargin "DSL Upstream Signalrauschpegel [%s dB*10]" <"speedtest_upload"> (DSL) {fritzboxtr064="dslUpstreamNoiseMargin"}
+Number  fboxDslDownstreamNoiseMargin "DSL Downstream Signalrauschpegel [%s dB*10]" <"speedtest_download"> (DSL) {fritzboxtr064="dslDownstreamNoiseMargin"}
+Number  fboxDslUpstreamAttenuation "DSL Upstream Dämpfung [%s dB*10]" <"speedtest_upload"> (DSL){fritzboxtr064="dslUpstreamAttenuation"}
+Number  fboxDslDownstreamAttenuation "DSL Downstream Dämpfung [%s dB*10]" <"speedtest_download"> (DSL){fritzboxtr064="dslDownstreamAttenuation"}
+Number  fboxDslFECErrors "DSL FEC Fehler (Forward Error Correction) [%s]" <error> (DSL) {fritzboxtr064="dslFECErrors"}
+Number  fboxDslHECErrors "DSL HEC Fehler [%s]" <error> (DSL){fritzboxtr064="dslHECErrors"}
+Number  fboxDslCRCErrors "DSL CRC Fehler (CyclicRedundancyCheck) [%s]" <error> (DSL){fritzboxtr064="dslCRCErrors"}
+
+// only when using call monitor
+Switch  fboxRinging         "Telefon wird angerufen ... [%s]"   <call>             {fritzboxtr064="callmonitor_ringing" }
+Switch  fboxRinging_Out     "Telefon anrufen ... [%s]"       <call>         {fritzboxtr064="callmonitor_outgoing" }
+Call    fboxIncomingCall    "Eingehender Anruf: [%1$s an %2$s]"   <phonecome>  {fritzboxtr064="callmonitor_ringing" } 
+Call    fboxOutgoingCall    "Ausgehender Anruf: [%1$s an %2$s]"    <phonego> {fritzboxtr064="callmonitor_outgoing" }
+
+Group FBoxComponents "Einstellungen" <browser>
+Switch DECT "DECT Protokoll ausschalten"<wifi>(FBoxComponents){fritzbox="dect"}
+Switch WIFI "WLAN Protokoll ausschalten"<wifi>(FBoxComponents){fritzbox="wlan"}
+Switch GWIFI "Gast-WLAN Protokoll ausschalten"<wifi>(FBoxComponents){fritzbox="guestwlan"} 
+Switch TAM0 "TAM0 Protokoll ausschalten"<wifi>(FBoxComponents){fritzbox="tam0"}
+
+// resolve numbers to names based on phonebook
+Call    fboxIncomingCallResolved    "Eingehender Anruf von: [%1$s an %2$s]"     {fritzboxtr064="callmonitor_ringing:resolveName" } 
+
+// Telephone answering machine (TAM) items
+// Number after tamSwitch is ID of configured TAM, start with 0
+Switch  fboxTAM0Switch   "Answering machine ID 0"       {fritzboxtr064="tamSwitch:0"}
+Number  fboxTAM0NewMsg   "New Messages TAM 0 [%s]"      {fritzboxtr064="tamNewMessages:0"}
+
+// Missed calls: specify the number of last days which should be searched for missed calls
+Number  fboxMissedCalls  "Verpasste Anrufe [%s]"       <phonerr>     {fritzboxtr064="missedCallsInDays:5"}
+
+// Call deflection items
+// Number after callDeflectionSwitch is ID of configured call deflection
+// The ID count includes the entries from the "Call Blocks" page.
+// If you have no "Call Blocks", the first entry on the "Call Diversions" page has ID 0.
+// If you have 3 "Call Blocks", the first entry on the "Call Diversions" page has ID 3.
+Switch  fboxCD0Switch    "Call Deflection ID 0"         {fritzboxtr064="callDeflectionSwitch:0"}

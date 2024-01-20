@@ -1,0 +1,1464 @@
+sitemap smarthome label="Mein SmartHome"
+{
+Image url="https://raw.githubusercontent.com/wiki/openhab/openhab/images/features.png"
+//---------------------------------------------------------------------------
+// <1> Lichter - Yeelights/Arilux
+//---------------------------------------------------------------------------
+
+Text item=gTextLights icon=settings labelcolor=["white"]
+{
+        Frame label="Alle Yeelightlampen und Arilux LED's"
+        {
+            Group item=TxtArilux{
+                Frame label="Arilux Gruppensteuerung"{
+            Switch item=gArilux mappings=[OFF="Ausschalten",ON="Einschalten"]
+        Colorpicker item=gAColor
+        Selection item=gProgram mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+        Slider item=gprogramSpeed
+        Slider item=gABrightness
+    }
+Frame label="Arilux am Schreibtisch (RGBW)"
+{
+Group item=g3 label="Arilux RGBW #6" labelcolor=["green"] {
+    Default item=Arilux6RGBW_p
+    Default item=Arilux6RGBW_c
+Selection item=Arilux6RGBW_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lil
+a",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+Slider item=Arilux6RGBW_ps
+
+Slider item=Arilux6RGBW_w
+Slider item=Arilux6RGBW_c label="Farbe"
+} 
+
+    }
+//-------------------
+
+Frame label="Arilux Deckenlicht"
+{
+Group item=g2 labelcolor=["green"] {
+    Switch item=Arilux2_p mappings=[OFF="Aus",ON="An"]
+    Default item=Arilux2_c
+Selection item=Arilux2_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+Slider item=Arilux2_ps
+}
+Switch item=Arilux2_p mappings=[OFF="Aus",ON="An"]
+    }
+Frame label="Arilux bei TCL Fernseher"
+{
+Group item=g3 labelcolor=["green"] {
+    Switch item=Arilux3_p mappings=[OFF="Aus",ON="An"]
+    Default item=Arilux3_c
+Selection item=Arilux3_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+Slider item=Arilux3_ps
+}
+Switch item=Arilux3_p mappings=[OFF="Aus",ON="An"]
+    }
+Frame label="Arilux an der Couch"
+{
+Group item=g7 label="Arilux RGBW #7" labelcolor=["green"] {
+    Default item=Arilux7RGBW_p
+    Default item=Arilux7RGBW_c
+Selection item=Arilux7RGBW_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lil
+a",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+Slider item=Arilux7RGBW_ps
+
+Slider item=Arilux7RGBW_w
+Slider item=Arilux7RGBW_c label="Farbe"
+} 
+}
+Frame label="Arilux am Eingang" 
+{
+Group item=g5 labelcolor=["green"] {
+    Switch item=Arilux5_p mappings=[OFF="Aus",ON="An"]
+    Default item=Arilux5_c
+Selection item=Arilux5_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+    Slider item=Arilux5_ps
+    }
+Switch item=Arilux5_p mappings=[OFF="Aus",ON="An"]
+}
+Frame label="Arilux 3D Drucker" 
+{
+Group item=g5 labelcolor=["green"] {
+    Switch item=Arilux4_p mappings=[OFF="Aus",ON="An"]
+    Default item=Arilux4_c
+Selection item=Arilux4_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+    Slider item=Arilux4_ps
+    }
+Switch item=Arilux5_p mappings=[OFF="Aus",ON="An"]
+}
+        }
+        Group item=TxtYeelight{
+        Frame label="Lampengruppe steuern"
+        {
+            Switch item=gYeelight mappings=[OFF="Ausschalten",ON="Einschalten"]
+            Colorpicker item=gYColor
+            Slider item=gYBrightness
+        }
+        Frame label="Schlafzimmer Lampen"{
+Switch item=gBedYeelight mappings=[OFF="Aus",ON="An"]
+Frame label="Gruppen"{
+    Group item=y1 icon=yeelight   label="linke Lampe" labelcolor=["red"]
+        Group item=y2 icon=yeelight label="rechte Lampe" labelcolor=["red"]
+}
+        }
+        Frame label="Wohnzimmer Yeelights" labelcolor=["red"]{
+            Switch item=gWZYeelight mappings=[OFF="Aus",ON="An"]
+        Frame label="Gruppen"{
+        Group item=y7 icon=yeelight label="Yeelight 3D Drucker" labelcolor=["green"]{
+                    Switch item=Yeelights_7 mappings=["OFF"="Aus","ON"="Ein"]
+        Default item=Yeelightc_7
+        Slider item=Yeelighth_7
+        Setpoint item=Yeelightd_7 icon=stopwatch minValue=5 maxValue=60 step=5 
+        Slider item=YeelightcT_7
+        Selection item=YeelightcM_7 mappings=["1"="Farben (RGB)","2"="Farbtemperaturen","3"="HSV Modus"]
+        Default item=Yeelightt_7
+        Default item=Yeelightn_7
+        }
+        Group item=y4 icon=yeelight label="Yeelight Eingang" labelcolor=["green"]
+        }
+        }
+        Frame label="Yeelight Treppenhaus"{
+            Switch item=gFlurYeelight mappings=[OFF="Aus",ON="An"]
+        Frame label="Gruppen"{
+        Group item=y5 icon=yeelight label="Yeelight Treppenhaus" labelcolor=["blue"]
+        Group item=y6 icon=yeelight label="Yeelight Treppenhaus" labelcolor=["blue"]
+        }
+        }
+        Frame label="Yeelight Heizungskeller"
+        {
+            Switch item=Yeelights_3 mappings=[OFF="Aus",ON="An"]
+            Frame label="Gruppen"{
+            Group item=y3   icon=yeelight label="Yeelight Heizungskeller" labelcolor=["yellow"]     }
+}
+        }
+        }
+        Image url="http://www.pattimardell.com/wp-content/uploads/2017/01/predictions-header.jpg"
+        Frame label="Alle Lichterelemente"
+        {
+            Switch item=gLights mappings=[OFF="Aus",ON="EIN"]
+            Colorpicker item=gColor
+            Slider item=gBrightness
+            Setpoint item=gLightsOffset icon=stopwatch  minValue=5 maxValue=180 step=5 
+            Slider item=gWhite
+        }
+        Frame label="Arilux Gruppensteuerung"
+    {
+        Switch item=gArilux mappings=[OFF="Aus",ON="EIN"]
+        Colorpicker item=gAColor
+        Selection item=gProgram mappings=[48=Strobe,
+96="Strobe - Custom 1",
+49="Strobe - Rot",
+50="Strobe - Grün",
+51="Strobe - Blau",
+53="Strobe - Cyan",
+54="Strobe - Lila",
+52="Strobe - Gelb",
+55="Strobe - Weiß",
+57="Strobe - R/G/B",
+45="CrossFade - Rot/Grün",
+46="CrossFade - Rot/Blau",
+47="CrossFade - Blau/Grün",
+37="Fade",
+44="Fade - Weiß",
+39="Fade - Grün",
+40="Fade - Dunkelblau",
+41="Fade - Gelb",
+38="Fade - Rot",
+42="Fade - Hellblau",
+43="Fade - Lila",
+45="Fade - R/G/B",
+56="Jump",
+99="Jump - R/G/B",
+97="Farbe (kein Preset gewählt)"]
+        Slider item=gprogramSpeed 
+    }
+    Frame label="Yeelight Gruppensteuerung"
+    {
+        Switch item=gYeelight mappings=[OFF="Aus",ON="EIN"]
+        Colorpicker item=gYColor
+        Selection item=yColorMode mappings=[0="hö",1="uff",2="kp mehr"]
+    }
+    Frame label="Zimmer- und Farbeinstellungen"
+    {
+        Selection item=zimmerWahl mappings=[1="Wohnzimmer",2="Schlafzimmer",3="Flur",4="Heizungskeller"]
+        Selection item=farbWahl mappings=[1="Rot",2="Grün",3="Blau",4="Gelb",5="Türkis",6="Violett",7="Weiß",8="Epilepsie",11="Musik Modus",13="Strobo - alle (Testphase)",9="Bunterfade",10="Bunterfade - alle (Testphase)"]
+    }
+}
+//---------------------------------------------------------------------------
+// <2> WOL - PC/TV/Octopi
+//---------------------------------------------------------------------------
+
+Text label="Wake On Lan" icon=rj45 labelcolor=["white"]
+{
+    Frame label="Remote ON/OFF Steuerung"
+    {
+        Switch item=wol_fernseher mappings=[ON="Einschalten"]
+        Switch item=wol_rechner mappings=[ON="Einschalten"]
+        Switch item=wol_Octoprint mappings=[ON="Einschalten"]
+	    Switch item=wol_MamaPC  mappings=[ON="Einschalten"]
+        Switch item=wol_ps4  mappings=[ON="Einschalten"]
+    }
+}
+//---------------------------------------------------------------------------
+// <3> Astro daten - OWM
+//---------------------------------------------------------------------------
+ Text item=Astro labelcolor=["white"]
+{
+Frame label="Aktuelle Wetterbedingungen in Königsbrunn"
+{
+Group item=OWM icon=sun{
+    Frame label="Informationen"
+    {
+        Group item=owmStation
+        {
+            Text item=owmStationID
+            Text item=owmStationName
+            Text item=owmStationLocation
+        }
+    }
+       Frame label="Momentane Wetterbedingungen" {
+         Group item=owmCurrent    
+         {
+         Text item=owmLastMeasurement
+          Text item=owmCurrentCondition
+         Text item=owmCurrentTemperature
+         Text item=owmCurrentPressure
+         Text item=owmCurrentHumidity
+         Text item=owmCurrentWindSpeed
+         Text item=owmCurrentWindDirection
+         Text item=owmCurrentCloudiness
+         Text item=owmCurrentRainVolume
+         Image item=owmCurrentImage
+          }
+     }  
+}
+}
+
+    Frame label="Sonne, Mond und Sterne"
+    {
+        Text item=Astro_sun_Starttime
+        Text item=Astro_sun_Stoptime
+        Text item=Astro_moon_Starttime
+        Text item=Astro_moon_Stoptime
+        Text item=Astro_sun_eclipse
+        Text item=Astro_moon_eclipse
+    }
+Frame label="Jahreszeiten"
+{
+    Default item=Astro_currSeason
+    Text item=Astro_spring
+    Text item=Astro_summer
+    Text item=Astro_Autumn
+    Text item=Astro_Winter
+}
+Frame label="Astrodaten Wohnzimmer"
+{
+    Text item=XTemperatur_temp1
+    Text item=XTemperatur_humidity1
+    Text item=XTemperatur_pressure1
+}
+Frame label="Astrodaten Schlafzimmer"
+{
+    Text item=XTemperatur_temp2
+    Text item=XTemperatur_humidity2
+    Text item=XTemperatur_pressure2
+}
+Frame label="Astrodaten Heizungskeller"
+{
+    Text item=XTemperatur_temp3
+    Text item=XTemperatur_humidity3
+    Text item=XTemperatur_pressure3
+}
+} 
+//---------------------------------------------------------------------------
+// <4> Alarm - Webserver Wecker
+//---------------------------------------------------------------------------
+Text item=textTitleAlarmClock icon=alarmclock labelcolor=["white"]{
+        Frame{
+                 Switch item=PERSON1_WECKER_PRESETS  mappings=[1="06:00", 2="07:00", 3="08:00",4="6:30"]
+                 Switch item=PERSON1_WECKER_Schlummern mappings=[1="+10", 2="+20", 3="+30 "]
+        }
+	Frame {
+		Switch item=PERSON1_WECKER_MO    icon=monday    mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_MO_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_MO_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_MO_RUN icon=stopwatch   minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_DI    icon=tuesday    mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_DI_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_DI_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_DI_RUN icon=stopwatch    minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_MI   icon=wednesday     mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_MI_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_MI_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_MI_RUN  icon=stopwatch  minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_DO   icon=thursday     mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_DO_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_DO_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_DO_RUN  icon=stopwatch  minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_FR   icon=friday     mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_FR_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_FR_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_FR_RUN  icon=stopwatch  minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_SA   icon=saturday     mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_SA_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_SA_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_SA_RUN  icon=stopwatch  minValue=5 maxValue=180 step=5
+	}
+	Frame {
+		Switch item=PERSON1_WECKER_SO   icon=sunday     mappings=[ON="AN", OFF="AUS"]
+		Setpoint item=PERSON1_WECKER_SO_H    minValue=0 maxValue=23 step=1
+		Setpoint item=PERSON1_WECKER_SO_M    minValue=0 maxValue=55 step=5
+		Setpoint item=PERSON1_WECKER_SO_RUN  icon=stopwatch    minValue=5 maxValue=180 step=5
+	}
+}
+//---------------------------------------------------------------------------
+// <5> Alexa - Echokontrolle
+//---------------------------------------------------------------------------
+Text label="Alexa" icon=alexa labelcolor=["white"]
+{
+Frame label="Echo Geräte"
+{
+    Group item=AlexaWZ{
+
+    Frame label="Momentane Musikwiedergabe"{
+    Default item=AlexaWZ_Player
+    Switch item=AlexaWZ_Shuffle mappings=[OFF="Aus",ON="EIN"]
+    Slider item=AlexaWZ_Volume
+    Slider item=AlexaWZ_MedProg
+
+    Text item=AlexaWZ_Subtitle1
+    Selection item=AlexaWZ_MusicProviderId //mappings=["SPOTIFY"="Spotify","CLOUDPLAYER"="Meine Bibliotheken","AMAZON_MUSIC"="Amazon Musik","TUNEIN"="TuneIn"]
+    Text item=AlexaWZ_Title 
+    Text item=AlexaWZ_Subtitle2
+    Image item=AlexaWZ_ImageUrl 
+
+    Text item=AlexaWZ_MedProgTime
+    Default item=AlexaWZ_MedProgLength
+    }
+        Frame label="DJ"
+    {
+        Setpoint item=AlexaWZ_HPF minValue=0 maxValue=12 step=1
+        Setpoint item=AlexaWZ_MPF
+        Setpoint item=AlexaWZ_LPF
+    }
+    Frame label="Sonstige Einstellungen"{
+    Text label="Radio" icon=tv{
+     Frame label="Liveradio"{
+        Selection item=AlexaWZ_RadioStationId mappings=[ ''='Off', 's1139'='Antenne Steiermark', 's8007'='Hitradio Ö3', 's16793'='Radio 10', 's8235'='FM4' ]
+        Switch item=AlexaWZ_Radio mappings=[OFF="Radio aus",ON="Radio ein"] 
+        Text item=AlexaWZ_ProviderDisplayName
+    }
+    }
+    Text label="Bluetooth" icon=bluetooth
+    {
+    // Default item=AlexaWZ_Bluetooth - Jetty exception
+    Default item=AlexaWZ_speakCmd
+    Default item=AlexaWZ_BLE
+    Selection item=AlexaWZ_BluetoothMAC mappings=[ ''='Disconnected', '<YOUR_DEVICE_MAC>'='Bluetooth Device 1', '<YOUR_DEVICE_MAC>'='Bluetooth Device 2']
+    }
+    Text label="Text to Speech Einstellungen" icon=mic
+    {
+        Default item=AlexaWZ_TTS
+        Slider item=AlexaWZ_TTSVol
+        Default item=AlexaWZ_lastVoiceCMD
+    }
+    Text label="Andere Alexa Funktionen" icon=settings
+    {
+    Text item=AlexaWZ_Remind
+    Default item=AlexaWZ_StartRoutine
+    }
+    Text label="Amazon Musik (kaum genutzt)" icon=amazonMusic
+    {
+        Switch item=AlexaWZ_AmazonMusic mappings=[OFF="Aus",ON="AN"]
+        Default item=AlexaWZ_AmazonMusicTrackId
+        Default item=AlexaWZ_AmazonMusicPlayListId
+    }
+    Selection item=AlexaWZ_PlayAlarmSound mappings=["ECHO:system_alerts_soothing_01"="Soothing","ECHO:system_alerts_soothing_05"="Soothing2","ECHO:system_alerts_atonal_02"="Klanghaft","ECHO:system_alerts_atonal_03"="Klanghaft2","ECHO:system_alerts_melodic_01"="Melodisch 1","ECHO:system_alerts_melodic_02"="Melodisch 2","ECHO:system_alerts_melodic_03"="Melodisch 3","ECHO:system_alerts_melodic_05"="Melodisch 5","ECHO:system_alerts_melodic_06"="Melodisch 6","ECHO:system_alerts_melodic_07"="Melodisch 7","ECHO:system_alerts_repetitive_01"="Repititiv 1","ECHO:system_alerts_repetitive_04"="Repititiv 2","ECHO:system_alerts_rhythmic_02"="Rhytmisch","ECHO:system_alerts_musical_02"="Musikalisch","ECHO:system_alerts_alarming_03"="Alarm"] 
+    Selection item=AlexaWZ_start mappings=[ 'Weather'='Weather', 'Traffic'='Traffic', 'GoodMorning'='Good Morning', 'SingASong'='Song', 'TellStory'='Story', 'FlashBriefing'='Flash Briefing', 'FlashBriefing.flashbriefing1'='Technical', 'FlashBriefing.flashbriefing2'='Life Style' ]
+    }
+
+    //
+    //------------------- Schlafzimmer Echo -----------------------
+    //
+    }
+     Group item=AlexaSZ{
+    Frame label="Momentane Musikwiedergabe"{
+    Default item=AlexaSZ_Player
+    Switch item=AlexaSZ_Shuffle mappings=[OFF="Aus",ON="EIN"]
+    Slider item=AlexaSZ_Volume
+    Slider item=AlexaSZ_MedProg
+
+    Text item=AlexaSZ_Subtitle1
+    Selection item=AlexaSZ_MusicProviderId //mappings=["SPOTIFY"="Spotify","CLOUDPLAYER"="Meine Bibliotheken","AMAZON_MUSIC"="Amazon Musik","TUNEIN"="TuneIn"]
+    Text item=AlexaSZ_Title 
+    Text item=AlexaSZ_Subtitle2
+    Image item=AlexaSZ_ImageUrl 
+
+    Text item=AlexaSZ_MedProgTime
+    Default item=AlexaSZ_MedProgLength
+    }
+    Frame label="DJ"
+    {
+        Slider item=AlexaSZ_HPF
+        Slider item=AlexaSZ_MPF
+        Slider item=AlexaSZ_LPF
+    }
+    Frame label="Sonstige Einstellungen"{
+    Text label="Radio" icon=tv{
+     Frame label="Liveradio"{
+        Selection item=AlexaSZ_RadioStationId mappings=[ ''='Off', 's1139'='Antenne Steiermark', 's8007'='Hitradio Ö3', 's16793'='Radio 10', 's8235'='FM4' ]
+        Switch item=AlexaSZ_Radio mappings=[OFF="Radio aus",ON="Radio ein"] 
+        Text item=AlexaSZ_ProviderDisplayName
+    }
+    }
+    Text label="Bluetooth" icon=bluetooth
+    {
+    // Default item=AlexaSZ_Bluetooth - Jetty exception
+    Default item=AlexaSZ_speakCmd
+    Default item=AlexaSZ_BLE
+    Selection item=AlexaSZ_BluetoothMAC mappings=[ ''='Disconnected', '<YOUR_DEVICE_MAC>'='Bluetooth Device 1', '<YOUR_DEVICE_MAC>'='Bluetooth Device 2']
+    }
+    Text label="Text to Speech Einstellungen" icon=mic
+    {
+        Default item=AlexaSZ_TTS
+        Slider item=AlexaSZ_TTSVol
+        Default item=AlexaSZ_lastVoiceCMD
+    }
+    Text label="Andere Alexa Funktionen" icon=settings
+    {
+    Text item=AlexaSZ_Remind
+    Default item=AlexaSZ_StartRoutine
+    }
+    Text label="Amazon Musik (kaum genutzt)" icon=amazonMusic
+    {
+        Switch item=AlexaSZ_AmazonMusic mappings=[OFF="Aus",ON="AN"]
+        Default item=AlexaSZ_AmazonMusicTrackId 
+        Default item=AlexaSZ_AmazonMusicPlayListId
+    }
+    Selection item=AlexaSZ_PlayAlarmSound mappings=["ECHO:system_alerts_soothing_01"="Soothing","ECHO:system_alerts_soothing_05"="Soothing2","ECHO:system_alerts_atonal_02"="Klanghaft","ECHO:system_alerts_atonal_03"="Klanghaft2","ECHO:system_alerts_melodic_01"="Melodisch 1","ECHO:system_alerts_melodic_02"="Melodisch 2","ECHO:system_alerts_melodic_03"="Melodisch 3","ECHO:system_alerts_melodic_05"="Melodisch 5","ECHO:system_alerts_melodic_06"="Melodisch 6","ECHO:system_alerts_melodic_07"="Melodisch 7","ECHO:system_alerts_repetitive_01"="Repititiv 1","ECHO:system_alerts_repetitive_04"="Repititiv 2","ECHO:system_alerts_rhythmic_02"="Rhytmisch","ECHO:system_alerts_musical_02"="Musikalisch","ECHO:system_alerts_alarming_03"="Alarm"] 
+    Selection item=AlexaSZ_start mappings=[ 'Weather'='Weather', 'Traffic'='Traffic', 'GoodMorning'='Good Morning', 'SingASong'='Song', 'TellStory'='Story', 'FlashBriefing'='Flash Briefing', 'FlashBriefing.flashbriefing1'='Technical', 'FlashBriefing.flashbriefing2'='Life Style' ]
+    }
+    } 
+}
+    Frame label="Lass Alexa etwas für dich sprechen"{
+    Selection item=AlexaEchoChoose icon=alexa mappings=[0="Wohnzimmer",1="Schlafzimmer",2="Beide Geräte"]
+    Selection item=AlexaTTS  mappings=["0",
+                                                "1",
+                                                "2",
+                                                "3",
+                                                "4",
+
+    Slider item=AlexaAZ_Volume
+    }
+         Frame label="Technische News des Tages #1"
+     {
+ Switch item=FlashBriefing_Technical_Save mappings=[ON="Einschalten",OFF="Abbrechen"]
+ Switch item=FlashBriefing_Technical_Active mappings=[ON="Einschalten",OFF="Abbrechen"]
+ Default item=FlashBriefing_Technical_Play 
+     }
+     Frame label="Lifestyle News des Tages #2"
+     {
+ Switch item=FlashBriefing_LifeStyle_Save2 mappings=[ON="Einschalten",OFF="Abbrechen"]
+ Switch item=FlashBriefing_LifeStyle_Active2 mappings=[ON="Einschalten",OFF="Abbrechen"]
+ Default item=FlashBriefing_LifeStyle_Play2
+     }
+}
+//---------------------------------------------------------------------------
+// <6> Xiaomi - SmartHome geräte
+//---------------------------------------------------------------------------
+Text label="Xiaomi" icon=xiaomi labelcolor=["white"]
+{
+    Group item=gVac{
+        Switch item=actionControl mappings=[vacuum="Saugen", pause="Pause",spot="Ecken", dock="laden"]
+ 		Selection item=actionFan mappings=[38="Leise", 60="Normal", 77="Power",90="Full", -1="Nö"]
+		Default item=statusBat 
+		Default item=statusArea 
+		Default item=statusTime 
+		Group  item=gVacStat
+		Group  item=gVacCons
+		Group  item=gVacDND
+		Group  item=gVacHist
+		Group  item=gVacNetwork
+}
+Group item=gTxtXiaomiMiFlora {
+    Frame label="Meine Pflanze"{
+    Text item=MifloraBL
+    Text item=MifloraSun
+    Text item=MifloraAirTemp
+    Text item=MifloraMois
+    Text item=Miflorafertility
+    }
+    Frame label="Neuer Versuch mit dem MQTT Broker"
+    {
+        Text item=Miflora_Light
+        Text item=Miflora_Battery
+        Text item=Miflora_Temperature
+        Text item=Miflora_Conductivity
+        Text item=Miflora_Moisture
+    }
+}
+Group item=gTxtXiaomiSmartHome
+{
+    Frame label="Xiaomi Aqara MiHome Gateway"{
+    Group item=gGateway  
+    {
+        Switch item=XGateway_joinDev mappings=[OFF="Aus",ON="Suchen"]
+        Slider item=XGateway_b
+        Text item=XGateway_i
+        Colorpicker item=XGateway_c
+        Slider item=XGateway_ct
+        Switch item=XGateway_Soundoff mappings=[OFF="Mute",ON="Sound"]
+        Selection item=XGateway_SoundSelect mappings=[ 0="0",
+                                                1="1",
+                                                2="2",
+                                                3="3",
+                                                4="4",
+        Slider item=XGateway_SoundVol
+    }
+    }
+    Frame label="Xiaomi Aqara Lichtschalter"{
+    Group item=gSwitch 
+    {
+        Group item=gSwitch1 {
+                Text item=XSwitch1_bl
+                Switch item=XSwitch1_lb mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+                Group item=gSwitch2
+        {
+                Text item=XSwitch2_bl
+                Switch item=XSwitch2_lb mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+                Group item=gSwitch3
+        {
+                Text item=XSwitch3_bl
+                Switch item=XSwitch3_lb mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+    }
+    }
+        Frame label="Magische Würfel"
+        {
+                Group item=gCube1 icon=cube{
+Default item=Cube_RotationAngle1
+Default item=Cube_RotationTime1
+Text item=Cube_Battery1  valuecolor=["red"] visibility=[Battery_Level<30]
+Default item=Cube_BatteryLow1 visibility=[Cube_Battery1<30]
+                }
+                Group item=gCube2 icon=cube{
+Default item=Cube_RotationAngle2
+Default item=Cube_RotationTime2
+Text item=Cube_Battery2 visibility=[Battery_Level<30] valuecolor=["red"]
+Switch item=Cube_BatteryLow2 mappings=[ON="Einschalten",OFF="Ausschalten"]
+            }
+    }
+        Frame label="Wohnzimmer Temperatur"{
+            Group item=gTemp1{
+            Text item=XTemperatur_temp1 labelcolor=["red"] valuecolor=[<=19="red",<=26="green",>=26="red"]
+            Text item=XTemperatur_humidity1
+            Text item=XTemperatur_pressure1
+            Text item=XTemperatur_bl1
+            Switch item=XTemperatur_lb1 mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+        Default item=XTemperatur_temp1
+        }
+            Frame label="Schlafzimmer Temperatur"{
+            Group item=gTemp2{
+            Text item=XTemperatur_temp2 labelcolor=["red"] valuecolor=[<=19="red",<=26="green",>=26="red"]
+            Text item=XTemperatur_humidity2
+            Text item=XTemperatur_pressure2
+            Text item=XTemperatur_bl2
+            Switch item=XTemperatur_lb2 mappings=[ON="Einschalten",OFF="Ausschalten"]
+       }
+       Default item=XTemperatur_temp2
+          }
+                    Frame label="Heizungskeller Temperatur"{
+            Group item=gTemp3{
+            Text item=XTemperatur_temp3 labelcolor=["red"] valuecolor=[<=19="red",<=26="green",>=26="red"]
+            Text item=XTemperatur_humidity3
+            Text item=XTemperatur_pressure3
+            Text item=XTemperatur_bl3
+            Switch item=XTemperatur_lb3 mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+        Default item=XTemperatur_temp3
+    }
+    Frame label="Aqara Tür/Fenstersensor"
+    {
+        Group item=gDoor1{
+            Default item=Door_Openstatus1 
+            Default item=Door_lastopened1
+            Default item=Door_Alarm1
+            Text item=Door_Bl1
+            Switch item=Door_lb1 mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+                Group item=gDoor2{
+            Default item=Door_Openstatus2
+            Default item=Door_lastopened2
+            Default item=Door_Alarm2
+            Text item=Door_Bl2
+            Switch item=Door_lb2 mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+        Group item=gDoor3{
+            Default item=Door_Openstatus3
+            Default item=Door_lastopened3
+            Default item=Door_Alarm3
+            Text item=Door_Bl3
+            Switch item=Door_lb3 mappings=[ON="Einschalten",OFF="Ausschalten"]
+        }
+        }
+        Frame label="Xiaomi Bewegungssensor"
+        {
+            Group item=gMotion{
+        Switch item=Motion_status mappings=[ON="Bewegung",OFF="Keine Bewegung"]
+        Setpoint item=Motion_OffTimer  icon=stopwatch    minValue=3 maxValue=15 step=1
+        Default item=Motion_LastActivity
+        Text item=Motion_Bl
+        Switch item=Motion_lb mappings=[ON="Einschalten",OFF="Ausschalten"]
+}
+  Group item=gMotion2{
+        Switch item=Motion_status2 mappings=[ON="Bewegung",OFF="Keine Bewegung"]
+        Setpoint item=Motion_OffTimer2  icon=stopwatch    minValue=3 maxValue=15 step=1
+        Default item=Motion_LastActivity2
+        Text item=Motion_Bl2
+        Switch item=Motion_lb2 mappings=[ON="Einschalten",OFF="Ausschalten"]
+}
+  Group item=gMotion3{
+        Switch item=Motion_status3 mappings=[ON="Bewegung",OFF="Keine Bewegung"]
+        Setpoint item=Motion_OffTimer3  icon=stopwatch    minValue=3 maxValue=15 step=1
+        Default item=Motion_LastActivity3
+        Text item=Motion_Bl3
+        Switch item=Motion_lb3 mappings=[ON="Einschalten",OFF="Ausschalten"]
+}
+Group item=gVibration{
+    Default item=Vib_lastAct
+    Default item=Vib_TiltAngle
+    Default item=Vib_X
+    Default item=Vib_Y
+    Default item=Vib_Z
+    Default item=Vib_BedAct
+    Default item=Vib_Bl
+    Default item=Vib_lb
+
+}
+    }
+}
+}
+//---------------------------------------------------------------------------
+// <7> Server - Openhab Raspberry
+//---------------------------------------------------------------------------
+Text label="Server (Konfiguration und Information)" icon=server labelcolor=["white"]
+{
+    Frame label="Prozessorinformationen"
+    {
+        Default item=SI_CPU_name 
+        Default item=SI_CPU_load 
+        Default item=RaspiCPU 
+        //Default item=SI_CPU_Volt
+        //Default item=SI_CPU_thr
+
+    }
+    Frame label="Netzwerkinformationen"
+    {
+        Default item=SI_nt_IP 
+        Default item=SI_nt_mac 
+        Default item=SI_nt_nn 
+        Default item=SI_nt_dn 
+    }
+    Frame label="Netzwerktraffic"
+    {
+        Default item=SI_tr_pS
+        Default item=SI_tr_pR
+        Default item=SI_tr_dS
+        Default item=SI_tr_dR
+
+
+    }
+    Frame label="Arbeitsspeicherinformationen"
+    {
+        Default item=SI_RAM_available 
+        Default item=SI_RAM_availableP 
+        Default item=SI_RAM_use 
+        Default item=SI_RAM_useP 
+        Default item=SI_RAM_total 
+    }
+    Frame label="SSD Karten Speicher"
+    {
+        Default item=SI_st_t 
+        Default item=SI_st_n 
+        Default item=SI_st_av 
+        Default item=SI_st_avP 
+        Default item=SI_st_u 
+        Default item=SI_st_uP 
+    }
+    Frame label="Log-/ & Debugging"{
+    Group item=gDebug icon=bug
+    {
+        Frame label="Syntax debugging"{
+        Switch item=Testitem label="Switch für .rules" mappings=[OFF="uncompile",ON="compile"]
+    }
+    }
+    
+    Group item=gLog label="Fehler und Logeinträge" icon=error
+{
+ Frame label="logger"{
+    Default item=lR_lwE icon=errors
+    Default item=lR_leE icon=warning
+    Default item=lr_WeM icon=warning
+    Default item=lR_EeM icon=errors
+}
+ Frame label="Andere Tools"{
+    Text label="Logs in der Kommandozeile"
+    {
+        Webview url="/static/frontail.html" height=9
+        Default item=TL_Temp
+        Default item=TL_Lights          
+        Webview url="/static/Visualization/Timeline.html?Group=timeline" height=9
+    }
+ }
+}
+Text item=Whatsapp{
+    Frame label="Nachrichten:"{
+    Default item=inMessage
+    Default item=outMessage
+    Default item=inMedia
+    Default item=outMedia
+    }
+    Frame label="Nachrichten HUB Einstellungen:"
+    {
+        Switch item=sendWAMes
+        Switch item=sendPushMes
+    }
+}  
+    Group item=batteryManagement
+    Group item=globVars
+    {
+        Frame label="Lichtertimer"{
+        Setpoint item=gLightsOffset  icon=stopwatch    minValue=60 maxValue=180 step=5
+        Setpoint item=gPresetTemperature icon=temperature minValue=10 maxValue=28 step=0.5
+        Setpoint item=gMotionOffset  icon=stopwatch    minValue=1 maxValue=20 step=1
+        Setpoint item=gWindowOffset  icon=stopwatch    minValue=5 maxValue=60 step=5
+        }
+        Frame label="Nachrichten erlauben"
+        {
+            Switch item=sendWAMes mappings=[OFF="Ausschalten",ON="Anschalten"]
+            Switch item=sendPushMes mappings=[OFF="Ausschalten",ON="Anschalten"]
+        }
+        Frame label="Ender API aktivieren"
+        {
+            Switch item=EnderApi mappings=[OFF="Ausschalten",ON="Anschalten"]
+        }
+        Frame label="Weckervoreinstellungen"
+        {
+             Switch item=PERSON1_WECKER_PRESETS  mappings=[1="06:00", 2="07:00", 3="08:00",4="6:30"]
+        }
+    }
+}
+}
+//---------------------------------------------------------------------------
+// <8> DECT und Router -  Fritzbox 7490
+//---------------------------------------------------------------------------
+Text label="FritzBox 7490" icon=modem labelcolor=["white"]
+{
+    Frame label="Meine FritzBox 7490"
+    {
+        Group item=DSL 
+        Group item=FBox
+        Group item=WAN
+        Group item=FBoxComponents
+        {
+            Switch item=DECT mappings=[OFF="Aus",ON="An"]
+            Switch item=WIFI mappings=[OFF="Aus",ON="An"]
+            Switch item=GWIFI mappings=[OFF="Aus",ON="An"]
+            Switch item=TAM0 mappings=[OFF="Aus",ON="An"]
+        }
+    }
+Frame label="Momentaner Internetgeschwindigkeitstest:"{
+    Text item=SpeedtestSummary {
+  Frame label="Ergebnisse" {
+    Text item=SpeedtestResultDown
+    Text item=SpeedtestResultUp
+    Text item=SpeedtestResultPing
+  }
+  Frame label="Steuerung" {
+    Text item=SpeedtestResultDate
+    Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
+    Switch item=SpeedtestRerun mappings=[ON="Start"]
+  }
+  Frame label="Statistik" {
+    Text label="..." icon="speedtest_analytics8"
+  }
+    }
+}
+       Frame label="Telefonie" {
+           Default item=fboxRinging
+           Default item=fboxRinging_Out
+           Default item=fboxIncomingCall
+           Default item=fboxOutgoingCall
+           Default item=fboxMissedCalls
+    }
+    Frame label="Heizkörperthermostat Schlafzimmer"
+    {
+        Group item=Dect1 
+        {
+        Frame label="Comet DECT heating thermostat" {
+		Text item=TempDect1 icon="temperature"
+		Setpoint item=SollTempDect1 minValue=8.0 maxValue=30.0 step=0.5 icon="temperature"
+		Selection item=ModusTempDect1 mappings=["ON"="ON", "OFF"="OFF", "COMFORT"="COMFORT", "ECO"="ECO", "BOOST"="BOOST"] icon="heating"
+		Text item=BatteryDect1 icon="battery"
+		Switch item=LowBatteryDect1 icon="lowbattery"
+	}
+        }
+                Group item=Dect2 
+        {
+        Frame label="Comet DECT heating thermostat" {
+		Text item=TempDect2 icon="temperature"
+		Setpoint item=SollTempDect2 minValue=8.0 maxValue=28.0 step=0.5 icon="temperature"
+		Selection item=ModusTempDect2 mappings=["ON"="ON", "OFF"="OFF", "COMFORT"="COMFORT", "ECO"="ECO", "BOOST"="BOOST"] icon="heating"
+		Text item=BatteryDect2 icon="battery"
+		Switch item=LowBatteryDect2 icon="lowbattery"
+	}
+        }
+    }
+}
+//---------------------------------------------------------------------------
+// <9> Sonstiger ToDo shit
+//---------------------------------------------------------------------------
+// Text label="Meine Aufgaben und Pflichten" icon=todo labelcolor=["white"]
+// {
+//     Frame label="ToDo"
+//     {
+// 		Group item=gTodo_List icon=todo
+//         Text item=txtBevSR
+// {
+// Webview item=WVbevsr label="BEV" url="https://www.sr.de/ctr_referre/games" height=20
+// }
+//     }
+// }
+//---------------------------------------------------------------------------
+// <10> Netzwerkdrucker - Ender 3 - Epson
+//---------------------------------------------------------------------------
+// Text item=NetworkPrinter labelcolor=["white"]{
+// Text item=txtItemOctoprint icon=nozzle
+// {
+//     Frame label="Wake on Lan"
+//     {
+//         Switch item=wol_Octoprint mappings=[ON="Einschalten"]
+//         Group item=gOctoprint
+//         Switch item=EnderApi mappings=[OFF="Aus",ON="An"]
+//     }
+//     Frame label="3D Drucklicht"
+//     {
+//         Group item=g4 labelcolor=["green"] {
+//     Switch item=Arilux4_p mappings=[OFF="Aus",ON="An"]
+//     Default item=Arilux4_c
+// Selection item=Arilux4_pr mappings=[48=Strobo,
+// 96="Strobe - Benutzerdefiniert 1",
+// 49="Strobo - Rot",
+// 50="Strobo - Grün",
+// 51="Strobo - Blau",
+// 53="Strobo - Cyan",
+// 54="Strobo - Lila",
+// 52="Strobo - Gelb",
+// 55="Strobo - Weiß",
+// 57="Strobo - Rot, Grün & Blau",
+// 45="Übergehendes Faden - Rot & Grün",
+// 46="Übergehendes Faden - Rot & Blau",
+// 47="Übergehendes Faden - Blau & Grün",
+// 37="Faden - 8 Farben",
+// 44="Faden - Weiß",
+// 39="Faden - Grün",
+// 40="Faden - Dunkelblau",
+// 41="Faden - Gelb",
+// 38="Faden - Rot",
+// 42="Faden - Hellblau",
+// 43="Faden - Lila",
+// 45="Faden - Rot, Grün & Blau",
+// 56="Jumpen",
+// 99="Jumpen - Rot, Grün & Blau",
+// 97="Farbe (kein Preset gewählt)"]
+// Slider item=Arilux4_ps
+// }
+// Switch item=Arilux4_p mappings=[OFF="Aus",ON="An"]
+//     }
+//     Frame label="Drucker Steuern"
+//     {
+//     Default item=OctoprintPrinterState
+//     Default item=OctoprintPrinterProfile
+//     Selection item=OctoprintPrinterCommand mappings=["G28"="Auto_Home","M106"="Lüfter ein","M107"="Lüfter aus","M17"="Motoren aktivieren","M18"="Motoren deaktivieren"]
+//     Switch item=OctoprintPrinterCommand label="Mesh Bed Level" mappings=["mesh_bed_level"="Bett Leveling starten"]
+//     Selection item=OctoprintPrinterCommand mappings=["M117 Hallo Welt"="Hallo Welt","M117 Ich liebe dich"="Ich liebe dich","M117 Weird flex"="Weird flex","M117 Jetzt reichts"="Jetzt reichts"]
+//     Selection item=OctoprintSystemCommand mappings=[1="herunterfahren",2="Drucker neustarten",3="Service neustarten",4="Abgesicherten Modus starten"]
+//     Selection item=OctoprintcurrPrintCommand mappings=["start"="Druck starten","cancel"="Druck abbrechen","restart"="Druck neu starten",4="Druck ent-/pausieren"]
+//     }
+//     Frame label="etwas drucken"
+//     {
+//     Selection item=OctoprintFilesSD mappings=[1=""]
+//     Switch item=OctoprintFilesSDReload mappings=[ON="Neu laden"]
+//     Selection item=OctoprintFilesLocal mappings=[1=""]
+//     Switch item=OctoprintFilesLocalReload mappings=[ON="Neu laden"]
+//     }
+//     Frame label="Momentaner Druckfortschritt"
+//     {
+//         Default item=OctoprintJobEstimatedPrintTime
+//         Default item=OctoprintJobFileName
+//         Default item=OctoprintJobFileOrigin
+//         Default item=OctoprintJobProgressCompletion
+//         Default item=OctoprintJobPrintTime
+//         Default item=OctoprintJobPrintTimeString
+//         Default item=OctoprintJobPrintTimeLeft
+//         Default item=OctoprintJobPrintTimeLeftString
+//         Default item=OctoprintJobPrintETADateTime
+//     } 
+//     Frame label="Druckerinformationen"
+//     {
+//         Default item=OctoprintPrinterHotEndTemp
+//         Default item=OctoprintPrinterHotEndTempTarget
+//         Default item=OctoprintPrinterBedTemp
+//         Default item=OctoprintPrinterBedTempTarget
+//     Default item=OctoprintPrinterPrintingState
+//     }
+//     Group item=EnderWView label="Ender 3 Octoprintsteuerung" icon=nozzle{
+// Webview item=WVepson label="Ender 3 Fernsteuerung" url="http://168.16.8.8" height=20
+// }
+// }
+// Text label="Epson Netzwerkdrucker" icon=printer
+// {
+//     Frame label="Steuerung"
+//     {
+//         Switch item=wol_drucker mappings=[ON="Einschalten"]
+//     }
+//         Frame label="Informationen"
+//     {
+//         Default item=Ipp_Epson
+//         Default item=nw_eD_online
+//         Default item=nw_eD_ping
+//         Default item=nw_eD_ls
+//     }
+//     Frame label="Netzwerkadresse"
+//     {
+//         Default item=EpsonHLink
+//         Webview item=WVepson label="Epson" url="http://168.16.8.8/PRESENTATION/HTML/TOP/INDEX.HTML" height=20
+//     }
+// }
+// }
+// //---------------------------------------------------------------------------
+// // <11> Hifi Bereich
+// //---------------------------------------------------------------------------
+//     Text label="Hifi-Ecke" labelcolor=["white"] icon=hifi{
+//         Text label="Fernseher" icon=screen labelcolor=["white"]
+//         {
+//             Frame label="TV"{
+//             Switch item=Mi_TCL_Power mappings=[ON="Umschalten"]
+//             Switch item=Mi_TCL_mute mappings=[ON="Umschalten"]
+//             Selection item=Mi_TCL_channel mappings=[0="0",1="1",2="2",3="3",4="4",5="5",6="6",7="7",8="8",9="9"]
+//             Switch item=Mi_TCL_ChannelForward mappings=[OFF="Zurück",ON="Vor"]
+//             }
+//             Frame label="Programme"
+//             {
+//             Selection item=Mi_TCL_Zeug mappings=[ON="Einstellungen",2="Information",3="Liste",4="Quelle"]
+//             Switch item=Mi_TCL_Netflix mappings=[ON="Go"]
+//             Switch item=Mi_TCL_home mappings=[ON="Go"]
+//             }
+//             Frame label="Steuern"
+//             {
+//                 Switch item=Mi_TCL_ok mappings=[ON="OK"]
+//                 Switch item=Mi_TCL_back mappings=[ON="Zurück"]
+//                 Switch item=Mi_TCL_ArrowL mappings=[ON="⭠"]
+//                 Switch item=Mi_TCL_ArrowR mappings=[ON="⭢"]
+//                 Switch item=Mi_TCL_ArrowU mappings=[ON="⭡"]
+//                 Switch item=Mi_TCL_ArrowD mappings=[ON="⭣"]
+//             }
+//         }
+//         Text label="5.1 Surround Anlage" icon=51sound labelcolor=["white"]
+//         {
+// Frame label="Trust Lautsprecher Einstellungen"{
+// Switch item=Mi_trust_Power mappings=[ON="Umschalten"]
+// Switch item=Mi_trust_LED mappings=[ON="Umschalten"]
+// Switch item=Mi_trust_Mute mappings=[ON="Mute"]
+// Switch item=Mi_trust_Sourc mappings=[ON="5.1 Input/Aux"]
+// Switch item=Mi_trust_51 mappings=[ON="Anschalten"]
+//         }
+//         Frame label="Trust Lautsprecher Lautstärke"
+//         {
+//             Switch item=Mi_trust_vol mappings=[OFF="leiser",ON="lauter"]
+//             Switch item=Mi_trust_bass mappings=[OFF="leiser",ON="lauter"]
+//             Switch item=Mi_trust_Midvol mappings=[OFF="leiser",ON="lauter"]
+//             Switch item=Mi_trust_Surrvol mappings=[OFF="leiser",ON="lauter"]
+
+//         }
+//         }
+//         Text label="Fire TV Stick" icon="amazon" labelcolor=["white"]
+//         {
+//         Frame label="Amazon Fire TV Stick"  
+//         {
+//             Switch item=Mi_Fire_power mappings=[ON="An/Aus"]
+//             Switch item=Mi_Fire_mute mappings=[ON="An/Aus"]
+//             Switch item=Mi_Fire_Home mappings=[ON="Home"]
+//             Switch item=Mi_Fire_set mappings=[ON="Einstellungen"]
+//             Switch item=Mi_Fire_navi mappings=[ON="Start"]
+//             Switch item=Mi_Fire_vol mappings=[OFF="leiser",ON="lauter"]
+//         }
+//         }
+        
+//     Text label="Fernsehprogramm" icon=tv labelcolor=["white"]{
+// Frame label="" {
+//         Text item=TV_Channel_1_CurrentShow label="Das Erste [%s]" icon="tv_ard" {
+//             Frame item=TV_Channel_1_Name label="" {
+//                 Text item=TV_Channel_1_CurrentShow icon="tv_ard"
+//                 Text item=TV_Channel_1_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_1_NextShow icon="next" {
+//             Frame item=TV_Channel_1_Name label="" {
+//                 Text item=TV_Channel_1_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_1_NextShowStartStop
+//             }
+//         }
+//     }
+//     Frame label="" {
+//         Text item=TV_Channel_2_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_2_Name label="" {
+//                 Text item=TV_Channel_2_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_2_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_2_NextShow icon="next" {
+//             Frame item=TV_Channel_2_Name label="" {
+//                 Text item=TV_Channel_2_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_2_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_2_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_3_Name label="" {
+//                 Text item=TV_Channel_3_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_3_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_3_NextShow icon="next" {
+//             Frame item=TV_Channel_3_Name label="" {
+//                 Text item=TV_Channel_3_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_3_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_4_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_4_Name label="" {
+//                 Text item=TV_Channel_4_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_4_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_4_NextShow icon="next" {
+//             Frame item=TV_Channel_4_Name label="" {
+//                 Text item=TV_Channel_4_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_4_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_5_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_5_Name label="" {
+//                 Text item=TV_Channel_5_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_5_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_5_NextShow icon="next" {
+//             Frame item=TV_Channel_5_Name label="" {
+//                 Text item=TV_Channel_5_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_5_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_6_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_6_Name label="" {
+//                 Text item=TV_Channel_6_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_6_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_6_NextShow icon="next" {
+//             Frame item=TV_Channel_6_Name label="" {
+//                 Text item=TV_Channel_6_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_6_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_7_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_7_Name label="" {
+//                 Text item=TV_Channel_7_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_7_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_7_NextShow icon="next" {
+//             Frame item=TV_Channel_7_Name label="" {
+//                 Text item=TV_Channel_7_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_7_NextShowStartStop
+//             }
+//         }
+//     }
+//         Frame label="" {
+//         Text item=TV_Channel_8_CurrentShow label="ZDF [%s]" icon="tv_zdf" {
+//             Frame item=TV_Channel_8_Name label="" {
+//                 Text item=TV_Channel_8_CurrentShow icon="tv_zdf"
+//                 Text item=TV_Channel_8_CurrentShowDuration icon="time"
+//             }
+//         }
+//         Text item=TV_Channel_8_NextShow icon="next" {
+//             Frame item=TV_Channel_8_Name label="" {
+//                 Text item=TV_Channel_8_NextShow label="Das Erste" icon="tv_ard"
+//                 Text item=TV_Channel_8_NextShowStartStop
+//             }
+//         }
+//     }
+//     }
+//     Text label="Mi IR Remote" icon="infrared" labelcolor=["white"]{
+//         Frame label="Netzwerkzeug"
+//         {
+//             Default item=MiRemote_SSID icon=modem
+//             Default item=MiRemote_BSSID
+//             Default item=MiRemote_RSSI
+//             Default item=MiRemote_Life
+//         }
+//         Frame label="Kommandos"
+//         {
+//             Switch item=MiRemote_Power mappings=[OFF="Aus",ON="An"]
+//             Switch item=MiRemote_ExeCmd mappings=[OFF="Aus",ON="An"]
+//             Default item=MiRemote_Cmd
+//         }
+//     }
+
+
+//     }
+//---------------------------------------------------------------------------
+// <12> Bereich Eltern 
+//---------------------------------------------------------------------------
+Text label="Mama und Papas Bereich" icon=eltern labelcolor=["white"]
+{
+Frame label="LED Streifen am Bett"
+{
+Group item=g3 label="Arilux #1" labelcolor=["green"] {
+    Switch item=Arilux1_p mappings=[OFF="Aus",ON="An"]
+    Default item=Arilux1_c
+Selection item=Arilux1_pr mappings=[48=Strobo,
+96="Strobe - Benutzerdefiniert 1",
+49="Strobo - Rot",
+50="Strobo - Grün",
+51="Strobo - Blau",
+53="Strobo - Cyan",
+54="Strobo - Lila",
+52="Strobo - Gelb",
+55="Strobo - Weiß",
+57="Strobo - Rot, Grün & Blau",
+45="Übergehendes Faden - Rot & Grün",
+46="Übergehendes Faden - Rot & Blau",
+47="Übergehendes Faden - Blau & Grün",
+37="Faden - 8 Farben",
+44="Faden - Weiß",
+39="Faden - Grün",
+40="Faden - Dunkelblau",
+41="Faden - Gelb",
+38="Faden - Rot",
+42="Faden - Hellblau",
+43="Faden - Lila",
+45="Faden - Rot, Grün & Blau",
+56="Jumpen",
+99="Jumpen - Rot, Grün & Blau",
+97="Farbe (kein Preset gewählt)"]
+Slider item=Arilux1_ps
+    Slider item=Arilux1_c label="Helligkeit"
+} 
+Switch item=Arilux1_p mappings=[OFF="Aus",ON="An"]
+    }
+    Frame label="PC im Büro"{
+        Switch item=wol_MamaPC  mappings=[ON="Einschalten"]
+    }
+    Frame label="Katzenzeug"{
+Group item=gVibration{
+    Default item=Vib_lastAct
+    Default item=Vib_TiltAngle
+    Default item=Vib_X
+    Default item=Vib_Y
+    Default item=Vib_Z
+    Default item=Vib_BedAct
+    Default item=Vib_Bl
+    Default item=Vib_lb
+
+}      
+    }}
+
+
+//---------------------------------------------------------------------------
+// <13> Spotify 
+//---------------------------------------------------------------------------
+Text item=SpotifyTextItem icon=spotify labelcolor=["white"]
+{
+  Frame label="Spotify - aktuelle Prozesse" {
+    Text item=spotifydeviceName
+    Selection item=spotifyDevices      
+    Default    item=spotifyTrackPlayer   
+    Switch    item=spotifyDeviceShuffle  mappings=[OFF="Aus",ON="An"]
+    Text      item=spotifyTrackRepeat   
+    Text      item=spotifyTrackProgress 
+    Text      item=spotifyTrackDuration 
+    Text      item=spotifyTrackName     
+    Image     item=spotifyAlbumImage    
+    Text      item=spotifyAlbumName    
+    Text      item=spotifyArtistName    
+  
+  }
+Frame label="Alle Ausgabegeräte"{
+  Group item=echo1{
+  Frame label="Spotify Gerät 1: Echo Dot Wohnzimmer" {
+    Text item=AlexaWZ_DeviceName label="Device Name [%s]"
+    Default item=AlexaWZ_Player 
+    Slider item=AlexaWZ_DeviceVolume
+    Switch item=AlexaWZ_DeviceShuffle mappings=[OFF="Aus",ON="An"]
+  }
+  }
+Group item=echo2{
+   Frame label="Spotify Gerät 2: Echo Dot Schlafzimmer" {
+    Text item=AlexaSZ_DeviceName label="Device Name [%s]"
+    Default item=AlexaSZ_Player
+    Slider item=AlexaSZ_DeviceVolume 
+    Switch item=AlexaSZ_DeviceShuffle mappings=[OFF="Aus",ON="An"]
+  }
+}
+Group item=AlleRaeume{
+   Frame label="Spotify Gerät 2: Echo Dot Schlafzimmer" {
+    Text item=AlleRaume_Player_DeviceName label="Device Name [%s]"
+    Default item=AlleRaume_Player
+    Slider item=AlleRaume_DeviceVolume 
+    Switch item=AlleRaume_DeviceShuffle mappings=[OFF="Aus",ON="An"]
+   }
+}
+
+}
+}
+//---------------------------------------------------------------------------
+// <13> Spotify 
+//---------------------------------------------------------------------------
+Text item=Tankerkoenig labelcolor=["white"]
+{
+                Frame label="Supermarkt Tankstelle Königsbrunn"{
+    Text item=SMKaufland_E10
+    Text item=SMKaufland_E5
+    Text item=SMKaufland_Diesel
+    Switch item=SMKaufland_Open
+    }
+        Frame label="Globus Königsbrunn"{
+    Text item=Globus_E10
+    Text item=Globus_E5
+    Text item=Globus_Diesel
+    Switch item=Globus_Open
+    }
+            Frame label="OMV Königsbrunn"{
+    Text item=OMVKoenigsbrunn_E10
+    Text item=OMVKoenigsbrunn_E5
+    Text item=OMVKoenigsbrunn_Diesel
+    Switch item=OMVKoenigsbrunn_Open
+    }
+    Frame label="Aral Bobingen"{
+    Text item=AralBobingen_E10
+    Text item=AralBobingen_E5
+    Text item=AralBobingen_Diesel
+    Switch item=AralBobingen_Open
+    }
+        Frame label="Aral Bobingen"{
+    Text item=AralHaunstetten_E10
+    Text item=AralHaunstetten_E5
+    Text item=AralHaunstetten_Diesel
+    Switch item=AralHaunstetten_Open
+    }
+            Frame label="OMV Bobingen"{
+    Text item=OMVHaunstetten_E10
+    Text item=OMVHaunstetten_E5
+    Text item=OMVHaunstetten_Diesel
+    Switch item=OMVHaunstetten_Open
+    }
+                Frame label="OMV Bobingen"{
+    Text item=OMVBobingen_E10
+    Text item=OMVBobingen_E5
+    Text item=OMVBobingen_Diesel
+    Switch item=OMVBobingen_Open
+    }
+}
+}//sitemap curlybracket

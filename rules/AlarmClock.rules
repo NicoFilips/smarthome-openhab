@@ -1,0 +1,251 @@
+val String filename = "AlarmClock.rules"
+//----------------- Globale Variablen ----------------
+var Timer timerPERSON1Wecker = null
+var Heute = ""
+var boolean Wecken = false
+var int sollMinute
+var int sollStunde
+var int RunTime
+var DerTag= "NA"
+
+val java.util.Random rand = new java.util.Random
+//------------------- Alexa Trigger ------------------
+
+// rule "Alexa früher Wecker"
+// when
+// Item OHWeckerfruh received command ON
+// then
+//  PERSON1_WECKER_PRESETS.sendCommand(1)
+// end 
+
+// rule "Alexa normaler Wecker"
+// when
+// Item OHWeckernormal received command ON
+// then
+//  PERSON1_WECKER_PRESETS.sendCommand(2)
+// end 
+
+// rule "Alexa später Wecker"
+// when
+// Item OHWeckerspat received command ON
+// then
+//  PERSON1_WECKER_PRESETS.sendCommand(3)
+// end 
+
+// rule "Alexa Berufsschulwecker"
+// when
+// Item OHWeckerBS received command ON
+// then
+//  PERSON1_WECKER_PRESETS.sendCommand(4)
+// end 
+
+// rule "Wecker Schlummermodus"
+// when
+// Item OHWeckerSchlummern received command ON
+// then
+// sollMinute += 15
+// 	if(sollMinute >= 60)
+// 		{
+// 		sollMinute -= - 60
+// 		sollStunde += 1
+// 		}
+// 		logInfo(filename, "Schlummermodus: Neuer Wecker auf: "+SollStunde+":"+sollMinute)
+// end
+//--------------------------------------------------
+
+rule "Wecker Voreinstellungen laden"
+	when
+		Item PERSON1_WECKER_PRESETS received command
+then
+var String dieWahl = ""
+var String test = new java.lang.String()	
+	switch (PERSON1_WECKER_PRESETS.state){
+		//Früh aufstehen
+		case 1:{
+			sollStunde=6
+			test = "06:00"
+    		        sollMinute=0
+    		        RunTime=10
+					AlexaSZ_TTS.sendCommand("Webserver Alarm auf 6 Uhr gestellt")
+					dieWahl = "früh"
+		}
+		//Spät aufstehen
+		case 2:{
+			sollStunde=7
+			test = "07:00"
+    		        sollMinute=00
+    		        RunTime=10
+					AlexaSZ_TTS.sendCommand("Webserver Alarm auf 7 Uhr gestellt")	
+					dieWahl = "normal"		
+		}
+		case 3:{
+			sollStunde=8
+			test = "08:00"
+    		        sollMinute=00
+    		        RunTime=10
+					AlexaSZ_TTS.sendCommand("Webserver Alarm auf 8 Uhr gestellt")	
+					dieWahl = "spät"		
+		}
+		case 4:{
+					sollStunde=6
+    		        test = "6:30"
+					sollMinute=30
+    		        RunTime=10
+					AlexaSZ_TTS.sendCommand("Webserver Alarm auf 6 Uhr 30 gestellt")	
+					dieWahl = "Berufsschule"
+
+		}
+	}
+		textTitleAlarmClock.postUpdate(" " +  test)
+		//textTitleAlarmClock.postUpdate(String::format("%.1f:%.1f (Laufzeit: %.1f Min)", PERSON1_WECKER_SO_H, PERSON1_WECKER_SO_M, PERSON1_WECKER_SO_RUN))
+		//textTitleAlarmClock.postUpdate(String::format("%{}:{} Uhr", sollStunde.toString, sollMinute.toString))
+		logInfo(filename,"AlarmClock Voreinstellungen auf "+ dieWahl.toString + " gestellt. (0{}:{}0, Laufzeit: {} Minuten)", sollStunde.toString, sollMinute.toString, RunTime.toString)
+	//set hour,minute,runtime items for each day
+	var i = 0
+	
+        //don't change saturday/sunday. set i max=7 and uncomment cases if you have to work weekends, you unlucky soul
+	while ((i=i+1) <= 7) {
+    	switch i{
+        	case 1: DerTag = "MO"
+        	case 2: DerTag = "DI"
+        	case 3: DerTag= "MI"
+        	case 4: DerTag= "DO"
+        	case 5: DerTag= "FR"
+        	case 6: DerTag= "SA"
+        	case 7: DerTag= "SO"
+    	}
+    	//set all hours
+    	gPERSON1Wecker.members.filter(s|s.name == "PERSON1_WECKER_"+DerTag+"_H").forEach[s | s.postUpdate(sollStunde)]
+    	//set all minutes
+    	gPERSON1Wecker.members.filter(s|s.name == "PERSON1_WECKER_"+DerTag+"_M").forEach[s | s.postUpdate(sollMinute)]
+    	//set runtimes
+    	gPERSON1Wecker.members.filter(s|s.name == "PERSON1_WECKER_"+DerTag+"_RUN").forEach[s | s.postUpdate(RunTime)]
+		gPERSON1Wecker.members.filter(s|s.name == "PERSON1_WECKER_"+DerTag+"").forEach[s | s.sendCommand(ON)]
+	}
+end
+
+
+rule "Mein Wecker"
+    when
+	//Alle 5 Minute
+        Time cron "0 0/5 * * * ?" //(Sec / Min / hours / DayOfMonth / Month / DayOfWeek / year)
+    then
+
+    
+    switch now.getDayOfWeek{
+        case 1: Heute = "MO"
+        case 2: Heute = "DI"
+        case 3: Heute= "MI"
+        case 4: Heute= "DO"
+        case 5: Heute= "FR"
+        case 6: Heute= "SA"
+        case 7: Heute= "SO"
+    }
+	
+	if (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute].head.state == ON) {
+	//Zuweisen von Defaultwerten, falls keine Zeitwerte im Weckerinterface gesetzt wurden
+	sollMinute = 0
+	sollStunde = 9
+	RunTime = 15	
+	//Zuweisen der Werte des Interfaces
+	if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" && s.state != NULL].size > 0) {sollStunde = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" ].head.state as Number).intValue}
+	if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" && s.state != NULL].size > 0) {sollMinute = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" ].head.state as Number).intValue}
+	if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_RUN" && s.state != NULL].size > 0) {RunTime = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_RUN" ].head.state as Number).intValue}
+	Wecken = true
+	
+	}
+	//logInfo(filename, sollMinute+", "+sollStunde+", "+RunTime)
+
+	//logInfo
+	var String Std = sollStunde.toString
+	var String Min = sollMinute.toString
+	//Formatierung
+	if (sollStunde.toString().length < 2){Std = "0" + Std}
+	if (sollMinute.toString().length < 2){Min = "0" + Min}
+
+	if (Wecken == true){logInfo(filename, "Wecker klingelt um: "+Std+":"+Min+" für "+ RunTime +" Minuten")}
+	
+		if (sollMinute == now.getMinuteOfHour && sollStunde == now.getHourOfDay && Wecken==true) {
+			
+			//---------------------------- Wecker ---------------------------
+			val int randomNumber = rand.nextInt(7)
+			sendCommand(PERSON1_WECKER_AKTIV,ON)	
+			//Alexa TTS
+			AlexaSZ_TTS.sendCommand("Guten morgen Nico!")
+			Thread::sleep(3000)
+			//Lichter
+			gBedYeelight.sendCommand(ON)
+			farbWahl.sendCommand(randomNumber)
+			
+			//Benachrichtigungen
+			sendNotification("nico.filips@gmx.de","Webserver Wecker eingeschaltet. (Laufzeit " + RunTime.toString +" Minuten)")
+			logInfo(filename, "Die Wecker Aktivitäten werden ausgeführt. Laufzeit: {} Minuten", RunTime.toString)
+			    AlexaSZ_MusicProviderId.sendCommand('SPOTIFY')
+    			//AlexaSZ_PlayMusicCommand.sendCommand('Playlist Techno')
+				AlexaSZ_Volume.sendCommand(8)
+				AlexaSZ_Player.sendCommand('PLAY')
+			//---------------------------- Wecker ---------------------------
+			timerPERSON1Wecker = createTimer(now.plusMinutes(RunTime)) [|
+								gBedYeelight.sendCommand(OFF)
+								AlexaSZ_Player.sendCommand('PAUSE')
+								Thread::sleep(1000)
+								AlexaSZ_TTS.sendCommand("Ich hoffe du bist schon aus dem Bett du Schlafmütze")
+				sendCommand(PERSON1_WECKER_AKTIV,OFF)
+				timerPERSON1Wecker = null
+				]
+		}
+end
+
+rule "react to move"
+when
+	Item Motion_status changed from OFF to ON
+then
+	//Wecker ausschalten wenn ich innerhalb der Runtime aufgestanden bin
+	if (PERSON1_WECKER_AKTIV.state==ON){
+AlexaSZ_Player.sendCommand('PAUSE')	
+logInfo(filename,"Der momentane Wecker wurde durch den Bewegungsmelder im Flur ausgeschalten.")
+		sendCommand(PERSON1_WECKER_AKTIV,OFF)
+	}
+end
+
+rule "Schlummern"
+when 
+	Item PERSON1_WECKER_Schlummern received command
+then
+//TODO: Heutige Zeit nehmen
+	//Heutigen Tag (Weckeritem) bekommen
+    switch now.getDayOfWeek{
+        case 1: Heute = "MO"
+        case 2: Heute = "DI"
+        case 3: Heute= "MI"
+        case 4: Heute= "DO"
+        case 5: Heute= "FR"
+        case 6: Heute= "SA"
+        case 7: Heute= "SO"
+    }
+//Minute/Stunde des Weckeritems bekommen
+if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" && s.state != NULL].size > 0) 
+{sollStunde = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" ].head.state as Number).intValue}
+if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" && s.state != NULL].size > 0) 
+{sollMinute = (gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" ].head.state as Number).intValue}
+
+logInfo(filename,"Test")
+//Minuten zuweisen
+switch PERSON1_WECKER_Schlummern{
+	case 1: sollMinute =+ 10
+	case 2: sollMinute =+ 20
+	case 3: sollMinute =+ 30
+}
+//Falls damit die nächste Stunde angeschnitten wird
+if (sollMinute >= 60)
+{
+sollMinute = sollMinute - 60
+sollStunde = sollStunde +1
+}
+//Ausgabe
+logInfo(filename, "Wecker klingelt um: "+sollStunde +":"+sollMinute+" für "+ RunTime +" Minuten")
+AlexaSZ_TTS.sendCommand("Schlummern aktiviert: Wecker klingelt nun Wecker klingelt um: "+sollStunde +":"+sollMinute +" für "+ RunTime +" Minuten")
+//Zuweisen der neuen Variablen
+if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" && s.state != NULL].size > 0) {gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_H" ].head.state  = sollStunde}
+if(gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" && s.state != NULL].size > 0) {gPERSON1Wecker.members.filter[s | s.name == "PERSON1_WECKER_"+Heute+"_M" ].head.state =  sollMinute}
+end 

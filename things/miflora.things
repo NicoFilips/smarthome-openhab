@@ -1,0 +1,12 @@
+// Bridge mqtt:systemBroker:MqttBroker "MQTT Broker" [ brokerid="openhabian" ]
+// {
+//     Thing topic Flowercare "Meine Miflora Pflanze"
+//     {
+//         Channels:
+//             Type number : light         "Lichtstärke"           [ stateTopic="miflora/Flowercare", transformationPattern="JSONPATH:$.light" ]
+//             Type number : battery       "Batterieladung"        [ stateTopic="miflora/Flowercare", transformationPattern="JSONPATH:$.battery" ]
+//             Type number : temperature   "Lufttemperatur"        [ stateTopic="miflora/Flowercare", transformationPattern="JSONPATH:$.temperature" ]
+//             Type number : conductivity  "Bodenfruchtbarkeit"    [ stateTopic="miflora/Flowercare", transformationPattern="JSONPATH:$.conductivity" ]
+//             Type number : moisture      "Bodenfeuchtigkeit"     [ stateTopic="miflora/Flowercare", transformationPattern="JSONPATH:$.moisture" ]
+//     }
+// }

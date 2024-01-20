@@ -1,0 +1,1 @@
+Thing exec:command:apc "Webserver CPU Temp"@"Webserver"  [command="cat /sys/class/thermal/thermal_zone0/temp", interval=15, timeout=5, autorun=false]

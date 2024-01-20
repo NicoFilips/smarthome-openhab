@@ -1,0 +1,25 @@
+    Bridge mihome:bridge:############## "VS Xiaomi Bridge" @ "Flur" [ serialNumber="##############", ipAddress="##############", port=##############, key="##############", pollingInterval=6000 ] {
+    Things:
+   gateway ############## 	"VS Xiaomi Mi Smart Home Gateway" @ "Flur"  			[itemId="##############"]
+   sensor_cube ############## "VS Xiaomi Cube #1" @"Wohnzimmer" [itemId="##############"]
+   sensor_cube ############## "VS Xiaomi Cube #2" @"Schlafzimmer" [itemId="##############"]
+
+   sensor_motion ############## "VS Xiaomi Motion Sensor FL #1" @"Flur" [itemId="##############"]
+   sensor_motion ############## "VS Xiaomi Motion Sensor FL #2" @"Flur" [itemId="##############"]
+   sensor_motion ############## "VS Xiaomi Motion Sensor WR #3" @"Flur" [itemId="##############"]
+   
+   sensor_magnet ############## "VS Xiaomi Door Sensor HK" @"Heizungskeller" [itemId="##############"]
+   sensor_magnet_aq2 ############## "VS Xioami Door Sensor SZ"@"Schlafzimmer"  [itemId="##############"]
+   sensor_magnet_aq2 ############## "VS Xioami Door Sensor WZ"@"Wohnzimmer" [itemId="##############"]
+
+   sensor_switch_aq2 ############## "VS Xiaomi Switch #1" [itemId="##############"]
+   sensor_switch_aq2 ############## "VS Xiaomi Switch #2" [itemId="##############"]
+   sensor_switch_aq2 ############## "VS Xiaomi Switch #3" [itemId="##############"]
+
+   sensor_weather_v1 ############## "VS Xiaomi Temperatur WZ"@"Wohnzimmer" [itemId="##############"]
+   sensor_weather_v1 ############## "VS Xiaomi Temperatur WZ"@"Wohnzimmer" [itemId="##############"]
+   sensor_weather_v1 ############## "VS Xiaomi Temperatur SZ"@"Schlafzimmer" [itemId="##############"]
+   sensor_weather_v1 ############## "VS Xiaomi Temperatur HK"@"Heizungskeller" [itemId="##############"]
+
+   vibration_sensor ############## "VS Xioami Vibrationssensor WR"@"Waschraum" [itemId="##############"]
+} 

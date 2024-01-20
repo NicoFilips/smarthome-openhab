@@ -1,0 +1,42 @@
+// ----- LED Beamer ------
+Switch Beamer_power "Aus/An"
+Switch Beamer_flash "Flash Aus/An"
+Number Beamer_speed "Geschwindigkeit"
+Switch Beamer_auto "Auto"
+Switch Beamer_Musik1 "Musikmodus 1"
+Switch Beamer_Musik2 "Musikmodus 2"
+Switch Beamer_stop "Bewegung stoppen"
+Switch Beamer_RG "Rot/Grün"
+Switch Beamer_R "Rot"
+Switch Beamer_G "Grün"
+
+// ----- LED Disko 1 ------
+Switch Disco1_power "An/Aus"
+Switch Disco1_flash "Flash Aus/An"
+Switch Disco1_musik1 "Musikmodus 1"
+Switch Disco1_musik2 "Musikmodus 2"
+Switch Disco1_musik3 "Musikmodus 3"
+
+Switch Disco1_a1 ""
+Switch Disco1_a2 ""
+Switch Disco1_a3 ""
+Switch Disco1_a4 ""
+Switch Disco1_a5 ""
+Switch Disco1_a6 ""
+Switch Disco1_a7 ""
+
+// ----- LED Disko 2 ------
+Switch Disco2_power "An/Aus"
+Switch Disco2_flash "Flash Aus/An"
+Switch Disco2_musik1 "Musikmodus 1"
+Switch Disco2_musik2 "Musikmodus 2"
+Switch Disco2_musik3 "Musikmodus 3"
+
+Switch Disco2_a1 ""
+Switch Disco2_a2 ""
+Switch Disco2_a3 ""
+Switch Disco2_a4 ""
+Switch Disco2_a5 ""
+Switch Disco2_a6 ""
+Switch Disco2_a7 ""
+

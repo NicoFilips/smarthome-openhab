@@ -1,0 +1,55 @@
+String TxtArilux "Arilux Controller" <arilux>
+
+Group g1 "Arilux #1" <led> //Von Mama und Papa
+Group g2 "Arilux #2" <led>
+Group g3 "Arilux #3" <led>
+Group g4 "Arilux #4" <led>
+Group g5 "Arilux #5" <led>
+Group g6 "Arilux #6" <led> //RGBW
+Group g7 "Arilux #7" <led> //RGBW
+
+//Mama und Papa
+Switch Arilux1_p "AN/AUS"  (g1)  {channel="wifiled:wifiled:348FD3C4813D4:power"}
+Color Arilux1_c "Farbe auswählen:"  (g1)    {channel="wifiled:wifiled:348FD3C4813D4:color"}
+String Arilux1_pr "Skript auswählen:" <programled> (g1)  {channel="wifiled:wifiled:348FD3C4813D4:program"}
+Dimmer Arilux1_ps "Skriptgeschwindigkeit" <programspeed> (g1) {channel="wifiled:wifiled:348FD3C4813D4:programSpeed"}
+		
+//Deckenlicht
+Switch Arilux2_p "AN/AUS"(gArilux, gLights, g2)  {channel="wifiled:wifiled:38430DF34RF:power"}
+Color Arilux2_c "Farbe auswählen:"(gAColor, gABrightness, g2)  {channel="wifiled:wifiled:38430DF34RF:color"}
+String Arilux2_pr "Skript auswählen:" <programled> (gProgram, g2) {channel="wifiled:wifiled:38430DF34RF:program"}
+Dimmer Arilux2_ps "Skriptgeschwindigkeit" <programspeed>(gprogramSpeed, g2) {channel="wifiled:wifiled:38430DF34RF:programSpeed"}
+
+//Fernseher
+Switch Arilux3_p "AN/AUS"(gArilux, gLights, g3)  {channel="wifiled:wifiled:38512DF34RF:power"}
+Color Arilux3_c "Farbe auswählen:"(gAColor, gABrightness, g3)  {channel="wifiled:wifiled:38512DF34RF:color"}
+String Arilux3_pr "Skript auswählen:" <programled> (gProgram, g3) {channel="wifiled:wifiled:38512DF34RF:program"}
+Dimmer Arilux3_ps "Skriptgeschwindigkeit"<programspeed> (gprogramSpeed, g3) {channel="wifiled:wifiled:38512DF34RF:programSpeed"}
+
+//ObenWohnzimmer
+Switch Arilux4_p "AN/AUS"(g4,gArilux, gLights)  {channel="wifiled:wifiled:54398374629:power"}
+Color Arilux4_c "Farbe auswählen:" (gAColor, gABrightness, g4)  {channel="wifiled:wifiled:54398374629:color"}
+String Arilux4_pr "Skript auswählen:" <programled> (gProgram, g4) {channel="wifiled:wifiled:54398374629:program"}
+Dimmer Arilux4_ps "Skriptgeschwindigkeit"<programspeed> (gprogramSpeed,g4) {channel="wifiled:wifiled:54398374629:programSpeed"}
+
+//Eingang
+Switch Arilux5_p "AN/AUS" (gArilux, gLights, g5)  {channel="wifiled:wifiled:34837457273:power"}
+Color Arilux5_c "Farbe auswählen:" (gAColor, gABrightness, g5)  {channel="wifiled:wifiled:34837457273:color"}
+String Arilux5_pr "Skript auswählen:" <programled> (gProgram, g5) {channel="wifiled:wifiled:34837457273:program"}
+Dimmer Arilux5_ps "Skriptgeschwindigkeit" <programspeed> (gprogramSpeed, g5) {channel="wifiled:wifiled:34837457273:programSpeed"}
+
+//Schreibtisch
+Switch Arilux6RGBW_p "AN/AUS" (gArilux, gLights, g6)  {channel="wifiled:wifiled:7823847237:power"}
+Color Arilux6RGBW_c "Farbe auswählen:" (gAColor, gABrightness, g6)  {channel="wifiled:wifiled:7823847237:color"}
+String Arilux6RGBW_pr "Skript auswählen:" <programled> (gProgram, g6) {channel="wifiled:wifiled:7823847237:program"}
+Dimmer Arilux6RGBW_ps "Skriptgeschwindigkeit" <programspeed> (gprogramSpeed, g6) {channel="wifiled:wifiled:7823847237:programSpeed"}
+Dimmer Arilux6RGBW_w "Weiß" (g6, gWhite){channel="wifiled:wifiled:7823847237:white"}
+Dimmer Arilux6RGBW_w2 "Weiß2" (g6, gWhite){channel="wifiled:wifiled:7823847237:white2"}
+
+//Couch
+Switch Arilux7RGBW_p "AN/AUS" (gArilux, gLights, g7)  {channel="wifiled:wifiled:893485093782:power"}
+Color Arilux7RGBW_c "Farbe auswählen:" (gAColor, gABrightness, g7)  {channel="wifiled:wifiled:893485093782:color"}
+String Arilux7RGBW_pr "Skript auswählen:" <programled> (gProgram, g7) {channel="wifiled:wifiled:893485093782:program"}
+Dimmer Arilux7RGBW_ps "Skriptgeschwindigkeit" <programspeed> (gprogramSpeed, g7) {channel="wifiled:wifiled:893485093782:programSpeed"}
+Dimmer Arilux7RGBW_w "Weiß" (g7, gWhite){channel="wifiled:wifiled:893485093782:white"}
+Dimmer Arilux7RGBW_w2 "Weiß2" (g7, gWhite){channel="wifiled:wifiled:893485093782:white2"}

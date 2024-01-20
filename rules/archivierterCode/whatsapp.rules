@@ -1,0 +1,12 @@
+// rule"Whatsapp"
+// when 
+// Item inMessage changed
+// then 
+// logInfo("inMessage"," " + inMessage.state.toString())
+// logInfo("outMessage"," " + outMessage)
+// if (inMessage.toString().contains("4917383743")){
+//     outMessage.sendCommand("017383743:hallo")
+// if (inMessage.toString().toLowerCase.contains("b'hilfe'")){
+// outMessage.sendCommand("017383743:Willkommen, zum SmartHome Whatsapp Bot! Hier sind alle Möglichkeiten:")
+// }}
+// end

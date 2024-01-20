@@ -1,0 +1,5 @@
+Bridge avmfritz:fritzbox:############## "FRITZ!Box 7490" @ "Wohnzimmer" [ ipAddress="##############", password="##############", user="##############" ] 
+{
+    //Thing Comet_DECT ############## "Comet DECT Schlafzimmer" @ "Schlafzimmer" [ ain="##############" ]
+    //Thing Comet_DECT ############## "Comet DECT Wohnzimmer" @ "Wohnzimmer" [ ain="##############" ]
+}

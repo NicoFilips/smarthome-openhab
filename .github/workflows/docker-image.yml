@@ -34,4 +34,3 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ghcr.io/nicofilips/smarthome-openhab:latest
-

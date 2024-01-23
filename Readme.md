@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://github.com/NicoFilips/ByteBrusher/">
-  <img src="https://user-images.githubusercontent.com/35654361/283991168-b9359637-ccda-49d5-b86e-2547af316b3c.png" alt="Logo" width="200" height="200">
+  <img src="https://github.com/NicoFilips/smarthome-openhab/assets/35654361/4c3803b8-46f1-432f-83a9-aa9663745b57" alt="Logo" width="200" height="200">
 </a>
 
 <blockquote>

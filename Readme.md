@@ -1,3 +1,15 @@
+<div align="center">
+<a href="https://github.com/NicoFilips/ByteBrusher/">
+  <img src="https://user-images.githubusercontent.com/35654361/283991168-b9359637-ccda-49d5-b86e-2547af316b3c.png" alt="Logo" width="200" height="200">
+</a>
+
+<blockquote>
+  <p>Source: DALL-E 3</p>
+</blockquote>
+
+ [![Build](https://github.com/NicoFilips/smarthome-openhab/actions/workflows/docker-image.yml/badge.svg)](https://github.com/NicoFilips/smarthome-openhab/actions/workflows/docker-image.yml)
+
+
 # :rocket: My Smarthome configuration April-2022 :house:
 
 This Repository shows the configuration of my SmartHome. 
